@@ -1,8 +1,10 @@
 import { makeMetadata } from '@/lib/metadata';
 import PageHero from '@/components/PageHero';
 import Reveal from '@/components/Reveal';
+import Button from '@/components/Button';
 import CtaBanner from '@/components/CtaBanner';
 import DomainsSpy from '@/components/DomainsSpy';
+import DomainCard from '@/components/cards/DomainCard';
 import { DOMAINS } from '@/data/site';
 import styles from './page.module.css';
 
@@ -17,16 +19,49 @@ export default function DomainsPage() {
   return (
     <>
       <PageHero
-        index="01 — Domains"
+        index="01 · Domains"
         eyebrow="Core domains"
-        title="Three disciplines. One standard."
-        lead="Enmero operates across three engineering disciplines — advanced artificial intelligence systems, next-generation software platforms, and autonomous infrastructure. Together they form the stack behind everything we build."
-        meta={[
-          { label: 'Domains', value: '3' },
-          { label: 'AI Division', value: 'eoAI' },
-          { label: 'Stance', value: 'Engineering future standards' },
+        title="Three disciplines."
+        titleAccent="One standard."
+        lead="Enmero operates across three engineering disciplines: advanced artificial intelligence systems, next-generation software platforms, and autonomous infrastructure. Together they form the stack behind everything we build."
+        actions={[
+          <Button key="solutions" href="/solutions" variant="primary" size="lg" arrow>
+            Explore Solutions
+          </Button>,
+          <Button key="research" href="/research" variant="ghost" size="lg">
+            Research
+          </Button>,
         ]}
       />
+
+      {/* Overview grid */}
+      <section className="section section--dark">
+        <div className="container">
+          <div className="section-top">
+            <div>
+              <span className="section-index">No. 01 · The three domains</span>
+              <Reveal asInline={false} delay={0.05}>
+                <h2 className="section-title">One company. Three engineering disciplines.</h2>
+              </Reveal>
+            </div>
+          </div>
+
+          <div className={styles.overviewGrid}>
+            {DOMAINS.map((d, i) => (
+              <DomainCard
+                key={d.id}
+                index={d.index}
+                title={d.name}
+                short={d.short}
+                tags={d.tags}
+                href={`#${d.id}`}
+                delay={0.06 + i * 0.08}
+                featured={i === 0}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Sticky subnav */}
       <DomainsSpy />
@@ -47,8 +82,8 @@ export default function DomainsPage() {
                   <div className="col-5">
                     <Reveal asInline={false} delay={0}>
                       <span
-  className={light ? `${styles.diLight} section-index di-light` : 'section-index'}
->
+                        className={light ? `${styles.diLight} section-index di-light` : 'section-index'}
+                      >
                         {d.index}
                       </span>
                     </Reveal>
@@ -61,6 +96,15 @@ export default function DomainsPage() {
                       <p className={light ? `muted ${styles.domainLede}` : styles.domainLede}>
                         {d.short}
                       </p>
+                    </Reveal>
+                    <Reveal asInline={false} delay={0.24}>
+                      <div className={styles.domainFoot}>
+                        {d.tags.map((t) => (
+                          <span key={t} className={styles.domainFootTag}>
+                            {t}
+                          </span>
+                        ))}
+                      </div>
                     </Reveal>
                   </div>
                   <div className="col-7">
@@ -86,24 +130,6 @@ export default function DomainsPage() {
                             ))}
                           </div>
                         </div>
-                        <div className={styles.dvFoot}>
-                          {d.tags.map((t) => (
-                            <span key={t}>{t}</span>
-                          ))}
-                        </div>
-                      </div>
-                    </Reveal>
-
-                    <Reveal asInline={false} delay={0.28}>
-                      <div className={styles.domainNotes}>
-                        <div className={styles.domainNote}>
-                          <span className={styles.dnLabel}>Tag</span>
-                          <p className={styles.dnText}>{d.tags.join(' · ')}</p>
-                        </div>
-                        <div className={styles.domainNote}>
-                          <span className={styles.dnLabel}>Related</span>
-                          <p className={styles.dnText}>Engineering &amp; Research — {d.index}</p>
-                        </div>
                       </div>
                     </Reveal>
                   </div>
@@ -117,7 +143,7 @@ export default function DomainsPage() {
       <CtaBanner
         eyebrow="From domains to delivery"
         title="Follow the engineering."
-        lead="Explore the solutions that emerge from these disciplines — including Leaf Singularity, the adaptive computing platform in development at eoAI."
+        lead="Explore the solutions that emerge from these disciplines, including Leaf Singularity, the adaptive computing platform in development at the eoAI research division."
         ctaLabel="Explore Solutions"
         ctaHref="/solutions"
       />

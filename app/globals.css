@@ -628,6 +628,32 @@ h4 {
   gap: var(--s-32);
 }
 
+/* Section header row: label + title on the left, action on the right */
+.section-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-32);
+  margin-bottom: var(--s-64);
+}
+
+.section-title {
+  font-size: var(--fs-h2);
+  line-height: 1.08;
+  margin-top: var(--s-12);
+  max-width: 26ch;
+  color: var(--text-strong);
+}
+
+@media (max-width: 768px) {
+  .section-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s-24);
+    margin-bottom: var(--s-48);
+  }
+}
+
 .col-5 {
   grid-column: span 5;
 }

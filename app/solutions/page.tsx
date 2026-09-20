@@ -3,28 +3,46 @@ import PageHero from '@/components/PageHero';
 import Reveal from '@/components/Reveal';
 import Button from '@/components/Button';
 import CtaBanner from '@/components/CtaBanner';
+import { ArrowRightIcon } from '@/components/icons';
 import { PLATFORMS, ROADMAP_PLATFORMS } from '@/data/site';
 import styles from './page.module.css';
 
 export const metadata = makeMetadata({
   title: 'Solutions',
   description:
-    "Explore Enmero's solutions, including Leaf Singularity — a unified adaptive workspace in development at the eoAI research division.",
+    "Explore Enmero's solutions, including Leaf Singularity, a unified adaptive workspace in development at the eoAI research division.",
   path: '/solutions',
 });
 
 export default function SolutionsPage() {
+  const leaf = PLATFORMS[0];
   return (
     <>
       <PageHero
         index="Solutions"
         eyebrow="What we are building"
-        title="Platforms for how work evolves."
-        lead="Our solutions are engineered in development — adaptive, context-aware software that surfaces the right environment as work evolves, built on foundations designed for ultra-low latency."
+        title="Platforms for"
+        titleAccent="how work evolves."
+        lead="Our solutions are engineered in development: adaptive, context-aware software that surfaces the right environment as work evolves, built on foundations designed for ultra-low latency."
         meta={[
           { label: 'Status', value: 'In development' },
           { label: 'Managed by', value: 'eoAI Research Division' },
           { label: 'Foundations', value: 'Rust · Tauri' },
+        ]}
+        actions={[
+          <Button
+            key="waitlist"
+            href="https://eoai.enmero.in/waitlist"
+            variant="primary"
+            size="lg"
+            arrow
+            external
+          >
+            Request Early Access
+          </Button>,
+          <Button key="updates" href="/publications" variant="ghost" size="lg">
+            Read the Updates
+          </Button>,
         ]}
       />
 
@@ -37,24 +55,26 @@ export default function SolutionsPage() {
                 <span className="section-index">Featured solution</span>
               </Reveal>
               <Reveal asInline={false} delay={0.06}>
-                <h2 className={styles.leafName}>Leaf Singularity</h2>
+                <h2 className={styles.leafName}>{leaf.name}</h2>
               </Reveal>
               <Reveal asInline={false} delay={0.12}>
                 <span className={styles.leafStatus}>
-                  <span className={styles.leafDot} aria-hidden="true"></span> In development —
+                  <span className={styles.leafDot} aria-hidden="true"></span> In development,
                   alpha stage
                 </span>
               </Reveal>
               <Reveal asInline={false} delay={0.2}>
-                <p className={styles.leafBody}>
-                  A unified adaptive workspace that replaces traditional applications. Leaf
-                  Singularity silently reconfigures itself in response to context, surfacing the
-                  right environment as work evolves.
-                </p>
+                <p className={styles.leafBody}>{leaf.body}</p>
               </Reveal>
               <Reveal asInline={false} delay={0.28}>
                 <div className={styles.leafCtAs}>
-                  <Button href="https://eoai.enmero.in/waitlist" variant="primary" arrow external size="lg">
+                  <Button
+                    href="https://eoai.enmero.in/waitlist"
+                    variant="primary"
+                    arrow
+                    external
+                    size="lg"
+                  >
                     Request Early Access
                   </Button>
                   <Button href="/publications" variant="ghost" size="lg">
@@ -112,7 +132,7 @@ export default function SolutionsPage() {
                 <h3>Contextual</h3>
                 <p>
                   Leaf Singularity reads the shape of a task and restructures its interface
-                  around it — dynamically, without asking.
+                  around it, dynamically, without asking.
                 </p>
               </article>
             </Reveal>
@@ -152,30 +172,47 @@ export default function SolutionsPage() {
             </div>
           </div>
 
-          <div className={styles.portfolioGrid}>
-            {PLATFORMS.map((p) => (
-              <Reveal asInline={false} delay={0.08} variant="scale" key={p.name}>
-                <article className={styles.portfolioHero}>
-                  <span className={styles.portfolioStatus}>{p.status}</span>
-                  <h3>{p.name}</h3>
-                  <p>{p.body}</p>
-                  <a
-                    href="https://eoai.enmero.in/products"
-                    className="link link--underline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Product page at eoAI <span className="link-arrow" aria-hidden="true">→</span>
-                  </a>
-                </article>
-              </Reveal>
-            ))}
+          <Reveal asInline={false} delay={0.08}>
+            <article className={styles.band}>
+              <div className={styles.bandMain}>
+                <span className={styles.bandStatus}>{leaf.status}</span>
+                <h3 className={styles.bandName}>{leaf.name}</h3>
+                <p className={styles.bandBody}>{leaf.body}</p>
+                <a
+                  href="https://eoai.enmero.in/products"
+                  className="link link--underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Product page at eoAI
+                  <span className="link-arrow" aria-hidden="true">
+                    <ArrowRightIcon size={15} />
+                  </span>
+                </a>
+              </div>
+              <div className={styles.bandRail} aria-hidden="true">
+                <span className={styles.bandRailId}>PTF-01</span>
+                <span className={styles.bandRailLine}></span>
+              </div>
+            </article>
+          </Reveal>
 
-            <Reveal asInline={false} delay={0.16}>
-              <div className={styles.roadmapCard}>
-                <span className={styles.portfolioStatus}>Additional platforms</span>
-                <h3>Emerging research streams</h3>
-                <p>Further platforms named within eoAI&rsquo;s programs as the roadmap progresses.</p>
+          <div className="grid-split" style={{ marginTop: 'var(--s-24)' }}>
+            <div className="col-5">
+              <Reveal asInline={false} delay={0.1}>
+                <span className="section-index">Additional platforms</span>
+              </Reveal>
+              <Reveal asInline={false} delay={0.18}>
+                <h3 className={styles.roadmapTitle}>Emerging research streams.</h3>
+              </Reveal>
+              <Reveal asInline={false} delay={0.26}>
+                <p className={styles.roadmapCopy}>
+                  Further platforms named within eoAI&rsquo;s programs as the roadmap proceeds.
+                </p>
+              </Reveal>
+            </div>
+            <div className="col-7">
+              <Reveal asInline={false} delay={0.2}>
                 <ul className={styles.platformList}>
                   {ROADMAP_PLATFORMS.map((p) => (
                     <li key={p.name}>
@@ -184,8 +221,8 @@ export default function SolutionsPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
-            </Reveal>
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>

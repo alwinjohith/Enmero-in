@@ -2,6 +2,24 @@
   color: #8a90a0;
 }
 
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--s-24);
+}
+
+.overviewGrid :global(.domain-card--featured) {
+  grid-column: span 7;
+}
+
+.overviewGrid :global(.domain-card:not(.domain-card--featured)) {
+  grid-column: span 5;
+}
+
+.overviewGrid :global(.domain-card:not(.domain-card--featured)):last-child {
+  grid-column: 6 / span 7;
+}
+
 .domainSections {
   display: block;
 }
@@ -25,6 +43,23 @@
   line-height: 1.65;
   margin-top: var(--s-24);
   max-width: 44ch;
+}
+
+.domainFoot {
+  margin-top: var(--s-28);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-8);
+}
+
+.domainFootTag {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
 }
 
 .domainVisual {
@@ -106,25 +141,25 @@
 }
 
 .dvRing1 {
-  width: 54%;
+  width: 58%;
   aspect-ratio: 1;
-  animation: dvSpin 30s linear infinite;
+  animation: dvSpin 44s linear infinite;
 }
 
 .dvRing2 {
-  width: 36%;
+  width: 38%;
   aspect-ratio: 1;
   border-style: solid;
-  border-color: rgba(139, 125, 255, 0.35);
-  animation: dvSpin 22s linear infinite reverse;
+  border-color: rgba(139, 125, 255, 0.32);
+  animation: dvSpin 32s linear infinite reverse;
 }
 
 .dvRing3 {
-  width: 18%;
+  width: 20%;
   aspect-ratio: 1;
-  border-color: rgba(79, 176, 255, 0.5);
+  border-color: rgba(79, 176, 255, 0.45);
   border-style: solid;
-  animation: dvSpin 14s linear infinite;
+  animation: dvSpin 20s linear infinite;
 }
 
 @keyframes dvSpin {
@@ -138,7 +173,7 @@
   aspect-ratio: 1;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, var(--accent-hi), var(--accent));
-  box-shadow: 0 0 40px 8px rgba(139, 125, 255, 0.4);
+  box-shadow: 0 0 40px 8px rgba(139, 125, 255, 0.35);
 }
 
 .dvTraces {
@@ -155,7 +190,7 @@
   height: 34%;
   transform-origin: top;
   background: linear-gradient(var(--accent), transparent);
-  opacity: 0.35;
+  opacity: 0.3;
 }
 
 .dvTraces i:nth-child(1) {
@@ -174,88 +209,27 @@
   transform: rotate(270deg);
 }
 
-.dvFoot {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  gap: var(--s-8);
-  flex-wrap: wrap;
-  padding: var(--s-20) var(--s-24);
-}
-
-.dvFoot span {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  padding: 5px 11px;
-}
-
-.domainNotes {
-  margin-top: var(--s-20);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--s-16);
-}
-
-.domainNote {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: var(--s-20);
-  display: flex;
-  flex-direction: column;
-  gap: var(--s-8);
-  background: var(--surface);
-}
-
-.domainNote .dnLabel {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-}
-
-.domainNote .dnText {
-  font-size: 14px;
-  color: var(--text);
-  line-height: 1.6;
-}
-
-:global(.theme-light) .domainNote {
-  background: var(--l-surface);
-  border-color: var(--l-line);
-}
-
-:global(.theme-light) .domainNote .dnLabel {
-  color: var(--l-muted);
-}
-
-:global(.theme-light) .domainNote .dnText {
-  color: var(--l-ink-mid);
-}
-
 :global(.theme-light) .dvId,
 :global(.theme-light) .dvSys {
   color: var(--l-muted);
 }
 
-:global(.theme-light) .dvFoot span {
+:global(.theme-light) .domainFootTag {
   color: var(--l-muted);
   border-color: var(--l-line);
 }
 
-@media (min-width: 1025px) {
-  .domainSections :global(.domain-block section) {
-    min-height: 0;
+@media (max-width: 1024px) {
+  .overviewGrid :global(.domain-card--featured),
+  .overviewGrid :global(.domain-card:not(.domain-card--featured)),
+  .overviewGrid :global(.domain-card:not(.domain-card--featured)):last-child {
+    grid-column: span 12;
   }
 }
 
 @media (max-width: 768px) {
-  .domainNotes {
-    grid-template-columns: 1fr;
+  .domainFoot {
+    margin-top: var(--s-20);
   }
 }
 
