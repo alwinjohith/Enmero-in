@@ -1,0 +1,252 @@
+.leafSection {
+  background: var(--bg-0);
+}
+
+.leafName {
+  font-size: var(--fs-display);
+  margin-top: var(--s-20);
+}
+
+.leafStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-10);
+  margin-top: var(--s-16);
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.leafDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(139, 125, 255, 0.4);
+  animation: pulseDot 2.6s var(--ease-io) infinite;
+}
+
+@keyframes pulseDot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 125, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(139, 125, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 125, 255, 0);
+  }
+}
+
+.leafBody {
+  font-size: var(--fs-lead);
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-top: var(--s-24);
+  max-width: 54ch;
+}
+
+.leafCtAs {
+  margin-top: var(--s-32);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-16);
+}
+
+.leafMedia {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  aspect-ratio: 16 / 10;
+  box-shadow: var(--shadow-2);
+}
+
+.leafMedia video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.leafMediaShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(190deg, transparent 50%, rgba(6, 7, 11, 0.6));
+  pointer-events: none;
+}
+
+.leafMediaTag {
+  position: absolute;
+  left: var(--s-24);
+  bottom: var(--s-20);
+  right: var(--s-24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-16);
+}
+
+.leafMediaTag :global(.label-mono) {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.leafTagPill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: rgba(6, 7, 11, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  padding: 5px 11px;
+  border-radius: var(--radius-pill);
+}
+
+.howSection {
+  background: var(--l-bg-0);
+}
+
+.howGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-24);
+}
+
+.howCard {
+  border: 1px solid var(--l-line);
+  background: var(--l-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--s-28);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-16);
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
+}
+
+.howCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--l-ink);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.25);
+}
+
+.howIdx {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: 0.14em;
+  color: var(--l-muted);
+}
+
+.howCard h3 {
+  color: var(--l-ink);
+  font-size: var(--fs-h3);
+}
+
+.howCard p {
+  font-size: 14.5px;
+  color: var(--l-muted);
+  line-height: 1.65;
+}
+
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-24);
+}
+
+.portfolioHero,
+.roadmapCard {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: var(--s-32);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-16);
+  background: var(--surface);
+  min-height: 320px;
+}
+
+.portfolioStatus {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.portfolioHero h3 {
+  font-size: var(--fs-h2);
+}
+
+.portfolioHero p,
+.roadmapCard p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.portfolioHero .link {
+  margin-top: auto;
+  color: var(--text);
+}
+
+.platformList {
+  margin-top: auto;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+}
+
+.platformList li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-16);
+  padding-block: var(--s-14);
+  border-bottom: 1px solid var(--line);
+}
+
+.platformList strong {
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--text-strong);
+}
+
+.platformList span {
+  font-size: 12.5px;
+  color: var(--text-faint);
+  text-align: right;
+}
+
+.noteSection {
+  border-top: 1px solid var(--line);
+}
+
+.noteCopy {
+  font-size: var(--fs-lead);
+  color: var(--text);
+  max-width: 46ch;
+  line-height: 1.6;
+}
+
+.noteCtAs {
+  margin-top: var(--s-24);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-16);
+}
+
+@media (max-width: 900px) {
+  .howGrid {
+    grid-template-columns: 1fr;
+  }
+  .portfolioGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leafDot {
+    animation: none;
+  }
+}

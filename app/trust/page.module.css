@@ -1,0 +1,76 @@
+.trustGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-24);
+}
+
+.governanceSection {
+  background: var(--bg-1);
+  border-top: 1px solid var(--line);
+}
+
+.govTitle {
+  font-size: var(--fs-h1);
+  margin-top: var(--s-20);
+  max-width: 14ch;
+}
+
+.govBody {
+  font-size: var(--fs-lead);
+  line-height: 1.7;
+  margin-top: var(--s-24);
+  max-width: 44ch;
+}
+
+.docsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-20);
+}
+
+.principleSection {
+  background: var(--l-bg-0);
+}
+
+.principleTitle {
+  font-size: var(--fs-h2);
+  color: var(--l-ink);
+  margin-top: var(--s-20);
+  max-width: 12ch;
+}
+
+.principleList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--l-line);
+}
+
+.principleList li {
+  padding-block: var(--s-20);
+  border-bottom: 1px solid var(--l-line);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--l-ink-mid);
+  display: flex;
+  gap: var(--s-16);
+  align-items: baseline;
+}
+
+.principleList li::before {
+  content: '—';
+  color: var(--accent);
+  flex: none;
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 900px) {
+  .trustGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .docsGrid {
+    grid-template-columns: 1fr;
+  }
+}

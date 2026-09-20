@@ -1,0 +1,147 @@
+.philSection {
+  background: var(--l-bg-0);
+}
+
+.philTitle {
+  font-size: var(--fs-h2);
+  color: var(--l-ink);
+  margin-top: var(--s-20);
+  max-width: 16ch;
+}
+
+.philBody {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--l-ink-mid);
+  margin-bottom: var(--s-24);
+  max-width: 60ch;
+}
+
+.philCtAs {
+  margin-top: var(--s-8);
+}
+
+.valuesSection {
+  background: var(--bg-1);
+}
+
+.valuesRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-24);
+}
+
+.valueCell {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  padding: var(--s-32);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-20);
+  transition: transform var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out);
+}
+
+.valueCell:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+  background: var(--surface-2);
+}
+
+.valueIdx {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+}
+
+.valueWord {
+  font-size: clamp(30px, 3.2vw, 44px);
+  line-height: 1.05;
+  text-transform: lowercase;
+}
+
+.valueNote {
+  margin-top: auto;
+  font-size: 14.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.leafSection {
+  background: var(--bg-0);
+}
+
+.leafName {
+  font-size: var(--fs-display);
+  margin-top: var(--s-20);
+}
+
+.leafBody {
+  font-size: var(--fs-lead);
+  line-height: 1.7;
+  margin-top: var(--s-24);
+  max-width: 56ch;
+}
+
+.leafCtAs {
+  margin-top: var(--s-32);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-16);
+}
+
+.leafMedia {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  aspect-ratio: 16 / 10;
+  box-shadow: var(--shadow-2);
+}
+
+.leafMedia video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rfSection {
+  background: var(--bg-1);
+}
+
+.rfGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-24);
+}
+
+.rfCta {
+  margin-top: var(--s-40);
+}
+
+.trustSection {
+  background: var(--bg-0);
+  border-top: 1px solid var(--line);
+}
+
+.trustGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-24);
+}
+
+@media (max-width: 900px) {
+  .valuesRow {
+    grid-template-columns: 1fr;
+  }
+  .valueCell {
+    min-height: 0;
+  }
+  .rfGrid {
+    grid-template-columns: 1fr;
+  }
+  .trustGrid {
+    grid-template-columns: 1fr;
+  }
+}

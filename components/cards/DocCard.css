@@ -1,0 +1,49 @@
+.doc-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-14);
+  padding: var(--s-28);
+  min-height: 200px;
+}
+
+.doc-tag {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(139, 125, 255, 0.3);
+  border-radius: var(--radius-pill);
+  padding: 4px 10px;
+  align-self: flex-start;
+}
+
+.doc-card h3 {
+  font-size: var(--fs-h3);
+}
+
+.doc-card p {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.doc-arrow {
+  margin-top: auto;
+  align-self: flex-end;
+  color: var(--text-faint);
+  transition: color var(--dur) var(--ease-out);
+}
+
+.doc-card:hover .doc-arrow {
+  color: var(--text-strong);
+}
+
+/* Light-theme support */
+.theme-light .doc-card p {
+  color: var(--l-muted);
+}
+
+.theme-light .doc-card .doc-arrow {
+  color: var(--l-ink-mid);
+}

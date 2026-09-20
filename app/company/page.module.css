@@ -1,0 +1,135 @@
+.whoSection {
+  background: var(--l-bg-0);
+}
+
+.whoTitle {
+  font-size: var(--fs-h2);
+  color: var(--l-ink);
+  margin-top: var(--s-20);
+  max-width: 14ch;
+}
+
+.whoBody {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--l-ink-mid);
+  margin-bottom: var(--s-24);
+  max-width: 62ch;
+}
+
+.whatList {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--s-16);
+}
+
+.whatRow {
+  display: grid;
+  grid-template-columns: 64px 1.2fr 1.4fr 48px;
+  align-items: center;
+  gap: var(--s-24);
+  padding-block: var(--s-28);
+  border-block: 1px solid var(--line);
+  transition: background-color var(--dur) var(--ease-out), padding var(--dur) var(--ease-out);
+  border-radius: var(--radius);
+  padding-inline: var(--s-16);
+}
+
+.whatRow:hover {
+  background: var(--surface);
+}
+
+.whatIndex {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+}
+
+.whatName {
+  font-size: var(--fs-h3);
+}
+
+.whatDesc {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.whatRow:hover .whatName {
+  color: var(--accent-hi);
+}
+
+.eoaiDivSection {
+  background: var(--bg-1);
+}
+
+.divTitle {
+  font-size: var(--fs-h1);
+  margin-top: var(--s-20);
+  max-width: 14ch;
+}
+
+.divBody {
+  font-size: var(--fs-lead);
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 56ch;
+}
+
+.divCtAs {
+  margin-top: var(--s-32);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-16);
+}
+
+.leadSection {
+  background: var(--l-bg-0);
+}
+
+.leadCard {
+  display: flex;
+  align-items: center;
+  gap: var(--s-24);
+  padding: var(--s-32);
+  border: 1px solid var(--l-line);
+  border-radius: var(--radius-lg);
+  background: var(--l-surface);
+}
+
+.leadMonogram {
+  width: 72px;
+  height: 72px;
+  flex: none;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--l-ink), #3a3f4d);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.leadInfo h3 {
+  color: var(--l-ink);
+  font-size: var(--fs-h3);
+}
+
+.leadInfo p {
+  font-size: 14.5px;
+  color: var(--l-muted);
+  margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .whatRow {
+    grid-template-columns: 48px 1fr 44px;
+  }
+  .whatDesc {
+    grid-column: 2 / span 2;
+    grid-row: 2;
+  }
+}
