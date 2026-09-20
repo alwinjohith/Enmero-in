@@ -17,7 +17,7 @@ const values = [
 export const metadata = makeMetadata({
   title: 'eoAI Research Division',
   description:
-    'eoAI is the artificial intelligence research division of Enmero — engineering the next generation of cognitive architectures, unified reasoning frameworks, multimodal intelligence, and advanced computing environments.',
+    'eoAI is the artificial intelligence research division of Enmero: engineering the next generation of cognitive architectures, unified reasoning frameworks, multimodal intelligence, and advanced computing environments.',
   path: '/eoai',
 });
 
@@ -28,7 +28,7 @@ export default function EoaiPage() {
         index="Division"
         eyebrow="Artificial Intelligence Research Division"
         title="eoAI, by Enmero."
-        lead="eoAI is the artificial intelligence research division of Enmero — engineering the next generation of cognitive architectures, unified reasoning frameworks, multimodal intelligence, and advanced computing environments."
+        lead="eoAI is the artificial intelligence research division of Enmero: engineering the next generation of cognitive architectures, unified reasoning frameworks, multimodal intelligence, and advanced computing environments."
         meta={[
           { label: 'Parent', value: 'Enmero' },
           { label: 'Focus', value: 'AI research & systems' },
@@ -53,7 +53,7 @@ export default function EoaiPage() {
             <div className="col-6">
               <Reveal asInline={false} delay={0.14}>
                 <p className={styles.philBody}>
-                  It begins with people — their thought, their effort, their intent. Technology
+                  It begins with people, their thought, their effort, their intent. Technology
                   exists in response to them, shaped by human need and direction, never above
                   it.
                 </p>
@@ -62,7 +62,7 @@ export default function EoaiPage() {
                 <p className={styles.philBody}>
                   Humanity has always led through curiosity, adaptation, and creation. Every
                   system we build is not separate from human capability, but rooted in it. When
-                  intelligence supports that expansion, progress becomes continuous — not
+                  intelligence supports that expansion, progress becomes continuous, not
                   constrained.
                 </p>
               </Reveal>
@@ -119,7 +119,7 @@ export default function EoaiPage() {
                 <p className={`muted ${styles.leafBody}`}>
                   A unified adaptive workspace that replaces traditional applications. It
                   silently reconfigures itself in response to context, surfacing the right
-                  environment as work evolves — merging AI, fluid interfaces, and contextual
+                  environment as work evolves, merging AI, fluid interfaces, and contextual
                   workflows into a single cohesive workspace.
                 </p>
               </Reveal>
@@ -151,7 +151,7 @@ export default function EoaiPage() {
                     playsInline
                     autoPlay
                     preload="metadata"
-                    aria-label="Leaf Singularity — alpha stage demonstration"
+                    aria-label="Leaf Singularity, alpha stage demonstration"
                   ></video>
                 </div>
               </Reveal>

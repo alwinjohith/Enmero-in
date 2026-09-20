@@ -33,7 +33,7 @@ const milestones = [
 export const metadata = makeMetadata({
   title: 'Research',
   description:
-    'Enmero research advances the science of AI safety — alignment, interpretability, scalable oversight, and cognitive synthesis, integrated at the architectural level.',
+    'Enmero research advances the science of AI safety: alignment, interpretability, scalable oversight, and cognitive synthesis, integrated at the architectural level.',
   path: '/research',
 });
 
@@ -70,14 +70,14 @@ export default function ResearchPage() {
               <Reveal asInline={false} delay={0.14}>
                 <p className={styles.stanceBody}>
                   We are currently building the research foundation for our core models. Our
-                  work focuses on ensuring safety is integrated at the architectural level — not
+                  work focuses on ensuring safety is integrated at the architectural level: not
                   as an afterthought, but as the substrate everything else is built on.
                 </p>
               </Reveal>
               <Reveal asInline={false} delay={0.22}>
                 <p className={styles.stanceBody}>
                   We conduct frontier research, develop AI products, and work to ensure the
-                  safety of AI systems — because we believe transformative AI should help people
+                  safety of AI systems, because we believe transformative AI should help people
                   and society flourish.
                 </p>
               </Reveal>
@@ -206,7 +206,7 @@ export default function ResearchPage() {
       <CtaBanner
         eyebrow="Follow the research"
         title="Watch the roadmap unfold."
-        lead="Progress is reported openly — from division milestones to platform developments. Keep up with every update."
+        lead="Progress is reported openly, from division milestones to platform developments. Keep up with every update."
         ctaLabel="Read Publications"
         ctaHref="/publications"
       />

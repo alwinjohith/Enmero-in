@@ -18,7 +18,7 @@ const principles = [
 export const metadata = makeMetadata({
   title: 'Trust Center',
   description:
-    'At Enmero, trust is built into every layer of our systems — data sovereignty, safety alignment, and security by design, with governance documents published openly.',
+    'At Enmero, trust is built into every layer of our systems: data sovereignty, safety alignment, and security by design, with governance documents published openly.',
   path: '/trust',
 });
 
@@ -29,7 +29,7 @@ export default function TrustPage() {
         index="Trust Center"
         eyebrow="Privacy & Security"
         title="Trust, built into every layer."
-        lead="Enmero is committed to the highest standards of safety, security, and privacy in everything we build. Trust is not a feature — it is architecture."
+        lead="Enmero is committed to the highest standards of safety, security, and privacy in everything we build. Trust is not a feature. It is architecture."
         meta={[
           { label: 'Pillars', value: '3' },
           { label: 'Governance', value: 'Safety Governance Framework' },

@@ -57,10 +57,12 @@
 }
 
 .principleList li::before {
-  content: '—';
-  color: var(--accent);
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: var(--accent);
   flex: none;
-  font-family: var(--font-mono);
+  margin-top: 0.6em;
 }
 
 @media (max-width: 900px) {
