@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SITE } from '@/data/site';
+import { ArrowRightIcon, ExternalIcon } from '@/components/icons';
 import styles from './Footer.module.css';
 
 const year = new Date().getFullYear();
@@ -83,7 +84,8 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    eoAI Website ↗
+                    eoAI Website
+                    <ExternalIcon size={14} />
                   </a>
                 </li>
                 <li>
@@ -98,7 +100,8 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    LinkedIn ↗
+                    LinkedIn
+                    <ExternalIcon size={14} />
                   </a>
                 </li>
                 <li>
@@ -108,7 +111,8 @@ export default function Footer() {
                 </li>
               </ul>
               <Link href="/contact" className={styles.footerCta}>
-                Work with Enmero <span aria-hidden="true">→</span>
+                Work with Enmero
+                <ArrowRightIcon size={16} />
               </Link>
             </div>
           </div>

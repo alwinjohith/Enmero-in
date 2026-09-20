@@ -53,7 +53,7 @@
 .navList {
   display: flex;
   align-items: center;
-  gap: var(--s-8);
+  gap: var(--s-4);
 }
 
 .navItem {
@@ -61,20 +61,37 @@
 }
 
 .navLink {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 10px 14px;
-  font-size: 14.5px;
+  gap: 6px;
+  padding: 10px 16px;
+  font-size: 15px;
   font-weight: 500;
   color: var(--text);
   border-radius: var(--radius-pill);
   transition: color var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out);
 }
 
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 8px;
+  height: 1px;
+  background: var(--accent-hi);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur) var(--ease-out);
+}
+
 .navLink:hover {
   color: var(--text-strong);
-  background: var(--surface);
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
 }
 
 .navCaret {
@@ -261,19 +278,31 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--s-16);
   padding-block: var(--s-20);
   font-family: var(--font-display);
   font-size: clamp(28px, 7vw, 40px);
   font-weight: 500;
   letter-spacing: var(--track-head);
   color: var(--text-strong);
+  transition: transform var(--dur) var(--ease-out), opacity var(--dur) var(--ease-out);
+}
+
+.mobileLink svg {
+  color: var(--text-muted);
+  flex: none;
+}
+
+.mobileLink:hover {
+  transform: translateX(6px);
+  opacity: 0.85;
 }
 
 .mobileSublist {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s-8) var(--s-20);
-  padding-bottom: var(--s-20);
+  gap: var(--s-8) var(--s-24);
+  padding-bottom: var(--s-24);
   padding-left: var(--s-4);
 }
 

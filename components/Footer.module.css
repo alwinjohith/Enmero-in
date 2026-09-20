@@ -70,8 +70,16 @@
 }
 
 .footerLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-8);
   font-size: 14.5px;
   color: var(--text-muted);
+  transition: color var(--dur) var(--ease-out);
+}
+
+.footerLink svg {
+  color: var(--text-faint);
   transition: color var(--dur) var(--ease-out);
 }
 

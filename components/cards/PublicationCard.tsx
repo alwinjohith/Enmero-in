@@ -31,7 +31,7 @@ export default function PublicationCard({
       <a href={href} id={id} className={classes}>
         {media && (
           <div className="pub-media">
-            <img src={media} alt={`${title} — Enmero ecosystem update`} loading="lazy" />
+            <img src={media} alt={`${title}, Enmero ecosystem update`} loading="lazy" />
           </div>
         )}
         <div className="pub-body">

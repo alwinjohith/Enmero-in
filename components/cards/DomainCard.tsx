@@ -27,8 +27,8 @@ export default function DomainCard({
   return (
     <Reveal delay={delay} asInline={false}>
       <a href={href} className={classes}>
+        {index && <span className="domain-num" aria-hidden="true">{index}</span>}
         <div className="domain-card-top">
-          <span className="domain-index">{index}</span>
           <span className="card-arrow" aria-hidden="true">
             <ArrowRightIcon size={17} />
           </span>

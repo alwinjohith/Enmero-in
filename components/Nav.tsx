@@ -49,7 +49,7 @@ export default function Nav() {
   return (
     <header className={headerClass} data-nav>
       <div className={`container ${styles.navInner}`}>
-        <Link href="/" className={styles.navBrand} aria-label="Enmero — Home">
+        <Link href="/" className={styles.navBrand} aria-label="Enmero home">
           <img
             src="/img/enmero-white.png"
             alt="Enmero"
@@ -110,7 +110,7 @@ export default function Nav() {
 
         <button
           ref={burgerRef}
-          className={styles.navBurger}
+          className={menuOpen ? `${styles.navBurger} is-open` : styles.navBurger}
           data-menu-toggle
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
@@ -165,7 +165,8 @@ export default function Nav() {
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
               >
-                eoAI Research ↗
+                eoAI Research
+                <ExternalIcon size={16} />
               </a>
             </li>
           </ul>

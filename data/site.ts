@@ -76,7 +76,7 @@ export const DOMAINS: Domain[] = [
     index: '01',
     name: 'Artificial Intelligence Systems',
     short:
-      'Advanced artificial intelligence systems engineered through the eoAI research division — reasoning systems, autonomous architectures, multimodal intelligence, and next-generation AI infrastructure.',
+      'Advanced artificial intelligence systems engineered through the eoAI research division: reasoning systems, autonomous architectures, multimodal intelligence, and next-generation AI infrastructure.',
     tags: ['Reasoning', 'Autonomous architectures', 'Multimodal intelligence'],
   },
   {
@@ -84,7 +84,7 @@ export const DOMAINS: Domain[] = [
     index: '02',
     name: 'Next-generation Software Platforms',
     short:
-      'Adaptive, context-aware software platforms that redefine how people and machines work together — built on modern foundations for ultra-low latency, fluid experiences.',
+      'Adaptive, context-aware software platforms that redefine how people and machines work together, built on modern foundations for ultra-low latency and fluid experiences.',
     tags: ['Adaptive computing', 'Context-aware UX', 'Rust & Tauri'],
   },
   {

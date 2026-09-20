@@ -29,10 +29,16 @@
   background-image:
     linear-gradient(var(--line) 1px, transparent 1px),
     linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 84px 84px;
-  mask-image: radial-gradient(90% 80% at 50% 30%, #000 10%, transparent 80%);
-  -webkit-mask-image: radial-gradient(90% 80% at 50% 30%, #000 10%, transparent 80%);
-  opacity: 0.42;
+  background-size: 76px 76px;
+  mask-image: radial-gradient(88% 78% at 50% 30%, #000 12%, transparent 80%);
+  -webkit-mask-image: radial-gradient(88% 78% at 50% 30%, #000 12%, transparent 80%);
+  opacity: 0.48;
+}
+
+.heroTopLight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(58% 42% at 50% -6%, rgba(244, 246, 249, 0.07), transparent 64%);
 }
 
 .heroOrb {
@@ -42,20 +48,20 @@
 }
 
 .heroOrb1 {
-  width: 640px;
-  height: 640px;
-  right: -180px;
-  top: -180px;
-  background: radial-gradient(circle, rgba(139, 125, 255, 0.26), transparent 68%);
+  width: 560px;
+  height: 560px;
+  right: -160px;
+  top: -200px;
+  background: radial-gradient(circle, rgba(139, 125, 255, 0.15), transparent 68%);
   animation: orbDrift 22s var(--ease-io) infinite alternate;
 }
 
 .heroOrb2 {
-  width: 520px;
-  height: 520px;
-  left: -160px;
-  bottom: -200px;
-  background: radial-gradient(circle, rgba(79, 176, 255, 0.16), transparent 68%);
+  width: 480px;
+  height: 480px;
+  left: -150px;
+  bottom: -220px;
+  background: radial-gradient(circle, rgba(79, 176, 255, 0.1), transparent 68%);
   animation: orbDrift 26s var(--ease-io) infinite alternate-reverse;
 }
 
@@ -80,8 +86,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--s-28);
-  padding-bottom: clamp(80px, 12vh, 140px);
+  gap: var(--s-24);
+  padding-bottom: clamp(76px, 11vh, 128px);
 }
 
 .heroEyebrow {
@@ -90,13 +96,13 @@
 
 .heroTitle {
   font-size: var(--fs-hero);
-  line-height: 0.98;
-  letter-spacing: -0.03em;
+  line-height: 0.96;
+  letter-spacing: -0.032em;
   max-width: 13ch;
 }
 
 .heroTitleAccent {
-  background: linear-gradient(100deg, #fff 0%, #c9ced8 40%, var(--accent-hi) 100%);
+  background: linear-gradient(104deg, #fff 0%, #c9ced8 48%, var(--accent-hi) 120%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -107,13 +113,20 @@
   font-size: var(--fs-lead);
   line-height: 1.6;
   color: var(--text-muted);
-  max-width: 58ch;
+  max-width: 56ch;
 }
 
 .heroCtAs {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s-16);
+  align-items: center;
+  gap: var(--s-20);
+}
+
+.heroLink {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-strong);
 }
 
 .heroDivision {
@@ -159,7 +172,7 @@
 .heroDivisionName {
   grid-area: name;
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 600;
   color: var(--text-strong);
   letter-spacing: 0.01em;
@@ -173,13 +186,13 @@
 
 .heroDivisionGo {
   grid-area: go;
-  font-size: 22px;
+  display: inline-flex;
   color: var(--text-muted);
   transition: transform var(--dur) var(--ease-out), color var(--dur) var(--ease-out);
 }
 
 .heroDivision:hover .heroDivisionGo {
-  transform: translateX(4px);
+  transform: translateX(5px);
   color: var(--accent-hi);
 }
 
@@ -188,14 +201,27 @@
   right: var(--gutter);
   bottom: var(--s-32);
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-16);
 }
 
-.heroScroll span {
+.heroScrollText {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  writing-mode: vertical-rl;
+}
+
+.heroScrollLine {
   display: block;
   width: 1px;
   height: 56px;
   background: linear-gradient(var(--line-strong), transparent);
-  animation: scrollHint 2.4s var(--ease-io) infinite;
+  animation: scrollHint 2.6s var(--ease-io) infinite;
 }
 
 @keyframes scrollHint {
@@ -243,10 +269,10 @@
   grid-template-columns: repeat(2, 1fr);
   gap: var(--s-24);
   border: 1px solid var(--l-line);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   background: var(--l-surface);
-  padding: var(--s-28);
-  margin-bottom: var(--s-32);
+  padding: var(--s-32);
+  margin-bottom: var(--s-40);
 }
 
 .introMetaItem {
@@ -265,7 +291,7 @@
 
 .introMetaItem strong {
   font-family: var(--font-display);
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--l-ink);
 }
@@ -399,6 +425,7 @@
   overflow: hidden;
   border: 1px solid var(--line-strong);
   box-shadow: var(--shadow-2);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06), var(--shadow-2);
   aspect-ratio: 16 / 9;
 }
 
@@ -491,7 +518,7 @@
 
 .roadmapList strong {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--l-ink);
 }
@@ -561,8 +588,12 @@
 }
 
 .researchNoteMark {
-  color: var(--accent);
-  font-size: 13px;
+  width: 10px;
+  height: 10px;
+  flex: none;
+  border: 1px solid var(--accent);
+  transform: rotate(45deg);
+  opacity: 0.85;
 }
 
 /* ---------- PUBLICATIONS (LIGHT) ---------- */
@@ -640,14 +671,20 @@
     column-gap: var(--s-16);
     padding: var(--s-16);
   }
+  .heroCtAs {
+    width: 100%;
+  }
   .heroCtAs .btn {
     width: 100%;
+  }
+  .heroLink {
+    padding-block: 6px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .heroOrb,
-  .heroScroll span {
+  .heroScrollLine {
     animation: none;
   }
 }

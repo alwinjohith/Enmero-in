@@ -9,6 +9,7 @@ import DomainCard from '@/components/cards/DomainCard';
 import ResearchCard from '@/components/cards/ResearchCard';
 import PublicationCard from '@/components/cards/PublicationCard';
 import ProductCard from '@/components/cards/ProductCard';
+import { ArrowRightIcon } from '@/components/icons';
 import { DOMAINS, RESEARCH_AREAS, PUBLICATIONS, PLATFORMS, ROADMAP_PLATFORMS } from '@/data/site';
 import styles from './page.module.css';
 
@@ -38,6 +39,7 @@ export default function HomePage() {
         <div className={styles.heroBg} aria-hidden="true">
           <HeroCanvas />
           <div className={styles.heroGrid}></div>
+          <div className={styles.heroTopLight}></div>
           <div className={`${styles.heroOrb} ${styles.heroOrb1}`}></div>
           <div className={`${styles.heroOrb} ${styles.heroOrb2}`}></div>
           <div className={styles.heroVignette}></div>
@@ -57,7 +59,7 @@ export default function HomePage() {
             </h1>
           </Reveal>
 
-          <Reveal asInline={false} delay={0.22}>
+          <Reveal asInline={false} delay={0.24}>
             <p className={styles.heroLead}>
               Enmero is a global technology and engineering corporation developing advanced
               artificial intelligence systems, next-generation software platforms, and
@@ -65,18 +67,18 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <Reveal asInline={false} delay={0.3}>
+          <Reveal asInline={false} delay={0.34}>
             <div className={styles.heroCtAs}>
               <Button href="/solutions" variant="primary" size="lg" arrow>
                 Explore Solutions
               </Button>
-              <Button href="/company" variant="ghost" size="lg">
+              <Link href="/company" className={`link link--underline ${styles.heroLink}`}>
                 Discover Enmero
-              </Button>
+              </Link>
             </div>
           </Reveal>
 
-          <Reveal asInline={false} delay={0.4}>
+          <Reveal asInline={false} delay={0.44}>
             <Link href="/eoai" className={styles.heroDivision}>
               <span className={styles.heroDivisionLabel}>Research Division</span>
               <span className={styles.heroDivisionName}>eoAI</span>
@@ -84,14 +86,15 @@ export default function HomePage() {
                 Reasoning systems · Autonomous architectures · Multimodal intelligence
               </span>
               <span className={styles.heroDivisionGo} aria-hidden="true">
-                →
+                <ArrowRightIcon size={18} />
               </span>
             </Link>
           </Reveal>
         </div>
 
         <div className={styles.heroScroll} aria-hidden="true">
-          <span></span>
+          <span className={styles.heroScrollText}>Scroll</span>
+          <span className={styles.heroScrollLine}></span>
         </div>
       </section>
 
@@ -135,7 +138,7 @@ export default function HomePage() {
               </Reveal>
               <Reveal asInline={false} delay={0.24}>
                 <p className={styles.introBody}>
-                  It begins with people — their thought, their effort, their intent. Technology
+                  It begins with people: their thought, their effort, their intent. Technology
                   exists in response to them, shaped by human need and direction. What we build
                   is not separate from human capability, but rooted in it.
                 </p>
@@ -177,7 +180,7 @@ export default function HomePage() {
         <div className="container">
           <div className={styles.sectionTop}>
             <div>
-              <span className="section-index">No. 01 — Domains</span>
+              <span className="section-index">No. 01 · Domains</span>
               <Reveal asInline={false} delay={0.05}>
                 <h2 className={styles.sectionTitle}>
                   Engineering across three<br />
@@ -234,7 +237,7 @@ export default function HomePage() {
           <div className="grid-split">
             <div className="col-5">
               <Reveal asInline={false} delay={0}>
-                <span className="section-index">No. 02 — Research Division</span>
+                <span className="section-index">No. 02 · Research Division</span>
               </Reveal>
               <Reveal asInline={false} delay={0.06}>
                 <h2 className={styles.eoaiTitle}>
@@ -243,7 +246,7 @@ export default function HomePage() {
               </Reveal>
               <Reveal asInline={false} delay={0.14}>
                 <p className={styles.eoaiCopy}>
-                  eoAI is the artificial intelligence research division of Enmero — engineering
+                  eoAI is the artificial intelligence research division of Enmero, engineering
                   the next generation of cognitive architectures, unified reasoning frameworks,
                   multimodal intelligence, and advanced computing environments.
                 </p>
@@ -281,7 +284,7 @@ export default function HomePage() {
                       playsInline
                       autoPlay
                       preload="metadata"
-                      aria-label="eoAI — Leaf Singularity adaptive computing platform preview"
+                      aria-label="eoAI: Leaf Singularity adaptive computing platform preview"
                     ></video>
                     <div className={styles.eoaiMediaRect} aria-hidden="true"></div>
                     <div className={styles.eoaiMediaLabel}>
@@ -302,7 +305,7 @@ export default function HomePage() {
           <div className={styles.sectionTop}>
             <div>
               <span className="section-index" style={{ color: 'var(--l-muted)' }}>
-                No. 03 — Solutions
+                No. 03 · Solutions
               </span>
               <Reveal asInline={false} delay={0.05}>
                 <h2 className={styles.sectionTitle} style={{ color: 'var(--l-ink)' }}>
@@ -367,7 +370,7 @@ export default function HomePage() {
           <div className="grid-split">
             <div className="col-5">
               <Reveal asInline={false} delay={0}>
-                <span className="section-index">No. 04 — Research</span>
+                <span className="section-index">No. 04 · Research</span>
               </Reveal>
               <Reveal asInline={false} delay={0.08}>
                 <h2 className={styles.researchStatement}>
@@ -377,7 +380,7 @@ export default function HomePage() {
               </Reveal>
               <Reveal asInline={false} delay={0.16}>
                 <p className={`muted ${styles.researchCopy}`}>
-                  Our work focuses on ensuring safety is integrated at the architectural level —
+                  Our work focuses on ensuring safety is integrated at the architectural level:
                   alignment, interpretability, oversight, and cognitive synthesis in a single
                   research program.
                 </p>
@@ -405,9 +408,7 @@ export default function HomePage() {
 
           <Reveal asInline={false} delay={0.2}>
             <p className={styles.researchNote}>
-              <span className={styles.researchNoteMark} aria-hidden="true">
-                ◈
-              </span>
+              <span className={styles.researchNoteMark} aria-hidden="true"></span>
               Research is under development. Technical reports and publications will be shared as
               our systems mature.
             </p>
@@ -421,7 +422,7 @@ export default function HomePage() {
           <div className={styles.sectionTop}>
             <div>
               <span className="section-index" style={{ color: 'var(--l-muted)' }}>
-                No. 05 — Updates
+                No. 05 · Updates
               </span>
               <Reveal asInline={false} delay={0.05}>
                 <h2 className={styles.sectionTitle} style={{ color: 'var(--l-ink)' }}>
