@@ -1,33 +1,22 @@
 {
-  "name": "enmero-in",
-  "version": "1.0.0",
+  "name": "lockersea-handhold-clone",
   "private": true,
-  "description": "Enmero — Engineering Future Standards. Official website.",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "start": "next start",
-    "preview": "next start",
-    "build": "next build",
-    "lint": "eslint .",
-    "fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit",
-    "qa": "node scripts/qa.mjs",
-    "audit": "node scripts/audit.mjs"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "next": "^15.3.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@supabase/supabase-js": "^2.108.1",
+    "lucide-react": "^0.379.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.0",
-    "@types/node": "^22.15.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "eslint": "^9.23.0",
-    "eslint-config-next": "^15.3.3",
-    "puppeteer-core": "^25.11.0",
-    "tailwindcss": "^4.1.0",
-    "typescript": "^5.7.3"
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.1"
   }
 }
