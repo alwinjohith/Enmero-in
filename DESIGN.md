@@ -1,956 +1,687 @@
-# Enmero Design System
+# Enmero Website Design Guide
 
-> This document defines the visual and interaction direction for the Enmero website.
->
-> The goal is not to imitate another technology company's website. The goal is to understand why established technology companies such as NVIDIA, SanDisk, and Oracle feel credible, polished, and intentional, then build an Enmero-specific visual language from those principles.
+## Purpose
 
----
+This document defines the design constraints for the current Enmero website transformation.
 
-# 1. The Brand We Are Designing
+The existing website was originally created for a cybersecurity infrastructure company. We are transforming the existing React website into the website for **Enmero, a technology consultancy**.
 
-Enmero is a professional IT consultancy and software/technology company.
+### Current phase
 
-The website should communicate:
+**Content and identity transformation only.**
 
-* Technical capability
-* Trust
-* Professionalism
-* Strong design taste
-* Engineering discipline
-* Reliability
-* Modern technology
-* Attention to detail
+The existing visual design is intentionally being preserved for now.
 
-The desired visitor reaction is:
+Do not redesign the visual system during this phase.
 
-> "I can trust these guys to build my website or software. I know the design will be good."
+The immediate goal is to make the existing website communicate Enmero clearly and professionally while keeping its current aesthetic, layout language, animation style, component architecture, and colour system largely intact.
 
-This is the most important design objective.
-
-The website should feel like a company that can handle serious software and technology work, while also having excellent visual judgment.
-
-It must **not** feel like:
-
-* An AI startup landing page
-* A generic SaaS template
-* A Web3 website
-* A crypto website
-* A gaming company
-* A startup template from a design library
-* A collection of glowing gradients and glass cards
-* An "AI-generated" website
-* An overly playful agency portfolio
-
-Enmero should feel established, capable, and confident.
+A future design phase may change the visual direction. That is a separate task.
 
 ---
 
-# 2. Core Visual Direction
+# 1. Core Principle
 
-## Hybrid
+**Do not redesign the website. Transform what the website is saying.**
 
-The primary direction is a **hybrid light/dark editorial technology experience**.
+The existing website already has a usable visual language.
 
-Do not make every section dark.
+Preserve that language while replacing the old cybersecurity/product identity with Enmero's consultancy identity.
 
-Do not make every section white.
+Think:
 
-Instead, create a deliberate rhythm between:
+> Same visual foundation, completely different company and message.
 
-* Deep Enmero dark sections
-* Clean light sections
-* Large editorial imagery
-* Technical visualizations
-* Strong typography
-* Spacious layouts
-* Occasional Stardom appearances
-
-The dark environment should feel like a signature part of the Enmero identity.
-
-The light sections provide contrast and breathing room.
-
-The result should feel like one cohesive brand system rather than a page switching randomly between themes.
+Do not introduce a new design system just because the content is changing.
 
 ---
 
-# 3. Primary Brand Colour
+# 2. What Must Stay
 
-## Enmero Dark
+Unless a specific change is required to support the new content, preserve:
 
-```text
-#0B0D1A
-```
+* React
+* Vite
+* JavaScript/JSX
+* CSS Modules
+* existing component structure
+* existing responsive breakpoints
+* existing spacing system
+* existing typography system
+* existing colour palette
+* existing border treatment
+* existing button styling
+* existing general layout patterns
+* existing animation techniques
+* existing transition behaviour
+* existing navigation structure
+* existing footer structure
+* existing working form behaviour
+* existing useful assets
 
-This is the primary Enmero signature colour.
+Do not migrate React to Next.js.
 
-Use it deliberately and consistently.
+Do not introduce TypeScript.
 
-It should appear in:
+Do not replace Vite.
 
-* Hero sections
-* Navigation
-* Major storytelling sections
-* Footer
-* Large CTA areas
-* Dark editorial sections
-* Certain cards and interactive elements
-* Backgrounds behind technical imagery
-* Selected page transitions
+Do not replace CSS Modules.
 
-Do not treat `#0B0D1A` as a generic black.
+Do not install a new UI framework.
 
-It is Enmero's visual environment.
-
-The colour should make the site recognizable even without seeing the logo.
+Do not rebuild the website from scratch.
 
 ---
 
-# 4. Colour Philosophy
+# 3. Current Visual Identity
 
-The palette should remain restrained.
+For this phase, the existing visual identity is the source of truth.
 
-Primary:
+The current aesthetic is:
 
-```text
-Enmero Dark: #0B0D1A
-```
+* clean
+* light
+* editorial
+* spacious
+* modern
+* minimal
+* typography-led
+* image-led
+* technically sophisticated without being visually aggressive
 
-Supporting colours should primarily come from:
+The current site primarily uses:
 
-* White
-* Off-white
-* Soft neutral greys
-* Light borders
-* Muted text colours
-* Very restrained accent colours where required
+* white
+* off-white
+* black/dark text
+* subtle neutral borders
+* restrained accent colours
+* large typography
+* generous whitespace
+* simple grids
+* occasional visual effects
 
-Do not introduce a rainbow palette.
+**Keep this aesthetic.**
 
-Do not use:
+Do not switch the website to a new cream/white system.
 
-* Purple AI gradients
-* Neon cyberpunk colours
-* Excessive cyan
-* Excessive blue glow
-* Pink/purple gradient backgrounds
-* Random gradient blobs
+Do not introduce a dark theme.
 
-If an accent colour is introduced, it must have a clear purpose.
+Do not make `#0B0D1A` the primary page background yet.
 
-The site should remain recognizable as Enmero.
+Do not introduce a new colour palette.
+
+That can happen later in a dedicated visual redesign phase.
+
+---
+
+# 4. Colour
+
+For the current phase, preserve the existing colour system.
+
+Existing primary colours include:
+
+* `#FFFFFF`
+* `#FAF9F6`
+* `#111111`
+* `#5A5A58`
+* `#8A8986`
+* `#E6E5E2`
+* `#0D0D0D`
+
+The current neon green, blue, brown, and other accent colours should only remain where they are already part of an existing component and do not conflict with the new Enmero content.
+
+Do not introduce new brand colours unnecessarily.
+
+### Future Enmero colour
+
+Enmero's signature colour is:
+
+`#0B0D1A`
+
+However:
+
+**Do not redesign the current colour theme around it yet.**
+
+It may be introduced in a later visual design phase.
 
 ---
 
 # 5. Typography
 
-Typography should feel modern, precise, and expensive without trying too hard.
+Preserve the existing typography.
 
-Prioritize:
+### Primary font
 
-* Strong hierarchy
-* Large editorial headlines
-* Comfortable reading widths
-* Clean body text
-* Clear navigation typography
-* Deliberate spacing
+**Plus Jakarta Sans**
 
-Headlines should have presence.
+It is already used throughout the website and should remain the primary typeface.
 
-Body copy should remain extremely readable.
+Use it for:
+
+* headings
+* body text
+* navigation
+* buttons
+* labels
+* UI
+* supporting text
+
+Do not replace it with another font during this phase.
+
+### Existing secondary fonts
+
+The project currently contains:
+
+* Instrument Serif
+* Outfit
+
+Do not introduce additional fonts.
+
+Do not redesign the typography system.
+
+If Instrument Serif or Outfit are currently unused, leave them alone unless there is a specific content-related reason to change their usage.
+
+---
+
+# 6. Content Transformation
+
+This is the main purpose of the current task.
+
+Replace the old cybersecurity company/product content with accurate Enmero consultancy content.
+
+The website should no longer communicate that Enmero is:
+
+* a cybersecurity product
+* an autonomous systems infrastructure company
+* a decentralized identity platform
+* a zero-trust product
+* a cryptographic infrastructure company
+* a security console/dashboard product
+* a developer access platform
+
+Remove old terminology associated with the cybersecurity product.
+
+Examples of content that must eventually disappear:
+
+* AIS
+* ADS
+* AZT
+* ATL
+* AFW
+* ADN
+* ARM
+* AGW
+* autonomous systems
+* decentralized identity
+* cryptographic identity
+* trust ledger
+* capability tokens
+* zero-trust product language
+* firewall/product-security terminology
+* cybersecurity-specific product claims
+
+---
+
+# 7. Enmero Positioning
+
+Enmero should now be presented as a **technology consultancy**.
+
+The content should communicate that Enmero works with businesses to understand problems, design solutions, build technology, and deliver useful digital products.
+
+Do not invent a highly specific positioning statement until the actual Enmero information is available.
+
+Use factual information from the existing Enmero website and approved Enmero source material.
+
+The website should communicate:
+
+* technology expertise
+* software development capability
+* web development capability
+* consulting
+* thoughtful problem solving
+* design quality
+* engineering quality
+* practical delivery
+
+Only include services that are actually supported by Enmero's real information.
+
+---
+
+# 8. Homepage Content Structure
+
+The existing homepage structure can remain.
+
+The important change is what each section communicates.
+
+### Hero
+
+Transform the cybersecurity/product hero into a clear Enmero consultancy introduction.
+
+The hero should answer:
+
+**What is Enmero?**
+
+**What does Enmero help people/businesses with?**
+
+Use concise, confident language.
+
+Keep the existing hero layout and visual treatment unless a content change genuinely requires adjustment.
+
+---
+
+### Text Highlight
+
+Keep the existing scroll-driven text treatment if it works with the new content.
+
+Replace the cybersecurity statement with an Enmero brand/consultancy statement.
+
+The statement should communicate Enmero's approach to technology and problem solving.
+
+Do not create an entirely new animation.
+
+---
+
+### Services
+
+The existing service exploration pattern can remain.
+
+Replace the cybersecurity services with actual Enmero consultancy services.
+
+Possible categories may include things such as:
+
+* web development
+* software development
+* technology consulting
+* product development
+
+But only use categories confirmed by real Enmero information.
+
+Do not assume these are official services without verification.
+
+The existing accordion/service-preview interaction may remain.
+
+---
+
+### Process
+
+The existing three-step process structure can remain.
+
+Transform it from the cybersecurity workflow into Enmero's consulting/delivery process.
+
+A potential conceptual structure is:
+
+1. Understand
+2. Design and Build
+3. Deliver and Improve
+
+However, use actual Enmero language if available.
+
+Do not invent claims about methodology.
+
+Keep the existing alternating-row visual structure.
+
+---
+
+### Value Propositions
+
+The existing three-column layout can remain.
+
+Replace cybersecurity infrastructure benefits with real Enmero value propositions.
+
+Focus on what Enmero actually offers.
+
+Do not invent statistics or measurable outcomes.
+
+---
+
+### Testimonials
+
+The existing testimonial carousel component can remain.
+
+However:
+
+**The existing fictional cybersecurity testimonials must not remain.**
+
+Do not replace them with invented Enmero testimonials.
+
+If real Enmero testimonials are available, use them.
+
+If real testimonials are not available:
+
+* remove the testimonial content
+* simplify the section
+* or repurpose the space for factual company information
+
+Never fabricate a client quote.
+
+---
+
+### FAQ
+
+The existing FAQ interaction can remain.
+
+Replace cybersecurity questions with real Enmero questions if sufficient factual information exists.
+
+If there is not enough real information for useful FAQs, remove the section rather than inventing questions and answers that imply unsupported company policies or capabilities.
+
+---
+
+### CTA
+
+Transform the cybersecurity waitlist CTA into an Enmero consultancy/contact CTA.
+
+The CTA should encourage a potential client to:
+
+* contact Enmero
+* discuss a project
+* discuss a business/technology problem
+* request a consultation
+
+Only use language supported by the actual Enmero business.
+
+The existing form implementation may be preserved if it is appropriate.
+
+---
+
+### Footer
+
+Keep the existing footer structure.
+
+Replace the cybersecurity disclaimer with accurate Enmero company information.
+
+Keep only links that actually exist.
+
+Do not leave links pointing to nonexistent pages simply because the old navigation had them.
+
+---
+
+# 9. Navigation
+
+The current navigation contains several links to content that does not actually exist.
+
+Do not invent those pages.
+
+Before changing navigation, determine which sections/pages are genuinely supported by Enmero's current content.
+
+The navigation should eventually represent the actual Enmero information architecture.
+
+During this phase:
+
+* preserve the existing navigation component
+* change its content
+* remove clearly irrelevant cybersecurity/product links
+* avoid creating fake destinations
+* avoid adding pages merely to fill navigation
+
+---
+
+# 10. Cybersecurity Dashboard
+
+The existing `DashboardSetup.jsx` is a very large cybersecurity-specific component.
+
+It should **not be automatically rewritten into an Enmero dashboard**.
+
+Do not invent an Enmero product or dashboard just because the old site contains one.
+
+Unless there is a real Enmero use for this component, it should be considered obsolete content.
+
+Before deleting it, verify whether anything else depends on it.
+
+Do not spend significant effort refactoring the 1475-line component during this content transformation.
+
+---
+
+# 11. Existing Assets
+
+Use existing assets where they are still appropriate.
+
+Important findings from the audit:
+
+* `assets/logo/enmero-logo.png` exists
+* `assets/logo/enmero-white.png` exists
+* `assets/logo/favicon.png` exists
+* `lockersea_logo.png` is an old brand asset
+* `herosection.mp4` is existing media
+* several other images exist
+* Stardom artwork is not currently present in this project
+
+Replace clearly obsolete Lockersea branding with the proper Enmero assets.
+
+Do not redesign or recolour existing assets unnecessarily.
+
+Do not create fake Enmero photography.
+
+Do not invent project imagery.
+
+If an asset is clearly cybersecurity-specific and has no legitimate Enmero purpose, remove it from the user-facing experience rather than forcing it into the new design.
+
+---
+
+# 12. Stardom
+
+Stardom is Enmero's turtle mascot wearing an Enmero T-shirt.
+
+The current audited project contains no Stardom artwork.
+
+Therefore:
+
+**Do not invent Stardom artwork.**
+
+If official Stardom assets are provided later, they may be introduced deliberately.
+
+Do not create a replacement mascot.
+
+Do not use random turtle illustrations.
+
+---
+
+# 13. Animation
+
+Preserve the existing animation language for now.
+
+Existing techniques include:
+
+* scroll-driven text highlighting
+* subtle floating animations
+* typewriter effects
+* accordion transitions
+* wave animations
+* image/video movement
+* chat-panel transitions
+* subtle texture effects
+
+Do not remove animations simply because the content is changing.
+
+However, remove animations that only exist to support the old cybersecurity/product story.
+
+Do not add a new animation system.
+
+Do not add unnecessary animation.
+
+---
+
+# 14. Cards and Components
+
+Do not redesign the card system during this phase.
+
+Existing cards and component patterns may remain if they still support the new content.
+
+The following patterns are potentially reusable:
+
+* two-column hero
+* service accordion
+* alternating process rows
+* three-column value propositions
+* testimonial carousel
+* FAQ accordion
+* CTA form
+* navigation
+* footer
+
+The visual treatment of these components should remain substantially unchanged for now.
+
+Only change:
+
+* content
+* labels
+* images where necessary
+* links
+* brand identity
+* cybersecurity-specific behaviour
+
+---
+
+# 15. No Fake Content
+
+This rule is absolute.
+
+Never invent:
+
+* clients
+* customers
+* testimonials
+* statistics
+* awards
+* certifications
+* case studies
+* project outcomes
+* revenue
+* employee counts
+* offices
+* partnerships
+* technologies
+* services
+* industries
+* quotes
+* performance metrics
+
+If information is unavailable, remove or simplify the section.
+
+Do not fill empty sections with generic consultancy language presented as fact.
+
+---
+
+# 16. Writing Style
+
+Enmero's content should feel:
+
+* clear
+* confident
+* professional
+* concise
+* human
+* technically knowledgeable
+* straightforward
 
 Avoid:
 
-* Overly futuristic fonts
-* Gaming fonts
-* Decorative fonts
-* Excessively rounded startup typography
-* Huge text used purely for spectacle
+* exaggerated marketing language
+* generic startup language
+* buzzword stacking
+* cybersecurity terminology
+* vague claims
+* "revolutionary" language
+* unnecessary jargon
+* AI-generated sounding copy
 
-Typography should communicate confidence rather than excitement.
+Do not make every headline enormous.
 
----
-
-# 6. Layout Philosophy
-
-The layout should borrow an important principle from major technology companies:
-
-## Content hierarchy comes first.
-
-NVIDIA's current site demonstrates how a very large amount of technology information can be organized into distinct content areas, quick links, feature stories, announcements, and deeper topic sections. The site does not rely on one giant hero to communicate everything.
-
-Enmero should use the same principle at a smaller and more focused scale.
-
-Every section should answer one question.
-
-For example:
-
-* Who is Enmero?
-* What does Enmero build?
-* What problems can Enmero solve?
-* What technology domains does Enmero work in?
-* What have they built?
-* Why should a company trust them?
-* How can someone work with Enmero?
-
-Do not cram unrelated information into one section.
+Do not make every sentence sound like a pitch deck.
 
 ---
 
-# 7. Inspiration: NVIDIA
+# 17. What NOT to Do in This Phase
 
-Reference:
+Do NOT:
 
-https://www.nvidia.com/en-in/
+* redesign the entire website
+* change the colour theme
+* introduce the dark `#0B0D1A` theme
+* change fonts
+* migrate to Next.js
+* introduce TypeScript
+* replace Vite
+* replace CSS Modules
+* replace the existing component architecture
+* install a new UI framework
+* rewrite all animations
+* redesign the navigation visually
+* rebuild every component
+* introduce a new design system
+* copy SanDisk's website
+* copy NVIDIA's website
+* copy Oracle's website
+* introduce a generic "technology startup" aesthetic
 
-NVIDIA should be studied for its **information architecture and technology storytelling**, not copied visually.
-
-Useful principles from NVIDIA:
-
-### Strong topic hierarchy
-
-NVIDIA divides a very large technology ecosystem into clear areas such as:
-
-* Artificial intelligence
-* Design and simulation
-* High-performance computing
-* Gaming and creating
-* Automotive
-* Robotics
-* Data center and cloud computing
-
-Each area has:
-
-* A clear title
-* Supporting explanation
-* Quick links
-* Stories/news
-* Visual content
-* Deeper exploration paths
-
-This makes a huge amount of information navigable.
-
-### Editorial storytelling
-
-NVIDIA frequently combines:
-
-* Large headlines
-* Large imagery
-* Short descriptions
-* Feature stories
-* Announcements
-* Supporting links
-
-This makes the website feel alive rather than static.
-
-### Technical credibility
-
-NVIDIA's visual language communicates that the company actually builds technology.
-
-For Enmero, this means our visuals should sometimes show:
-
-* Software
-* Interfaces
-* Systems
-* Architecture
-* Devices
-* Infrastructure
-* Engineering
-* Real work
-
-Do not use meaningless technology imagery.
-
-A visual should communicate something.
-
-### What NOT to copy from NVIDIA
-
-Do not copy:
-
-* NVIDIA's green branding
-* NVIDIA's navigation
-* NVIDIA's exact layouts
-* NVIDIA's wording
-* NVIDIA's visual assets
-* NVIDIA's product presentation
-* NVIDIA's gaming aesthetic
-
-Use the underlying design principles, not the appearance.
+This phase is about **content transformation, not visual transformation.**
 
 ---
 
-# 8. Inspiration: SanDisk
+# 18. Implementation Rule
 
-Reference:
+Before modifying a component:
 
-https://www.sandisk.com/en-in
+1. Understand what the existing component does.
+2. Identify which parts are cybersecurity-specific.
+3. Preserve the visual structure.
+4. Replace only the content/behaviour that needs to change.
+5. Keep existing styles where possible.
+6. Remove obsolete functionality only when it is clearly tied to the old cybersecurity product.
+7. Verify that nothing else depends on the changed component.
 
-SanDisk is especially useful for understanding how a technology brand can maintain professionalism while allowing personality into the experience.
-
-The current SanDisk homepage combines:
-
-* Product categories
-* Editorial feature areas
-* Large visual sections
-* Technology explanations
-* Featured content
-* Company/support navigation
-* Character-driven brand moments
-
-It also uses characters such as Memory Man and Peely as recognizable visual personalities.
-
-This is the principle we want for Stardom.
-
-## Stardom should not dominate the site.
-
-Stardom is a **brand companion**.
-
-Stardom should occasionally appear in unexpected places.
-
-Examples:
-
-* A small illustration near a section
-* A subtle footer appearance
-* A hover interaction
-* A small corner illustration
-* A loading state
-* A 404 page
-* A contact section
-* A small visual beside a CTA
-* A page transition
-* A tiny detail inside an editorial illustration
-* A contextual pose that relates to the section
-
-Stardom should feel like something the visitor discovers.
-
-Not something being forced into their face.
+Prefer the smallest change that successfully transforms the component into an Enmero component.
 
 ---
 
-# 9. Stardom
+# 19. Current Goal
 
-## Character
+At the end of this phase, someone should be able to visit the website and understand:
 
-Stardom is a turtle wearing an Enmero T-shirt.
+**This is Enmero.**
 
-Stardom is part of the Enmero brand.
+They should no longer see evidence that the website is for a cybersecurity infrastructure product.
 
-The existing Stardom artwork should be treated as the source of truth.
+The website should communicate:
 
-Do not redesign Stardom without explicit instruction.
+**Enmero is a technology consultancy that helps businesses solve problems and build useful digital technology.**
 
-Do not generate a random new turtle.
-
-Do not change the character's identity.
-
-We already have multiple Stardom poses and illustrations.
-
-Those should be used selectively.
-
-## Stardom Rule
-
-> If removing Stardom from a section makes the section worse, use Stardom.
->
-> If adding Stardom only because "we need Stardom somewhere" makes the section worse, do not use Stardom.
-
-Stardom should support the experience, not become the experience.
-
-The mascot should communicate warmth and personality underneath an otherwise serious professional brand.
+The visual system should still feel recognizably like the existing website.
 
 ---
 
-# 10. Inspiration: Oracle
+# 20. Future Design Phase
 
-Reference:
+A separate phase may later explore:
 
-https://www.oracle.com/in/
+* Enmero's `#0B0D1A` signature colour
+* cream/white editorial design
+* typography refinement
+* new photography direction
+* Stardom integration
+* new navigation design
+* homepage composition
+* new visual hierarchy
+* refined motion
+* stronger Enmero brand identity
 
-Oracle should be studied for **enterprise information architecture**.
+Do not perform that work now.
 
-The current Oracle India homepage organizes its ecosystem into major areas such as:
+First make the existing website **correctly represent Enmero**.
 
-* Infrastructure
-* Cloud
-* Database
-* Applications
-* Industries
-* Enterprise products
-* Customer examples
-
-It uses strong information hierarchy and large content blocks to explain complicated technology offerings.
-
-Oracle also uses:
-
-* Technical diagrams
-* Product architecture
-* Customer stories
-* Industry categories
-* Quantified information
-* Large explanatory headlines
-* Structured navigation
-
-This creates an impression of a company that has depth.
-
-## Apply this to Enmero
-
-Enmero should not feel like:
-
-> "We make beautiful websites."
-
-It should feel like:
-
-> "We understand technology, engineering, software, design, and the business problem behind what we're building."
-
-Design should therefore communicate depth.
-
-Where appropriate, show:
-
-* How systems work
-* How projects are structured
-* Technology relationships
-* Product interfaces
-* Architecture
-* Process
-* Real outcomes
-* Case studies
-* Engineering details
-
-Do this visually without turning the website into documentation.
+Then redesign it.
 
 ---
 
-# 11. Homepage Direction
+# Final Principle
 
-The homepage should primarily communicate:
+For this phase:
 
-> "These people are extremely capable and they have excellent design taste."
+**Preserve the design. Replace the identity. Replace the content. Remove the cybersecurity product. Do not invent what Enmero does.**
 
-But the visitor should reach that conclusion naturally.
+The existing website is the visual foundation.
 
-Do not literally say:
+Enmero's real information is the source of truth.
 
-> "We are extremely capable."
-
-Show it.
-
-## Suggested homepage rhythm
-
-### 01. Hero
-
-Large, confident statement.
-
-Dark `#0B0D1A` environment.
-
-Strong typography.
-
-One clear CTA.
-
-Large visual or technical composition.
-
-The hero should immediately establish:
-
-**Enmero = serious technology + excellent design.**
-
-Avoid a complicated hero with 5 competing messages.
-
----
-
-### 02. Trust / Introduction
-
-A short introduction to Enmero.
-
-Explain what the company actually does.
-
-Keep the content concise.
-
-Use strong typography and generous whitespace.
-
-This section should transition naturally from the dramatic hero into useful information.
-
----
-
-### 03. What We Build
-
-Present Enmero's capabilities.
-
-Potential visual structure:
-
-* Large editorial cards
-* Split layouts
-* Technical imagery
-* Interface previews
-* Small supporting details
-
-Each capability should feel like part of one larger system.
-
-Do not use generic icon grids unless they genuinely improve comprehension.
-
----
-
-### 04. Technology / Expertise
-
-Show technical depth.
-
-Use:
-
-* Interfaces
-* Diagrams
-* Architecture
-* Infrastructure visuals
-* Code or system details where appropriate
-* Real product imagery
-
-The visual message:
-
-> These people actually build things.
-
----
-
-### 05. Work / Case Studies
-
-This should be one of the strongest sections.
-
-Show actual Enmero work.
-
-Prioritize:
-
-* Large imagery
-* Clear project names
-* Short descriptions
-* Technology used
-* Problem
-* Solution
-* Outcome where real information exists
-
-Never invent metrics.
-
-Never invent clients.
-
-Never invent results.
-
----
-
-### 06. Engineering / Process
-
-Explain how Enmero works.
-
-For example:
-
-```text
-Understand
-→ Design
-→ Build
-→ Refine
-→ Deliver
-```
-
-But do not force this exact structure if the real Enmero process differs.
-
-This section should make the company feel dependable.
-
----
-
-### 07. Brand Personality
-
-This is an appropriate place for Stardom.
-
-Not a giant mascot hero.
-
-A small, clever appearance.
-
-This section can provide a visual breath between technical content.
-
----
-
-### 08. Final CTA
-
-A strong dark `#0B0D1A` section.
-
-Clear message.
-
-Clear action.
-
-Minimal distractions.
-
-Something that makes contacting Enmero feel like the obvious next step.
-
----
-
-# 12. Photography
-
-Use a combination of:
-
-## Real photography
-
-Use photography when it communicates:
-
-* People
-* Teams
-* Offices
-* Hardware
-* Technology
-* Real environments
-* Real work
-
-## Technical visualization
-
-Use:
-
-* System diagrams
-* UI imagery
-* Abstract engineering compositions
-* Hardware close-ups
-* Infrastructure
-* Digital environments
-* Product interfaces
-
-## Stardom
-
-Use existing Stardom artwork for moments where personality is useful.
-
-The combination should feel intentional.
-
-Do not use random stock photography of:
-
-* People shaking hands
-* People pointing at laptops
-* Fake corporate meetings
-* Generic server rooms
-* Random smiling business teams
-
-If photography looks like stock photography, do not use it.
-
----
-
-# 13. Motion
-
-Animation should be **premium, restrained, and purposeful**.
-
-The goal is not to impress people with animation.
-
-The goal is to make the website feel polished.
-
-Use:
-
-* Smooth section reveals
-* Subtle image movement
-* Gentle hover transitions
-* Navigation transitions
-* Small typography movement
-* Carefully controlled parallax
-* Smooth page transitions where appropriate
-
-Avoid:
-
-* Constant scrolling animations
-* Excessive parallax
-* Bouncing elements
-* Aggressive cursor effects
-* WebGL everywhere
-* Excessive 3D
-* Animation on every card
-* Long loading animations
-
-Animation should usually be noticed subconsciously.
-
-A visitor should think:
-
-> "This feels really polished."
-
-Not:
-
-> "There are animations everywhere."
-
----
-
-# 14. Cards
-
-Cards should not become the default solution for every piece of information.
-
-Avoid:
-
-```text
-[ CARD ]
-[ CARD ]
-[ CARD ]
-[ CARD ]
-```
-
-everywhere.
-
-Instead use a mixture of:
-
-* Editorial layouts
-* Full-width sections
-* Split layouts
-* Large feature blocks
-* Image/text compositions
-* Lists
-* Grids
-* Cards when appropriate
-
-Cards should have hierarchy.
-
-Not every card should look equally important.
-
----
-
-# 15. Borders and Surfaces
-
-Use borders sparingly.
-
-Prefer:
-
-* Thin subtle borders
-* Large whitespace
-* Background contrast
-* Typography
-* Imagery
-
-Avoid excessive:
-
-* Rounded containers
-* Pills
-* Glassmorphism
-* Floating cards
-* Shadows everywhere
-
-Enmero should feel structured rather than ornamental.
-
----
-
-# 16. Navigation
-
-Navigation should feel like an established technology company.
-
-It should be:
-
-* Clean
-* Fast
-* Predictable
-* Easy to understand
-* Responsive
-
-The navigation should not contain every possible page.
-
-Group related content logically.
-
-Desktop and mobile navigation should both be carefully designed.
-
-The mobile navigation is not an afterthought.
-
----
-
-# 17. Buttons
-
-Buttons should be simple and confident.
-
-Primary buttons should have strong contrast against their surroundings.
-
-Avoid:
-
-* Giant pill buttons
-* Excessive gradients
-* Excessive shadows
-* Multiple competing CTA styles
-
-Use a consistent button language across the entire website.
-
----
-
-# 18. Images
-
-Images should be treated as major design elements.
-
-Do not put images into generic rectangular cards simply because a component needs an image.
-
-Images can:
-
-* Bleed to edges
-* Fill sections
-* Sit beside typography
-* Overlap layouts
-* Become backgrounds
-* Act as editorial anchors
-
-Use image composition deliberately.
-
----
-
-# 19. Responsive Design
-
-The design must work exceptionally well on:
-
-* Large desktop
-* Laptop
-* Tablet
-* Mobile
-
-Do not simply shrink desktop layouts.
-
-The hierarchy should be reconsidered at smaller widths.
-
-On mobile:
-
-* Typography must remain readable
-* Navigation must remain simple
-* Images must remain meaningful
-* Stardom must remain visible where intentionally placed
-* Animations should be reduced where appropriate
-* No horizontal overflow
-* No cramped grids
-
----
-
-# 20. Accessibility
-
-Accessibility is part of the design.
-
-Use:
-
-* Proper semantic HTML
-* Keyboard navigation
-* Visible focus states
-* Sufficient contrast
-* Alt text
-* Reduced motion support
-* Accessible buttons
-* Accessible navigation
-* Proper heading hierarchy
-
-Do not sacrifice accessibility for visual effects.
-
----
-
-# 21. Avoiding "AI Slop"
-
-This is a hard rule.
-
-The website must not look AI-generated.
-
-Avoid the visual patterns commonly associated with generic AI-generated websites:
-
-* Purple/blue gradients
-* Glowing orbs
-* Floating glassmorphism cards
-* Random 3D blobs
-* Generic neural-network illustrations
-* Excessive rounded corners
-* Huge meaningless headlines
-* Fake statistics
-* Stock "technology" photography
-* Random dashboard screenshots
-* Repeated gradient cards
-* Excessive lowercase startup copy
-* Buzzword-heavy messaging
-* "The future is here" language
-* Fake complexity
-* Decorative UI that serves no purpose
-
-Every visual element should have a reason to exist.
-
----
-
-# 22. Content Rules
-
-The design must never invent Enmero information.
-
-Use the actual Enmero content and information available in the project.
-
-Do not invent:
-
-* Clients
-* Partners
-* Awards
-* Statistics
-* Revenue
-* Employees
-* Projects
-* Case studies
-* Certifications
-* Research claims
-* Product capabilities
-* Technology claims
-* Customer results
-
-If information is missing, design around the absence rather than creating fake content.
-
----
-
-# 23. The Enmero Design Personality
-
-The final design should balance these qualities:
-
-| Quality             | Importance  |
-| ------------------- | ----------- |
-| Trustworthy         | Very high   |
-| Professional        | Very high   |
-| Technically capable | Very high   |
-| Premium             | High        |
-| Modern              | High        |
-| Minimal             | Medium-high |
-| Playful             | Low-medium  |
-| Experimental        | Low-medium  |
-| Corporate           | Medium      |
-| Friendly            | Medium      |
-
-The site should feel human without feeling casual.
-
-It should feel premium without feeling pretentious.
-
-It should feel technical without becoming cold.
-
-It should feel modern without chasing trends.
-
-It should feel distinctive without becoming weird.
-
----
-
-# 24. The Core Design Formula
-
-When making a design decision, think:
-
-```text
-Trust
-+
-Technical depth
-+
-Excellent typography
-+
-Strong imagery
-+
-Restrained motion
-+
-Dark Enmero environment
-+
-Light editorial space
-+
-Small moments of Stardom
-=
-Enmero
-```
-
----
-
-# 25. Final Rule
-
-The website should look like it was designed by a very good technology design team.
-
-Not like it was generated from a template.
-
-Not like an AI startup.
-
-Not like a marketing agency trying to look futuristic.
-
-Not like NVIDIA.
-
-Not like SanDisk.
-
-Not like Oracle.
-
-Learn from them.
-
-Then make it unmistakably Enmero.
-
-The visitor should leave with one clear feeling:
-
-> **"These people know what they're doing, and they care about doing it well."**
+When uncertain, make the smaller change.
 
