@@ -9,30 +9,28 @@ export default function ValueProps() {
         {/* Header Block */}
         <div className={styles.headerBlock}>
           <h2 className={styles.title}>
-            Standardize trust & connectivity <br />
-            for autonomous networks
+            Why work with enmero
           </h2>
           <p className={styles.subtitle}>
-            enmero secures machine-to-machine interactions globally, <br />
-            ensuring secure identities and continuous zero-trust authorization.
+            We are a small team that cares about the work. Here is what you get when you work with us.
           </p>
         </div>
 
         {/* 3-Column Props Grid */}
         <div className={styles.grid}>
           <div className={styles.column}>
-            <h3 className={styles.propTitle}>Global Machine Scale</h3>
-            <p className={styles.propDesc}>Inspect and route billions of requests at sub-millisecond edge latency.</p>
+            <h3 className={styles.propTitle}>Engineering and design, together</h3>
+            <p className={styles.propDesc}>We handle both the technical build and the visual design. No need to coordinate between separate teams.</p>
           </div>
 
           <div className={styles.column}>
-            <h3 className={styles.propTitle}>Verifiable Machine Identity</h3>
-            <p className={styles.propDesc}>Verifiable decentralized identity built on secure, cryptographic key exchanges.</p>
+            <h3 className={styles.propTitle}>You work with us directly</h3>
+            <p className={styles.propDesc}>No account managers or intermediaries. You communicate with the people actually building your product.</p>
           </div>
 
           <div className={styles.column}>
-            <h3 className={styles.propTitle}>Cross-Cloud Routing</h3>
-            <p className={styles.propDesc}>Optimized connection mesh across AWS, GCP, Azure, and private edge nodes.</p>
+            <h3 className={styles.propTitle}>Built to last</h3>
+            <p className={styles.propDesc}>We write clean, maintainable code and design interfaces that hold up over time. Quality is not optional.</p>
           </div>
         </div>
 

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
-import { ChevronDown, Menu, X } from 'lucide-react';
-import logo from '../../assets/lockersea_logo.png';
+import { Menu, X } from 'lucide-react';
+import logo from '../../assets/logo/enmero-logo.png';
 
 export default function Navbar({ isLoggedIn, onLogout }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -31,23 +30,8 @@ export default function Navbar({ isLoggedIn, onLogout }) {
 
           {/* Desktop Left Menu Links */}
           <div className={styles.menuDesktopLeft}>
-            <a href="#products" className={styles.navLink}>Products</a>
-            <div 
-              className={styles.navItemContainer}
-              onMouseEnter={() => setShowDropdown(true)}
-              onMouseLeave={() => setShowDropdown(false)}
-            >
-              <button className={styles.navLink}>
-                Resources <ChevronDown size={14} className={`${styles.chevron} ${showDropdown ? styles.rotate : ''}`} />
-              </button>
-              {showDropdown && (
-                <div className={styles.dropdown}>
-                  <a href="#blog" className={styles.dropdownLink}>Blog</a>
-                  <a href="#docs" className={styles.dropdownLink}>Documentation</a>
-                  <a href="#customers" className={styles.dropdownLink}>Customers</a>
-                </div>
-              )}
-            </div>
+            <a href="#services" className={styles.navLink}>Services</a>
+            <a href="#how-it-works" className={styles.navLink}>Process</a>
           </div>
         </div>
 
@@ -56,9 +40,7 @@ export default function Navbar({ isLoggedIn, onLogout }) {
             <a href="#" onClick={onLogout} className={styles.seeDemoButton}>Exit Console</a>
           ) : (
             <>
-              <a href="#pricing" className={styles.navLink}>Pricing</a>
-              <a href="#login" className={styles.navLink}>Login</a>
-              <a href="#request-access" className={styles.seeDemoButton}>Request Access</a>
+              <a href="#request-access" className={styles.seeDemoButton}>Get in Touch</a>
             </>
           )}
         </div>
@@ -72,24 +54,13 @@ export default function Navbar({ isLoggedIn, onLogout }) {
       {/* Mobile Menu Panel */}
       {isOpen && (
         <div className={styles.menuMobile}>
-          <a href="#products" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Products</a>
-          <div className={styles.mobileLink} onClick={() => setShowDropdown(!showDropdown)}>
-            Resources <ChevronDown size={14} />
-          </div>
-          {showDropdown && (
-            <div className={styles.mobileSubMenu}>
-              <a href="#blog" onClick={() => setIsOpen(false)}>Blog</a>
-              <a href="#docs" onClick={() => setIsOpen(false)}>Documentation</a>
-              <a href="#customers" onClick={() => setIsOpen(false)}>Customers</a>
-            </div>
-          )}
+          <a href="#services" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Services</a>
+          <a href="#how-it-works" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Process</a>
           {isLoggedIn ? (
             <a href="#" className={styles.mobileLink} onClick={(e) => { setIsOpen(false); onLogout(e); }}>Exit Console</a>
           ) : (
             <>
-              <a href="#pricing" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Pricing</a>
-              <a href="#login" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Login</a>
-              <a href="#request-access" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Request Access</a>
+              <a href="#request-access" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Get in Touch</a>
             </>
           )}
         </div>

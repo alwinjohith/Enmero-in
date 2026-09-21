@@ -60,13 +60,13 @@ export default function CTA() {
   return (
     <section className={styles.section} id="request-access">
       <div className={`${styles.container} container`}>
-        <h2 className={styles.title}>Secure the future of <br />autonomous digital interactions</h2>
+        <h2 className={styles.title}>Let&apos;s talk about your project</h2>
         
         {success ? (
           <div className={styles.successBox}>
-            <div className={styles.successTitle}>You're on the list!</div>
+            <div className={styles.successTitle}>Message sent.</div>
             <div className={styles.successDesc}>
-              Thank you for registering, <strong>{name || email}</strong>. We've added <strong>{email}</strong> to our developer preview waitlist and will reach out soon.
+              Thank you, <strong>{name || email}</strong>. We have received your message and will get back to you soon.
             </div>
           </div>
         ) : (
@@ -100,7 +100,7 @@ export default function CTA() {
             />
             {error && <div className={styles.errorBox}>{error}</div>}
             <button type="submit" className={styles.submitButton} disabled={loading}>
-              {loading ? 'Registering...' : 'Request Developer Access'}
+              {loading ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         )}

@@ -3,27 +3,27 @@ import styles from './Hero.module.css';
 import { ArrowUp, CornerDownLeft, Sparkles, X } from 'lucide-react';
 import videoBg from '../../assets/herosection.mp4';
 
-// 12 Log sentences
+// Service highlights
 const logItems = [
-  { title: "Identity enriched", desc: "Cryptographic identity resolved and bound via enmero AIS" },
-  { title: "Policy enforcement", desc: "Zero-trust constraints validated and enforced through session-level AZT rules" },
-  { title: "Secure handshake", desc: "mTLS channel established with verified endpoint across distributed mesh" },
-  { title: "Autonomous routing", desc: "Optimal delivery path computed and executed via enmero ADN edge network" },
-  { title: "Reputation verified", desc: "Peer trust score evaluated and synchronized through ARM reputation graph" },
-  { title: "Payload inspection", desc: "Semantic firewall analysis completed with no anomaly detected in AFW pipeline" },
-  { title: "Edge optimization", desc: "Context cache hit served from nearest ADN node, reducing inference overhead" },
-  { title: "Access authorization", desc: "Capability token validated with zero-knowledge proof verification layer" },
-  { title: "Session integrity", desc: "Runtime state confirmed and cryptographically anchored in ATL audit ledger" },
-  { title: "Cross-cloud delivery", desc: "Execution payload routed across heterogeneous environments with deterministic fallback" },
-  { title: "Threat screening", desc: "Prompt injection surface analyzed and neutralized at ingestion layer" },
-  { title: "Context hydration", desc: "Semantic memory retrieved and reconstructed from distributed edge embeddings" }
+  { title: "Custom software", desc: "Purpose-built applications designed around your business requirements" },
+  { title: "Web development", desc: "Responsive, performant web applications built with modern frameworks" },
+  { title: "App development", desc: "Mobile and cross-platform applications for iOS and Android" },
+  { title: "UI/UX design", desc: "Interface design focused on clarity, usability, and visual quality" },
+  { title: "Digital transformation", desc: "Automation, cloud migration, and workflow optimization" },
+  { title: "Software testing", desc: "Quality assurance and testing to ensure reliable releases" },
+  { title: "Cloud infrastructure", desc: "Server setup, deployment, and infrastructure management" },
+  { title: "Product development", desc: "End-to-end product builds from concept to launch" },
+  { title: "Technical consulting", desc: "Strategic technology guidance for business decisions" },
+  { title: "Startup support", desc: "Technology partnership for early-stage companies" },
+  { title: "System architecture", desc: "Scalable, maintainable technical architecture design" },
+  { title: "Ongoing maintenance", desc: "Long-term support, updates, and performance optimization" }
 ];
 
 export default function Hero() {
   const [inputValue, setInputValue] = useState('');
   const [chatOpen, setChatOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'agent', text: 'Hey there! I am the enmero AI Guide. Ask me anything about our trust and delivery infrastructure for autonomous systems.' }
+    { sender: 'agent', text: 'Hey there! I am the enmero guide. Ask me anything about our consulting services and how we work with clients.' }
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const chatEndRef = useRef(null);
@@ -39,15 +39,15 @@ export default function Hero() {
     setIsTyping(true);
 
     setTimeout(() => {
-      let reply = "enmero acts as a universal trust and delivery network positioned between communicating systems. We provide decentralized identity (AIS), zero-trust security (AZT), intent firewalls (AFW), and edge routing (ADN).";
+      let reply = "Enmero is a technology consultancy. We build custom software, web applications, and digital products. Our work spans startups and established businesses.";
       
       const lower = userMessage.toLowerCase();
-      if (lower.includes('price') || lower.includes('cost') || lower.includes('free') || lower.includes('business')) {
-        reply = "enmero offers usage-based infrastructure billing based on identity verifications, authorization events, and routing volume. We also offer enterprise subscriptions for private trust domains. Feel free to request developer access below!";
-      } else if (lower.includes('how it works') || lower.includes('work') || lower.includes('flow')) {
-        reply = "Every request is identified via AIS, verified via AZT, inspected via AFW, evaluated via ARM, optimized/routed via ADN, and logged via ATL before reaching its destination. It runs transparently at the network layer.";
-      } else if (lower.includes('sdk') || lower.includes('setup') || lower.includes('code') || lower.includes('integrate')) {
-        reply = "Integration takes minutes. Initialize our SDK with your secure AIS credentials, define Zero-Trust policies in the enmero console, and secure outgoing/incoming requests. Check out the 'Get Started' section below for code!";
+      if (lower.includes('service') || lower.includes('offer') || lower.includes('do')) {
+        reply = "We offer custom software development, web and app development, UI/UX design, digital transformation consulting, and ongoing technical support.";
+      } else if (lower.includes('work') || lower.includes('process') || lower.includes('project')) {
+        reply = "We start by understanding your requirements, then design and build the solution iteratively. You work directly with our team throughout the project.";
+      } else if (lower.includes('contact') || lower.includes('start') || lower.includes('price') || lower.includes('cost')) {
+        reply = "The best way to start is by filling out the contact form below. We will get back to you to discuss your project and how we can help.";
       }
 
       setMessages(prev => [...prev, { sender: 'agent', text: reply }]);
@@ -85,24 +85,24 @@ export default function Hero() {
         {/* Left Column: Text Content */}
         <div className={styles.leftCol}>
           <h1 className={styles.title}>
-            The infrastructure behind{' '}
+            Technology consultancy{' '}
             <span className={styles.highlight}>
               <span className={styles.highlightBg} />
-              autonomous systems
+              that builds
             </span>
           </h1>
           <p className={styles.subtitle}>
-            A secure foundation for how intelligent software connects, verifies identity, and communicates across organizations, clouds, and environments.
+            Enmero builds software, web applications, and digital products. We combine engineering discipline with strong design to deliver work we are proud of.
           </p>
           <div className={styles.descWrapper}>
             <div className={styles.descAccent} />
             <p className={styles.desc}>
-              enmero provides the identity, security, and delivery layer for the next generation of the internet.
+              From startups to established businesses, we help teams ship reliable technology.
             </p>
           </div>
           <div className={styles.ctaWrapper}>
-            <a href="#request-access" className={styles.primaryBtn}>Request Access</a>
-            <a href="#how-it-works" className={styles.secondaryBtn}>See How It Works</a>
+            <a href="#request-access" className={styles.primaryBtn}>Start a Conversation</a>
+            <a href="#how-it-works" className={styles.secondaryBtn}>See How We Work</a>
           </div>
         </div>
 
@@ -130,7 +130,7 @@ export default function Hero() {
           <div className={styles.chatHeader}>
             <div className={styles.chatHeaderLeft}>
               <Sparkles size={16} className={styles.sparkleIcon} />
-              <span>enmero AI Guide</span>
+              <span>enmero Guide</span>
             </div>
             <button className={styles.closeChatButton} onClick={() => setChatOpen(false)}>
               <X size={16} />
@@ -156,7 +156,7 @@ export default function Hero() {
           <form onSubmit={handleSendMessage} className={styles.chatPanelFooter}>
             <input 
               type="text" 
-              placeholder="Ask a follow up..." 
+              placeholder="Ask about our services..." 
               value={inputValue} 
               onChange={(e) => setInputValue(e.target.value)}
               className={styles.panelInput}

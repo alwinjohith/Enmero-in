@@ -11,10 +11,7 @@ export default function Footer() {
           {/* Left: long disclaimer text */}
           <div className={styles.disclaimerCol}>
             <p className={styles.disclaimerText}>
-              enmero (“enmero”) provides cryptographic trust, decentralized identity, zero-trust authorization, and routing infrastructure designed to enable secure interactions between autonomous systems, applications, APIs, and AI agents. enmero is a software platform and does not control, verify, or guarantee the compliance, performance, or behavior of participating autonomous agents or third-party APIs.
-            </p>
-            <p className={styles.disclaimerText}>
-              Any security evaluations, trust scoring, firewall actions, or transaction logging performed by the platform are based on user configurations and behavioral metadata. By accessing or using the enmero trust network, you acknowledge that all services are provided to facilitate operational interoperability and security, and agree to hold enmero harmless for actions taken by connected autonomous agents.
+              Enmero is a technology consultancy that builds software, web applications, and digital products. We work with startups and established businesses to deliver technology that works.
             </p>
           </div>
 
@@ -23,7 +20,6 @@ export default function Footer() {
             <div className={styles.linkCol}>
               <h4 className={styles.colHeader}>enmero</h4>
               <ul className={styles.linkList}>
-                <li><a href="#login">Sign in</a></li>
                 <li><a href="#contact">Contact us</a></li>
                 <li><a href="#careers">Careers</a></li>
               </ul>
@@ -33,8 +29,7 @@ export default function Footer() {
               <h4 className={styles.colHeader}>Legal</h4>
               <ul className={styles.linkList}>
                 <li><a href="#privacy">Privacy policy</a></li>
-                <li><a href="#cookies">Cookie policy</a></li>
-                <li><a href="#security">Responsible disclosure</a></li>
+                <li><a href="#terms">Terms of service</a></li>
               </ul>
             </div>
           </div>

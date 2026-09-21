@@ -4,15 +4,15 @@ import { Search, Cpu, Target, Zap, Shield, Database, PieChart, ChevronDown, Spar
 import scenicBg from '../../assets/scenic_landscape_bg.png';
 
 export default function StatsTestimonial() {
-  const [activeTab, setActiveTab] = useState('AIS');
+  const [activeTab, setActiveTab] = useState('SWD');
   const [typedText, setTypedText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
   const dialogTexts = {
-    AIS: "Establish verifiable cryptographic identities for applications, services, websites, and autonomous systems. AIS enables trusted interactions through decentralized identity, credential verification, and secure authentication.",
-    ADS: "Discover trusted systems and services across organizations through a secure, verified directory. ADS enables applications, APIs, and AI systems to locate capabilities, endpoints, and resources without relying on fragmented discovery mechanisms.",
-    AZT: "Enforce continuous verification and least-privilege access across every interaction. AZT ensures that systems, applications, and autonomous services only access the resources explicitly permitted by policy.",
-    ATL: "Maintain a tamper-resistant record of identities, permissions, transactions, and security events. ATL provides auditability, compliance support, forensic visibility, and operational transparency across distributed environments."
+    SWD: "We build custom web applications using modern frameworks. From single-page apps to complex platforms, our development process focuses on clean code, performance, and maintainability.",
+    ADD: "We develop mobile and cross-platform applications for iOS and Android. Whether you need a native app or a cross-platform solution, we build products that work reliably across devices.",
+    DT: "We help businesses modernize their operations through technology. From workflow automation to cloud migration, we identify where technology can create real efficiency gains.",
+    TS: "We provide ongoing technical consulting and support. Whether you need help making technology decisions, maintaining existing systems, or scaling your infrastructure, we are available as a long-term partner."
   };
 
   useEffect(() => {
@@ -39,78 +39,36 @@ export default function StatsTestimonial() {
 
   const renderHighlightedText = (text) => {
     if (!text) return null;
-    const highlights = {
-      "Agent Discovery Service (ADS)": styles.highlightBlue,
-      "Agent Identity Service (AIS)": styles.highlightBlue,
-      "Agent Delivery Network (ADN)": styles.highlightBlue,
-      "Agent Firewall (AFW)": styles.highlightBlue,
-      "Agent Zero Trust (AZT)": styles.highlightBlue,
-      "Agent Reputation Manager (ARM)": styles.highlightBlue,
-      "Agent Trust Ledger (ATL)": styles.highlightBlue,
-      "Agent Gateway (AGW)": styles.highlightBlue,
-      "AI Identity & Access Management (AIAM)": styles.highlightBlue,
-      "enmero Platform": styles.highlightBlue,
-      "enmero": styles.highlightBlue,
-      "ADS": styles.highlightPurple,
-      "AIS": styles.highlightPurple,
-      "ADN": styles.highlightPurple,
-      "AFW": styles.highlightPurple,
-      "AZT": styles.highlightPurple,
-      "ARM": styles.highlightPurple,
-      "ATL": styles.highlightPurple,
-      "AGW": styles.highlightPurple,
-      "AIAM": styles.highlightPurple,
-      "decentralized identity": styles.highlightPurple,
-      "intelligent routing": styles.highlightGreen,
-      "prompt injection": styles.highlightPink,
-      "continuous verification": styles.highlightPurple,
-      "least-privilege access": styles.highlightGreen,
-      "trustworthiness": styles.highlightPurple,
-      "tamper-resistant record": styles.highlightPurple,
-      "secure entry point": styles.highlightPurple,
-      "centralized control plane": styles.highlightPurple,
-      "unified trust, security, and delivery layer": styles.highlightPurple
-    };
-
-    const keys = Object.keys(highlights);
-    const pattern = new RegExp(`(${keys.map(k => k.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|')})`, 'g');
-    
-    const parts = text.split(pattern);
-    return parts.map((part, i) => {
-      if (highlights[part]) {
-        return <span key={i} className={highlights[part]}>{part}</span>;
-      }
-      return part;
-    });
+    return <span>{text}</span>;
   };
 
   const services = [
     {
-      id: 'AIS',
-      title: 'Agent Identity Service (AIS)',
-      desc: 'Establish verifiable cryptographic identities for applications, services, websites, and autonomous systems. AIS enables trusted interactions through decentralized identity, credential verification, and secure authentication.'
+      id: 'SWD',
+      title: 'Software & Web Development',
+      desc: 'We build custom web applications using modern frameworks. From single-page apps to complex platforms, our development process focuses on clean code, performance, and maintainability.'
     },
     {
-      id: 'ADS',
-      title: 'Agent Discovery Service (ADS)',
-      desc: 'Discover trusted systems and services across organizations through a secure, verified directory. ADS enables applications, APIs, and AI systems to locate capabilities, endpoints, and resources without relying on fragmented discovery mechanisms.'
+      id: 'ADD',
+      title: 'App Development',
+      desc: 'We develop mobile and cross-platform applications for iOS and Android. Whether you need a native app or a cross-platform solution, we build products that work reliably across devices.'
     },
     {
-      id: 'AZT',
-      title: 'Agent Zero Trust (AZT)',
-      desc: 'Enforce continuous verification and least-privilege access across every interaction. AZT ensures that systems, applications, and autonomous services only access the resources explicitly permitted by policy.'
+      id: 'DT',
+      title: 'Digital Transformation',
+      desc: 'We help businesses modernize their operations through technology. From workflow automation to cloud migration, we identify where technology can create real efficiency gains.'
     },
     {
-      id: 'ATL',
-      title: 'Agent Trust Ledger (ATL)',
-      desc: 'Maintain a tamper-resistant record of identities, permissions, transactions, and security events. ATL provides auditability, compliance support, forensic visibility, and operational transparency across distributed environments.'
+      id: 'TS',
+      title: 'Technical Consulting & Support',
+      desc: 'We provide ongoing technical consulting and support. Whether you need help making technology decisions, maintaining existing systems, or scaling your infrastructure, we are available as a long-term partner.'
     }
   ];
 
   const activeService = services.find(s => s.id === activeTab) || services[0];
 
   return (
-    <section className={styles.section} id="action-demo">
+    <section className={styles.section} id="services">
       <div className={`${styles.container} container`}>
         <div className={styles.grid}>
           
@@ -139,14 +97,14 @@ export default function StatsTestimonial() {
           {/* Right Column: Title + Description + Services Accordion */}
           <div className={styles.contentColumn}>
             <div className={styles.headerRow}>
-              <h2 className={styles.title}>Explore services</h2>
+              <h2 className={styles.title}>What we do</h2>
             </div>
             
             <p className={styles.description}>
-              Deploy modular infrastructure services to manage decentralized identity, service discovery, zero-trust authorization, intent filtering, and edge routing.
+              We offer a range of technology services tailored to your needs. Select a service to learn more about how we can help.
             </p>
             
-            <button className={styles.exploreBtn}>Explore Security & Trust Services</button>
+            <button className={styles.exploreBtn}>Explore Our Services</button>
 
             {/* Accordion list */}
             <div className={styles.accordionList}>

@@ -4,49 +4,49 @@ import { ChevronLeft, ChevronRight, Plus, Minus } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "Securing machine-to-machine interactions at scale requires absolute certainty of identity and policies. enmero AIS and AZT allowed us to authenticate all autonomous partner agents with 100% cryptographic confidence.",
-    author: "Arthur Zargaryan",
-    title: "VP of Infrastructure at Parcel Tracker",
+    quote: "Working with enmero was straightforward. They understood what we needed, communicated clearly throughout the project, and delivered a product that worked exactly as expected.",
+    author: "Client",
+    title: "Web Application Project",
     avatarColor: "#e0f2fe"
   },
   {
-    quote: "With enmero, we filtered unauthorized prompt execution attempts and data exfiltrations at the edge. The Agent Firewall (AFW) reduced our API threat surface to zero within days of deployment.",
-    author: "Jane Doe",
-    title: "VP of Engineering at Darim",
+    quote: "The team at enmero cares about the details. Our project was handled professionally from start to finish, and the final result was better than we initially envisioned.",
+    author: "Client",
+    title: "Digital Transformation Project",
     avatarColor: "#fef3c7"
   },
   {
-    quote: "enmero ADN accelerated our cross-cloud agent coordination networks. Edge semantic caching and context hydration reduced token consumption by 40% and minimized routing latencies.",
-    author: "Mike Smith",
-    title: "Co-founder of Aikido",
+    quote: "Enmero helped us build our product from the ground up. Their combination of technical skill and design thinking made a real difference in the quality of what was delivered.",
+    author: "Client",
+    title: "Product Development Project",
     avatarColor: "#d1fae5"
   }
 ];
 
 const faqs = [
   {
-    q: "What is the Agent Identity Service (AIS)?",
-    a: "AIS assigns decentralized, verifiable cryptographic identities to application nodes, services, and AI agents. Utilizing secure public-key cryptography, it creates a globally trusted verification mesh across distinct corporate domains."
+    q: "What services does enmero offer?",
+    a: "We offer custom software development, web and app development, UI/UX design, digital transformation consulting, and ongoing technical support. Every project is tailored to your specific needs."
   },
   {
-    q: "How does Agent Zero Trust (AZT) work?",
-    a: "AZT governs interactions using granular capability tokens instead of static API keys. Access is continuously authorized and checked against context criteria including transaction budgets, query scopes, and active time-to-live restrictions."
+    q: "How does enmero approach a new project?",
+    a: "We start by understanding your business and the problem you are trying to solve. Then we design and build the solution iteratively, keeping you involved throughout the process."
   },
   {
-    q: "What makes the Agent Firewall (AFW) unique?",
-    a: "Traditional firewalls inspect network packets; AFW inspects natural language intent. It runs semantic parsing on LLM query payloads to block prompt injection attacks, context tampering, and unauthorized data exfiltration attempts before execution."
+    q: "What types of businesses does enmero work with?",
+    a: "We work with startups and established businesses across different industries. Whether you are building a new product or modernizing existing systems, we can help."
   },
   {
-    q: "How does the Agent Delivery Network (ADN) reduce costs?",
-    a: "ADN accelerates agent executions by caching semantic prompt completions and hydrating context datasets closer to agent runners. This eliminates redundant model processing, speeding up machine-to-machine loops and cutting inference costs."
+    q: "How long does a typical project take?",
+    a: "Project timelines vary depending on scope and complexity. After our initial discovery conversation, we provide a clear timeline with milestones before work begins."
   },
   {
-    q: "Can enmero integrate with existing cloud frameworks?",
-    a: "Yes. enmero is completely runtime-agnostic and runs across AWS, Google Cloud, Microsoft Azure, private serverless edge infrastructures, and local environments using lightweight developer SDKs or proxy integrations."
+    q: "Does enmero provide ongoing support after launch?",
+    a: "Yes. We offer maintenance and support packages to keep your product running smoothly after launch. We are available as a long-term technology partner."
   },
   {
-    q: "What purpose does the Agent Trust Ledger (ATL) serve?",
-    a: "ATL is an append-only, tamper-proof record of all critical machine interactions. It secures cryptographic proofs of execution, providing enterprises with comprehensive compliance reporting, forensic auditable trails, and non-repudiation."
+    q: "How do I get started with enmero?",
+    a: "The best way to start is by reaching out through our contact form. We will schedule a conversation to understand your needs and discuss how we can help."
   }
 ];
 

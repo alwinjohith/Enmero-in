@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import styles from './TextHighlight.module.css';
-import logo from '../../assets/lockersea_logo.png';
+import logo from '../../assets/logo/enmero-logo.png';
 
 export default function TextHighlight() {
   const sectionRef = useRef(null);
@@ -42,9 +42,9 @@ export default function TextHighlight() {
     };
   }, []);
 
-  const text = "Unify your fragmented cryptographic protocols with a single trust layer for identity and verification.";
+  const text = "We build software and digital products that are designed well and built to last.";
   const words = text.split(" ");
-  const highlightStartIndex = 11; // Index where "identity and verification." begins
+  const highlightStartIndex = 7; // Index where "designed well and built to last" begins
 
   return (
     <section ref={sectionRef} className={styles.section}>
@@ -75,18 +75,18 @@ export default function TextHighlight() {
       <div className={`${styles.popupWrapper} ${hasPoppedUp ? styles.poppedUp : ''}`}>
         <div className={styles.container}>
           <h2 className={styles.heading}>
-            Standardize identity, verification, and trust enforcement across autonomous systems with a{' '}
+            We work with teams that care about{' '}
             <span className={`${styles.highlight} ${scrollProgress > 0.55 ? styles.active : ''}`}>
               <span 
                 className={styles.highlightBg} 
                 style={{ width: `${scrollProgress * 100}%` }}
               />
-              unified infrastructure layer.
+              building things properly.
             </span>
           </h2>
           
           <p className={styles.description}>
-            Consolidate identity, zero-trust policies, and delivery routing across AI agents, APIs, and applications into a single, highly secure control plane.
+            Enmero combines engineering skill with design sensibility. Every project gets the attention it deserves, from first conversation to final delivery.
           </p>        </div>
       </div>
     </section>
