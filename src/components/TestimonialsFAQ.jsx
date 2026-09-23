@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './TestimonialsFAQ.module.css';
-import { ChevronLeft, ChevronRight, Plus, Minus } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 
 const testimonials = [
   {
@@ -67,7 +67,7 @@ export default function TestimonialsFAQ() {
   };
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="faq">
       <div className={`${styles.container} container`}>
         
         {/* Testimonials Block */}
@@ -120,13 +120,21 @@ export default function TestimonialsFAQ() {
               const isOpen = expandedFaq === index;
               return (
                 <div key={index} className={styles.accordionItem}>
-                  <button className={styles.accordionQuestion} onClick={() => toggleFaq(index)}>
+                  <button
+                    className={styles.accordionQuestion}
+                    onClick={() => toggleFaq(index)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${index}`}
+                  >
                     <span>{faq.q}</span>
-                    <span className={styles.iconWrapper}>
-                      {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+                    <span className={`${styles.iconWrapper} ${isOpen ? styles.iconOpen : ''}`}>
+                      <ChevronDown size={18} />
                     </span>
                   </button>
-                  <div className={`${styles.accordionAnswer} ${isOpen ? styles.answerOpen : ''}`}>
+                  <div
+                    id={`faq-answer-${index}`}
+                    className={`${styles.accordionAnswer} ${isOpen ? styles.answerOpen : ''}`}
+                  >
                     <div className={styles.answerInner}>
                       {faq.a}
                     </div>
