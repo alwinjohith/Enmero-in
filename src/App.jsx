@@ -9,13 +9,16 @@ import ValueProps from './components/ValueProps.jsx';
 import TestimonialsFAQ from './components/TestimonialsFAQ.jsx';
 import CTA from './components/CTA.jsx';
 import Footer from './components/Footer.jsx';
+import { getLegalRoute, getLegalPage } from './legalRoutes.js';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(window.location.hash === '#login');
+  const [legalRoute, setLegalRoute] = useState(() => getLegalRoute(window.location.hash));
 
   useEffect(() => {
     const handleHashChange = () => {
       setIsLoggedIn(window.location.hash === '#login');
+      setLegalRoute(getLegalRoute(window.location.hash));
     };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
@@ -35,11 +38,29 @@ function App() {
     }
   }, [isLoggedIn]);
 
+  useEffect(() => {
+    if (legalRoute) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
+    }
+    const hash = window.location.hash;
+    if (!hash || hash === '#login' || hash === '#top') return;
+    const target = document.getElementById(hash.slice(1));
+    if (target) {
+      requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [legalRoute]);
+
   const handleLogout = (e) => {
     if (e) e.preventDefault();
     window.location.hash = '';
     setIsLoggedIn(false);
   };
+
+  const legalPage = legalRoute ? getLegalPage(legalRoute) : null;
+  const LegalPageComponent = legalPage ? legalPage.Component : null;
 
   return (
     <>
@@ -47,6 +68,8 @@ function App() {
       <main style={{ height: isLoggedIn ? '100vh' : 'auto', overflow: isLoggedIn ? 'hidden' : 'visible' }}>
         {isLoggedIn ? (
           <DashboardSetup fullscreen={true} onLogout={handleLogout} />
+        ) : LegalPageComponent ? (
+          <LegalPageComponent />
         ) : (
           <>
             <Hero />
