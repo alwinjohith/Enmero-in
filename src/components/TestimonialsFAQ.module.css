@@ -147,7 +147,11 @@
   align-items: center;
   flex-shrink: 0;
   margin-left: 20px;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iconOpen {
+  transform: rotate(180deg);
 }
 
 .accordionQuestion:hover .iconWrapper {

@@ -23,10 +23,17 @@ export default function Navbar({ isLoggedIn, onLogout }) {
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <div className={styles.leftSection}>
-          <div className={styles.logoSection}>
-            <img src={logo} alt="enmero logo" className={styles.logoImage} />
-            <span className={styles.logoText}>enmero</span>
-          </div>
+          <a
+            href="#top"
+            className={styles.logoSection}
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            aria-label="Enmero homepage"
+          >
+            <img src={logo} alt="Enmero" className={styles.logoImage} />
+          </a>
 
           {/* Desktop Left Menu Links */}
           <div className={styles.menuDesktopLeft}>
