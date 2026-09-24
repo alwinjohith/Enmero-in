@@ -1,5 +1,12 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import logo from '../../assets/logo/enmero-logo.png';
+import { LEGAL_PAGES } from '../legalRoutes.js';
+
+const scrollToTop = (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
 export default function Footer() {
   return (
@@ -35,7 +42,15 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
+<nav className={styles.legalNav} aria-label="Legal">
+  {LEGAL_PAGES.map((page) => (
+    <a key={page.path} href={`#${page.path}`} className={styles.legalLink}>
+      {page.label}
+    </a>
+  ))}
+</nav>
+
+{/* Bottom bar */}
         <div className={styles.bottomBar}>
           <div className={styles.bottomLeft}>
             <a href="https://enmero.com" target="_blank" rel="noreferrer" className={styles.bottomUrl}>
