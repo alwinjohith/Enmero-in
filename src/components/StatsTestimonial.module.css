@@ -364,11 +364,20 @@
   
   .dialog {
     padding: 16px;
+    width: 94%;
   }
   
   .inputMock, .dropdownMock, .textareaMock {
     padding: 8px 10px;
     font-size: 11px;
+  }
+
+  .bodyOpen {
+    max-height: 320px;
+  }
+
+  .accordionHeader {
+    font-size: 15px;
   }
 }
 
@@ -470,4 +479,13 @@
   justify-content: center;
   opacity: 0.8;
   cursor: not-allowed;
+}
+
+/* Mobile: keep the chat dialog comfortably inside the media panel
+   (inserted after the base rules so it wins the cascade) */
+@media (max-width: 768px) {
+  .chatContainer {
+    min-height: 200px;
+    max-height: 260px;
+  }
 }

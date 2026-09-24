@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Footer.module.css';
 import logo from '../../assets/logo/enmero-logo.png';
-import { LEGAL_PAGES } from '../legalRoutes.js';
+import { LEGAL_PAGES } from '../routes.js';
 
 const scrollToTop = (e) => {
   e.preventDefault();
@@ -12,54 +12,35 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={`${styles.container} container`}>
-        
-        {/* Top half: split content */}
-        <div className={styles.topHalf}>
-          {/* Left: long disclaimer text */}
-          <div className={styles.disclaimerCol}>
-            <p className={styles.disclaimerText}>
-              Enmero is a technology consultancy that builds software, web applications, and digital products. We work with startups and established businesses to deliver technology that works.
-            </p>
-          </div>
 
-          {/* Right: navigation links columns */}
-          <div className={styles.linksBlock}>
-            <div className={styles.linkCol}>
-              <h4 className={styles.colHeader}>enmero</h4>
-              <ul className={styles.linkList}>
-                <li><a href="#contact">Contact us</a></li>
-                <li><a href="#careers">Careers</a></li>
-              </ul>
-            </div>
+        <div className={styles.footerInner}>
+          <a href="#top" onClick={scrollToTop} className={styles.brandLink} aria-label="Enmero homepage">
+            <img src={logo} alt="Enmero" className={styles.footerLogo} />
+          </a>
 
-            <div className={styles.linkCol}>
-              <h4 className={styles.colHeader}>Legal</h4>
-              <ul className={styles.linkList}>
-                <li><a href="#privacy">Privacy policy</a></li>
-                <li><a href="#terms">Terms of service</a></li>
-              </ul>
-            </div>
+          <div className={styles.contactGroup}>
+            <a href="#/contact" className={styles.contactLink}>
+              Get in touch
+            </a>
+            <a href="#/watch-tower" className={styles.contactLink}>
+              Watch Tower
+            </a>
+            <a href="mailto:contact@enmero.in" className={styles.contactLink}>
+              contact@enmero.in
+            </a>
           </div>
         </div>
 
-<nav className={styles.legalNav} aria-label="Legal">
-  {LEGAL_PAGES.map((page) => (
-    <a key={page.path} href={`#${page.path}`} className={styles.legalLink}>
-      {page.label}
-    </a>
-  ))}
-</nav>
-
-{/* Bottom bar */}
-        <div className={styles.bottomBar}>
-          <div className={styles.bottomLeft}>
-            <a href="https://enmero.com" target="_blank" rel="noreferrer" className={styles.bottomUrl}>
-              https://enmero.com
+        <nav className={styles.legalNav} aria-label="Legal">
+          {LEGAL_PAGES.map((page) => (
+            <a key={page.path} href={`#${page.path}`} className={styles.legalLink}>
+              {page.label}
             </a>
-          </div>
-          <div className={styles.bottomRight}>
-            <span>© {new Date().getFullYear()} enmero. All rights reserved.</span>
-          </div>
+          ))}
+        </nav>
+
+        <div className={styles.bottomBar}>
+          <span>© {new Date().getFullYear()} enmero. All rights reserved.</span>
         </div>
 
       </div>

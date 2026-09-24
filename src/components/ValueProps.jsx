@@ -3,7 +3,7 @@ import styles from './ValueProps.module.css';
 
 export default function ValueProps() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="why-enmero">
       <div className={`${styles.container} container`}>
         
         {/* Header Block */}

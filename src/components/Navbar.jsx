@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Navbar.module.css';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import logo from '../../assets/logo/enmero-logo.png';
 
 export default function Navbar({ isLoggedIn, onLogout }) {
@@ -23,15 +23,30 @@ export default function Navbar({ isLoggedIn, onLogout }) {
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <div className={styles.leftSection}>
-          <div className={styles.logoSection}>
-            <img src={logo} alt="enmero logo" className={styles.logoImage} />
-            <span className={styles.logoText}>enmero</span>
-          </div>
+          <a
+            href="#top"
+            className={styles.logoSection}
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            aria-label="Enmero homepage"
+          >
+            <img src={logo} alt="Enmero" className={styles.logoImage} />
+          </a>
 
           {/* Desktop Left Menu Links */}
           <div className={styles.menuDesktopLeft}>
             <a href="#services" className={styles.navLink}>Services</a>
-            <a href="#how-it-works" className={styles.navLink}>Process</a>
+            <div className={styles.navItemContainer}>
+              <a href="#how-it-works" className={styles.navLink}>
+                Product
+                <ChevronDown size={14} className={styles.chevron} />
+              </a>
+              <div className={styles.dropdown}>
+                <a href="#/watch-tower" className={styles.dropdownLink}>Watch Tower</a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -40,7 +55,7 @@ export default function Navbar({ isLoggedIn, onLogout }) {
             <a href="#" onClick={onLogout} className={styles.seeDemoButton}>Exit Console</a>
           ) : (
             <>
-              <a href="#request-access" className={styles.seeDemoButton}>Get in Touch</a>
+              <a href="#/contact" className={styles.seeDemoButton}>Get in Touch</a>
             </>
           )}
         </div>
@@ -55,12 +70,15 @@ export default function Navbar({ isLoggedIn, onLogout }) {
       {isOpen && (
         <div className={styles.menuMobile}>
           <a href="#services" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Services</a>
-          <a href="#how-it-works" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Process</a>
+          <a href="#how-it-works" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Product</a>
+          <div className={styles.mobileSubMenu}>
+            <a href="#/watch-tower" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Watch Tower</a>
+          </div>
           {isLoggedIn ? (
             <a href="#" className={styles.mobileLink} onClick={(e) => { setIsOpen(false); onLogout(e); }}>Exit Console</a>
           ) : (
             <>
-              <a href="#request-access" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Get in Touch</a>
+              <a href="#/contact" className={styles.mobileLink} onClick={() => setIsOpen(false)}>Get in Touch</a>
             </>
           )}
         </div>

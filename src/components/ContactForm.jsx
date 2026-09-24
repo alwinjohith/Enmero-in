@@ -1,0 +1,399 @@
+import React, { useState } from 'react';
+import styles from './ContactForm.module.css';
+import { supabase } from '../supabaseClient';
+
+const SERVICES = [
+  'Software & Web Development',
+  'App Development',
+  'UI/UX Design',
+  'Digital Transformation',
+  'Technical Consulting & Support',
+  'Watch Tower',
+  'Something else'
+];
+
+const BUDGET_RANGES = [
+  'Not sure yet',
+  'Under $5,000',
+  '$5,000 to $25,000',
+  '$25,000 to $100,000',
+  'Over $100,000',
+  'Prefer not to say'
+];
+
+const CONTACT_METHODS = ['Email', 'Phone', 'No preference'];
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const validate = (values) => {
+  const errors = {};
+
+  if (!values.fullName.trim()) errors.fullName = 'Full name is required.';
+  else if (values.fullName.length > 80) errors.fullName = 'Please keep full name under 80 characters.';
+
+  if (!values.company.trim()) errors.company = 'Company name is required.';
+  else if (values.company.length > 80) errors.company = 'Please keep company name under 80 characters.';
+
+  if (!values.email.trim()) {
+    errors.email = 'Work email is required.';
+  } else if (!EMAIL_REGEX.test(values.email.trim())) {
+    errors.email = 'Please enter a valid email address.';
+  }
+
+  if (!values.phone.trim()) {
+    errors.phone = 'Phone number is required.';
+  } else {
+    const digits = values.phone.replace(/\D/g, '');
+    if (!/^\+?[0-9\s().-]+$/.test(values.phone.trim())) {
+      errors.phone = 'Please enter a valid phone number.';
+    } else if (digits.length < 6 || digits.length > 15) {
+      errors.phone = 'Please enter a valid phone number.';
+    }
+  }
+
+  if (values.website.trim()) {
+    let candidate = values.website.trim();
+    if (!/^https?:\/\//i.test(candidate)) candidate = `https://${candidate}`;
+    try {
+      const url = new URL(candidate);
+      if (!url.hostname.includes('.')) throw new Error('missing dot');
+    } catch (_e) {
+      errors.website = 'Please enter a valid website URL.';
+    }
+  }
+
+  if (!values.service) errors.service = 'Please select a service.';
+
+  if (!values.project.trim()) {
+    errors.project = 'Project description is required.';
+  } else if (values.project.length < 10) {
+    errors.project = 'Please give a brief description of at least 10 characters.';
+  } else if (values.project.length > 2000) {
+    errors.project = 'Please keep the description under 2000 characters.';
+  }
+
+  if (values.details.length > 2000) errors.details = 'Please keep additional details under 2000 characters.';
+
+  return errors;
+};
+
+const initialValues = {
+  fullName: '',
+  company: '',
+  email: '',
+  phone: '',
+  website: '',
+  service: '',
+  project: '',
+  budget: '',
+  contactMethod: '',
+  details: ''
+};
+
+export default function ContactForm() {
+  const [values, setValues] = useState(initialValues);
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next[name];
+        return next;
+      });
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const nextErrors = validate(values);
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length > 0) {
+      return;
+    }
+
+    setLoading(true);
+
+    const isConfigured =
+      import.meta.env.VITE_SUPABASE_URL &&
+      import.meta.env.VITE_SUPABASE_URL !== 'https://your-project-id.supabase.co' &&
+      import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+    const fullName = values.fullName.trim();
+    const email = values.email.trim();
+    const company = values.company.trim();
+
+    if (!isConfigured) {
+      console.warn('Supabase credentials not configured. Simulating local inquiry for:', {
+        name: fullName,
+        company,
+        email,
+        phone: values.phone.trim(),
+        service: values.service,
+        project: values.project.trim()
+      });
+      setTimeout(() => {
+        setLoading(false);
+        setSuccess(true);
+      }, 1000);
+      return;
+    }
+
+    try {
+      const { error: supabaseError } = await supabase
+        .from('waitlist')
+        .insert([{ email, name: fullName, company }]);
+
+      if (supabaseError) {
+        setErrors((prev) => ({ ...prev, form: supabaseError.message }));
+      } else {
+        setSuccess(true);
+      }
+    } catch (err) {
+      console.error('Submission error:', err);
+      setErrors((prev) => ({ ...prev, form: 'Something went wrong. Please try again.' }));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (success) {
+    return (
+      <div className={styles.successBox} role="status">
+        <div className={styles.successTitle}>Message sent.</div>
+        <div className={styles.successDesc}>
+          Thank you, <strong>{values.fullName.trim() || 'there'}</strong>. We have received your inquiry and
+          will get back to you soon.
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className={styles.form} noValidate>
+      <p className={styles.requiredNote}>
+        Fields marked with <span className={styles.asterisk}>*</span> are required.
+      </p>
+
+      <div className={styles.fieldGrid}>
+        <div className={styles.fieldGroup}>
+          <label htmlFor="fullName" className={styles.label}>
+            Full Name <span className={styles.asterisk}>*</span>
+          </label>
+          <input
+            id="fullName"
+            name="fullName"
+            type="text"
+            value={values.fullName}
+            onChange={handleChange}
+            maxLength={80}
+            placeholder="Your full name"
+            className={`${styles.input} ${errors.fullName ? styles.inputError : ''}`}
+            aria-invalid={!!errors.fullName}
+            aria-describedby={errors.fullName ? 'fullName-error' : undefined}
+          />
+          {errors.fullName && (
+            <span id="fullName-error" className={styles.errorText}>{errors.fullName}</span>
+          )}
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <label htmlFor="company" className={styles.label}>
+            Company Name <span className={styles.asterisk}>*</span>
+          </label>
+          <input
+            id="company"
+            name="company"
+            type="text"
+            value={values.company}
+            onChange={handleChange}
+            maxLength={80}
+            placeholder="Your company"
+            className={`${styles.input} ${errors.company ? styles.inputError : ''}`}
+            aria-invalid={!!errors.company}
+            aria-describedby={errors.company ? 'company-error' : undefined}
+          />
+          {errors.company && (
+            <span id="company-error" className={styles.errorText}>{errors.company}</span>
+          )}
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <label htmlFor="email" className={styles.label}>
+            Work Email <span className={styles.asterisk}>*</span>
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={values.email}
+            onChange={handleChange}
+            maxLength={120}
+            placeholder="name@company.com"
+            className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
+            aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? 'email-error' : undefined}
+          />
+          {errors.email && (
+            <span id="email-error" className={styles.errorText}>{errors.email}</span>
+          )}
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <label htmlFor="phone" className={styles.label}>
+            Phone Number <span className={styles.asterisk}>*</span>
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            value={values.phone}
+            onChange={handleChange}
+            maxLength={20}
+            placeholder="+1 555 000 0000"
+            className={`${styles.input} ${errors.phone ? styles.inputError : ''}`}
+            aria-invalid={!!errors.phone}
+            aria-describedby={errors.phone ? 'phone-error' : undefined}
+          />
+          {errors.phone && (
+            <span id="phone-error" className={styles.errorText}>{errors.phone}</span>
+          )}
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <label htmlFor="website" className={styles.label}>
+            Company Website <span className={styles.optionalTag}>optional</span>
+          </label>
+          <input
+            id="website"
+            name="website"
+            type="url"
+            value={values.website}
+            onChange={handleChange}
+            maxLength={200}
+            placeholder="https://example.com"
+            className={`${styles.input} ${errors.website ? styles.inputError : ''}`}
+            aria-invalid={!!errors.website}
+            aria-describedby={errors.website ? 'website-error' : undefined}
+          />
+          {errors.website && (
+            <span id="website-error" className={styles.errorText}>{errors.website}</span>
+          )}
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <label htmlFor="service" className={styles.label}>
+            What do you need help with? <span className={styles.asterisk}>*</span>
+          </label>
+          <select
+            id="service"
+            name="service"
+            value={values.service}
+            onChange={handleChange}
+            className={`${styles.select} ${values.service ? '' : styles.selectPlaceholder} ${errors.service ? styles.inputError : ''}`}
+            aria-invalid={!!errors.service}
+            aria-describedby={errors.service ? 'service-error' : undefined}
+          >
+            <option value="" disabled>Select a service</option>
+            {SERVICES.map((s) => (
+              <option key={s} value={s}>{s}</option>
+            ))}
+          </select>
+          {errors.service && (
+            <span id="service-error" className={styles.errorText}>{errors.service}</span>
+          )}
+        </div>
+      </div>
+
+      <div className={styles.fieldGroup}>
+        <label htmlFor="project" className={styles.label}>
+          Project Description <span className={styles.asterisk}>*</span>
+        </label>
+        <textarea
+          id="project"
+          name="project"
+          value={values.project}
+          onChange={handleChange}
+          maxLength={2000}
+          rows={5}
+          placeholder="Tell us briefly about the project, the goal, and the timeline you have in mind."
+          className={`${styles.textarea} ${errors.project ? styles.inputError : ''}`}
+          aria-invalid={!!errors.project}
+          aria-describedby={errors.project ? 'project-error' : undefined}
+        />
+        {errors.project && (
+          <span id="project-error" className={styles.errorText}>{errors.project}</span>
+        )}
+      </div>
+
+      <div className={styles.fieldGrid}>
+        <div className={styles.fieldGroup}>
+          <label htmlFor="budget" className={styles.label}>
+            Budget Range <span className={styles.optionalTag}>optional</span>
+          </label>
+          <select
+            id="budget"
+            name="budget"
+            value={values.budget}
+            onChange={handleChange}
+            className={`${styles.select} ${values.budget ? '' : styles.selectPlaceholder}`}
+          >
+            <option value="" disabled>Select a range</option>
+            {BUDGET_RANGES.map((b) => (
+              <option key={b} value={b}>{b}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className={styles.fieldGroup}>
+          <label htmlFor="contactMethod" className={styles.label}>
+            Preferred Contact Method <span className={styles.optionalTag}>optional</span>
+          </label>
+          <select
+            id="contactMethod"
+            name="contactMethod"
+            value={values.contactMethod}
+            onChange={handleChange}
+            className={`${styles.select} ${values.contactMethod ? '' : styles.selectPlaceholder}`}
+          >
+            <option value="" disabled>Select a method</option>
+            {CONTACT_METHODS.map((m) => (
+              <option key={m} value={m}>{m}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div className={styles.fieldGroup}>
+        <label htmlFor="details" className={styles.label}>
+          Additional Details <span className={styles.optionalTag}>optional</span>
+        </label>
+        <textarea
+          id="details"
+          name="details"
+          value={values.details}
+          onChange={handleChange}
+          maxLength={2000}
+          rows={3}
+          placeholder="Anything else we should know before the first call."
+          className={styles.textarea}
+          aria-invalid={!!errors.details}
+          aria-describedby={errors.details ? 'details-error' : undefined}
+        />
+        {errors.details && (
+          <span id="details-error" className={styles.errorText}>{errors.details}</span>
+        )}
+      </div>
+
+      {errors.form && <div className={styles.errorBox} role="alert">{errors.form}</div>}
+
+      <button type="submit" className={styles.submitButton} disabled={loading}>
+        {loading ? 'Sending...' : 'Send Inquiry'}
+      </button>
+    </form>
+  );
+}

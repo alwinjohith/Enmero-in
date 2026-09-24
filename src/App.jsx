@@ -7,18 +7,17 @@ import AgentJourney from './components/AgentJourney.jsx';
 import DashboardSetup from './components/DashboardSetup.jsx';
 import ValueProps from './components/ValueProps.jsx';
 import TestimonialsFAQ from './components/TestimonialsFAQ.jsx';
-import CTA from './components/CTA.jsx';
 import Footer from './components/Footer.jsx';
-import { getLegalRoute, getLegalPage } from './legalRoutes.js';
+import { getStaticPage } from './routes.js';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(window.location.hash === '#login');
-  const [legalRoute, setLegalRoute] = useState(() => getLegalRoute(window.location.hash));
+  const [staticPage, setStaticPage] = useState(() => getStaticPage(window.location.hash));
 
   useEffect(() => {
     const handleHashChange = () => {
       setIsLoggedIn(window.location.hash === '#login');
-      setLegalRoute(getLegalRoute(window.location.hash));
+      setStaticPage(getStaticPage(window.location.hash));
     };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
@@ -39,7 +38,7 @@ function App() {
   }, [isLoggedIn]);
 
   useEffect(() => {
-    if (legalRoute) {
+    if (staticPage) {
       window.scrollTo({ top: 0, behavior: 'instant' });
       return;
     }
@@ -51,7 +50,7 @@ function App() {
     } else {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
-  }, [legalRoute]);
+  }, [staticPage]);
 
   const handleLogout = (e) => {
     if (e) e.preventDefault();
@@ -59,8 +58,7 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  const legalPage = legalRoute ? getLegalPage(legalRoute) : null;
-  const LegalPageComponent = legalPage ? legalPage.Component : null;
+  const PageComponent = staticPage ? staticPage.Component : null;
 
   return (
     <>
@@ -68,8 +66,8 @@ function App() {
       <main style={{ height: isLoggedIn ? '100vh' : 'auto', overflow: isLoggedIn ? 'hidden' : 'visible' }}>
         {isLoggedIn ? (
           <DashboardSetup fullscreen={true} onLogout={handleLogout} />
-        ) : LegalPageComponent ? (
-          <LegalPageComponent />
+        ) : PageComponent ? (
+          <PageComponent />
         ) : (
           <>
             <Hero />
@@ -78,7 +76,6 @@ function App() {
             <AgentJourney />
             <ValueProps />
             <TestimonialsFAQ />
-            <CTA />
           </>
         )}
       </main>
