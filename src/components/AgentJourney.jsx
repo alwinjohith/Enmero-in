@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './AgentJourney.module.css';
-import { Sparkles, Loader, Send, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Sparkles, Loader, Send, ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 import { MARKETS, detectMarket } from '../data/pricing.js';
 
 const totalSlides = 4;
@@ -18,6 +18,30 @@ export default function AgentJourney() {
     setCurrentSlide((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
   };
 
+  const touchStartX = useRef(null);
+
+  const handleTouchStart = (event) => {
+    if (event.touches.length === 1) {
+      touchStartX.current = event.touches[0].clientX;
+    }
+  };
+
+  const handleTouchEnd = (event) => {
+    const startX = touchStartX.current;
+    touchStartX.current = null;
+
+    if (startX === null || event.changedTouches.length === 0) return;
+
+    const distance = event.changedTouches[0].clientX - startX;
+    if (Math.abs(distance) < 40) return;
+
+    if (distance < 0) {
+      handleNext();
+    } else {
+      handlePrev();
+    }
+  };
+
   return (
     <section className={styles.section} id="how-it-works">
       <div className={`${styles.container} container`}>
@@ -32,7 +56,12 @@ export default function AgentJourney() {
         </div>
 
         {/* Slide Carousel */}
-        <div className={styles.carousel}>
+        <div
+          className={styles.carousel}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onTouchCancel={() => { touchStartX.current = null; }}
+        >
           <div
             className={styles.carouselTrack}
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -268,6 +297,22 @@ export default function AgentJourney() {
           <button className={styles.carouselBtn} onClick={handleNext} aria-label="Next slide">
             <ChevronRight size={20} />
           </button>
+        </div>
+
+        <div className={styles.watchTowerCta}>
+          <div className={styles.watchTowerCtaText}>
+            <h3 className={styles.watchTowerCtaTitle}>
+              Looking for ongoing product management?
+            </h3>
+            <p className={styles.watchTowerCtaDesc}>
+              Watchtower is Enmero&apos;s long-term management service, offered as a 15-month
+              engagement with simple monthly pricing.
+            </p>
+          </div>
+          <a href="#/watch-tower" className={styles.watchTowerCtaBtn}>
+            Explore Watchtower
+            <ArrowUpRight size={14} />
+          </a>
         </div>
       </div>
     </section>

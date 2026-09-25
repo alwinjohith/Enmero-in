@@ -47,6 +47,23 @@
   color: var(--color-text-primary);
 }
 
+.legalNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-top: 28px;
+}
+
+.legalLink {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  transition: var(--transition-smooth);
+}
+
+.legalLink:hover {
+  color: var(--color-text-primary);
+}
+
 /* Bottom Bar */
 .bottomBar {
   margin-top: 28px;

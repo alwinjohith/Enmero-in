@@ -1,5 +1,5 @@
 export const MARKETS = [
-  { id: 'india', name: 'India', website: '₹299', consultancy: '₹150', combined: '₹449' },
+  { id: 'india', name: 'India', website: '₹299', consultancy: '₹150', combined: '₹449', watchTowerManagement: '₹399' },
   { id: 'bangladesh', name: 'Bangladesh', website: '৳499', consultancy: '৳250', combined: '৳749' },
   { id: 'pakistan', name: 'Pakistan', website: 'PKR 999', consultancy: 'PKR 500', combined: 'PKR 1,499' },
   { id: 'sri-lanka', name: 'Sri Lanka', website: 'LKR 1,499', consultancy: 'LKR 750', combined: 'LKR 2,249' },
@@ -204,4 +204,14 @@ export function detectMarket() {
 
   const match = MARKETS.find((m) => m.id === marketId);
   return match || defaultMarket;
+}
+
+export const WATCH_TOWER_MANAGEMENT = {
+  durationLabel: '15 months of management',
+  billingNote: 'Billed per month across a 15-month engagement',
+};
+
+export function watchTowerPriceFor(marketId) {
+  const market = MARKETS.find((m) => m.id === marketId);
+  return market ? market.watchTowerManagement : undefined;
 }

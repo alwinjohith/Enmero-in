@@ -47,7 +47,7 @@ export default function Hero() {
       } else if (lower.includes('work') || lower.includes('process') || lower.includes('project')) {
         reply = "We start by understanding your requirements, then design and build the solution iteratively. You work directly with our team throughout the project.";
       } else if (lower.includes('contact') || lower.includes('start') || lower.includes('price') || lower.includes('cost')) {
-        reply = "The best way to start is by filling out the contact form below. We will get back to you to discuss your project and how we can help.";
+        reply = "The best way to start is by filling out the contact form on our contact page. We will get back to you to discuss your project and how we can help.";
       }
 
       setMessages(prev => [...prev, { sender: 'agent', text: reply }]);
@@ -101,7 +101,7 @@ export default function Hero() {
             </p>
           </div>
           <div className={styles.ctaWrapper}>
-            <a href="#request-access" className={styles.primaryBtn}>Start a Conversation</a>
+            <a href="#/contact" className={styles.primaryBtn}>Start a Conversation</a>
             <a href="#how-it-works" className={styles.secondaryBtn}>See How We Work</a>
           </div>
         </div>
