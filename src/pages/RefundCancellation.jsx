@@ -10,8 +10,8 @@ export default function RefundCancellation() {
           This policy explains how you can cancel a service engagement and when fees may be refunded.
           It applies to the website development, consultancy, and combined services that Enmero
           offers. Where a written proposal or agreement for a specific project is in place, the terms
-          of that agreement take precedence. Business-specific details that are yet to be confirmed
-          are marked clearly below.
+          of that agreement take precedence. Any project-specific cancellation or refund terms
+          are stated in that agreement.
         </p>
       </section>
 
@@ -21,7 +21,7 @@ export default function RefundCancellation() {
           To cancel an engagement, contact us through the contact form on our website at
           https://enmero.in before work begins or as soon as you know you need to cancel. Please
           include your name, the email you used for the enquiry, and the project or service you are
-          cancelling. [CANCELLATION NOTICE PERIOD TO BE CONFIRMED]
+          cancelling. We will confirm receipt and discuss the next steps with you.
         </p>
       </section>
 
@@ -29,8 +29,8 @@ export default function RefundCancellation() {
         <h2>Eligibility for refunds</h2>
         <p>
           Refunds are considered in line with the terms agreed for each engagement. Whether a refund
-          is available, and its amount, depends on the stage of the project at the time of
-          cancellation. [REFUND PERIOD TO BE CONFIRMED] [REFUND ELIGIBILITY CRITERIA TO BE CONFIRMED]
+          is available, and its amount, depends on the stage of the project, work already completed,
+          and any non-refundable charges stated in the agreement.
         </p>
       </section>
 
@@ -39,16 +39,26 @@ export default function RefundCancellation() {
         <p>
           Fees for services that have already been completed and delivered may be non-refundable.
           Any fixed or setup fees agreed in your proposal may also be non-refundable once the work
-          they cover has been performed. [NON-REFUNDABLE ITEMS TO BE CONFIRMED]
+          they cover has been performed, unless the agreement states otherwise.
+        </p>
+      </section>
+
+      <section>
+        <h2>Non-payment and suspension</h2>
+        <p>
+          If a customer fails to pay an applicable monthly subscription or management fee, Enmero
+          may suspend the website and revoke the associated domain in accordance with the applicable
+          payment terms. Once the website or domain has been revoked, restoration or continued use is
+          not guaranteed and may require contacting Enmero for further assistance.
         </p>
       </section>
 
       <section>
         <h2>Refund processing</h2>
         <p>
-          Approved refunds will be returned using the original payment method where possible. Refunds
-          may take several business days to appear in your account, depending on your bank or payment
-          provider. [REFUND PROCESSING TIME TO BE CONFIRMED] [REFUND METHOD TO BE CONFIRMED]
+          Approved refunds will be returned using the original payment method where possible. The
+          time it takes for a refund to appear in your account depends on your bank or payment
+          provider.
         </p>
       </section>
 
@@ -65,10 +75,9 @@ export default function RefundCancellation() {
       <section>
         <h2>Consultancy cancellations</h2>
         <p>
-          For consultancy sessions or scheduled consultations, cancellation and refund treatment may
-          differ from project-based work. If you cancel a scheduled consultancy session, please let
-          us know in advance so the time can be reused or rescheduled. [CONSULTANCY CANCELLATION
-          POLICY TO BE CONFIRMED]
+          For consultancy sessions or scheduled consultations, cancellation and refund treatment
+          is governed by the applicable agreement or booking confirmation. If possible, contact us
+          in advance so the time can be reused or rescheduled.
         </p>
       </section>
 
@@ -84,9 +93,8 @@ export default function RefundCancellation() {
       <section>
         <h2>Payment processing fees</h2>
         <p>
-          Where a third-party payment provider charges processing fees, those fees may not be
-          refundable because they are collected by the payment provider rather than by Enmero.
-          [PAYMENT PROCESSING FEE POLICY TO BE CONFIRMED]
+          Where a third-party payment provider charges processing fees, those fees may be
+          non-refundable unless the provider or applicable agreement provides otherwise.
         </p>
       </section>
 
@@ -96,16 +104,18 @@ export default function RefundCancellation() {
           To request a cancellation or refund, use the contact form on our website at
           https://enmero.in and provide your name, the email used for the enquiry, the project or
           service reference, and the reason for the request. We will review the request and respond
-          within a reasonable time. [RESPONSE TIME TO BE CONFIRMED]
+          as soon as reasonably practicable. The response time may vary depending on the details of
+          the request.
         </p>
       </section>
 
       <section>
         <h2>Contact</h2>
         <p>
-          For any questions about this policy, or to submit a cancellation or refund request, contact
-          us through the contact form on our website at https://enmero.in. Refund inquiries contact
-          email: [REFUND INQUIRIES EMAIL TO BE CONFIRMED]
+          For any questions about this policy, or to submit a cancellation or refund request, use
+          the contact form on our website at https://enmero.in. For enquiries regarding website
+          restoration, subscription payments, or related services, please{' '}
+          <a href="#/contact">contact Enmero</a>.
         </p>
       </section>
     </LegalPage>

@@ -179,16 +179,43 @@
 }
 
 @media (max-width: 768px) {
+  .sublabel {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  .testimonialContainer {
+    margin-bottom: 44px;
+  }
+
   .quoteText {
+    font-size: 23px;
+    line-height: 1.4;
+    margin-bottom: 28px;
+    overflow-wrap: anywhere;
+  }
+
+  .authorName {
+    font-size: 14px;
+  }
+
+  .authorTitle {
+    font-size: 12px;
+  }
+
+  .faqHeader {
     font-size: 28px;
   }
-  .faqHeader {
-    font-size: 32px;
-  }
+
   .accordionQuestion {
-    font-size: 20px;
+    font-size: 18px;
   }
+
+  .answerInner {
+    font-size: 14px;
+  }
+
   .divider {
-    margin: 60px 0;
+    margin: 48px 0;
   }
 }

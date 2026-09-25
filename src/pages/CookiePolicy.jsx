@@ -88,9 +88,9 @@ export default function CookiePolicy() {
       <section>
         <h2>Contact</h2>
         <p>
-          For any questions about this Cookie Policy, you can reach us through the contact form on our
-          website at https://enmero.in. Cookie-related contact email:
-          [COOKIE POLICY CONTACT EMAIL TO BE CONFIRMED]
+          For any questions about this Cookie Policy, use the contact form on our website at
+          https://enmero.in. We will use the details you provide to identify and respond to your
+          request.
         </p>
       </section>
     </LegalPage>

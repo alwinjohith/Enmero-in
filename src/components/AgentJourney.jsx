@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './AgentJourney.module.css';
 import { Sparkles, Loader, Send, ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
 
@@ -15,6 +15,30 @@ export default function AgentJourney() {
     setCurrentSlide((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
   };
 
+  const touchStartX = useRef(null);
+
+  const handleTouchStart = (event) => {
+    if (event.touches.length === 1) {
+      touchStartX.current = event.touches[0].clientX;
+    }
+  };
+
+  const handleTouchEnd = (event) => {
+    const startX = touchStartX.current;
+    touchStartX.current = null;
+
+    if (startX === null || event.changedTouches.length === 0) return;
+
+    const distance = event.changedTouches[0].clientX - startX;
+    if (Math.abs(distance) < 40) return;
+
+    if (distance < 0) {
+      handleNext();
+    } else {
+      handlePrev();
+    }
+  };
+
   return (
     <section className={styles.section} id="how-it-works">
       <div className={`${styles.container} container`}>
@@ -29,7 +53,12 @@ export default function AgentJourney() {
         </div>
 
         {/* Slide Carousel */}
-        <div className={styles.carousel}>
+        <div
+          className={styles.carousel}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onTouchCancel={() => { touchStartX.current = null; }}
+        >
           <div
             className={styles.carouselTrack}
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -173,7 +202,7 @@ export default function AgentJourney() {
               </div>
             </div>
 
-            {/* Stage 4 removed: pricing now lives on the Watch Tower service page */}
+            {/* Stage 4 removed: pricing now lives on the Watchtower service page */}
 
           </div>
         </div>
@@ -198,19 +227,19 @@ export default function AgentJourney() {
           </button>
         </div>
 
-        {/* Watch Tower service CTA */}
+        {/* Watchtower service CTA */}
         <div className={styles.watchTowerCta}>
           <div className={styles.watchTowerCtaText}>
             <h3 className={styles.watchTowerCtaTitle}>
               Looking for ongoing product management?
             </h3>
             <p className={styles.watchTowerCtaDesc}>
-              Watch Tower is Enmero&apos;s long-term management service, offered as a 15-month
+              Watchtower is Enmero&apos;s long-term management service, offered as a 15-month
               engagement with simple monthly pricing.
             </p>
           </div>
           <a href="#/watch-tower" className={styles.watchTowerCtaBtn}>
-            Explore Watch Tower
+            Explore Watchtower
             <ArrowUpRight size={14} />
           </a>
         </div>

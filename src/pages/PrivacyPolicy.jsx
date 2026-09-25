@@ -107,8 +107,9 @@ export default function PrivacyPolicy() {
       <section>
         <h2>Data retention</h2>
         <p>
-          We keep the information you provide only as long as needed to respond to and manage your
-          enquiry, or as required by law. [DATA RETENTION PERIOD TO BE CONFIRMED]
+          We keep the information you provide only as long as needed to manage your enquiry,
+          meet legal obligations, and protect our legitimate business interests. We review and
+          delete information when it is no longer needed for those purposes.
         </p>
       </section>
 
@@ -117,8 +118,8 @@ export default function PrivacyPolicy() {
         <p>
           Depending on where you live, you may have the right to access, correct, or delete the
           personal information we hold about you, and to object to or restrict certain processing.
-          To exercise any of these rights, contact us using the details below, and we will respond
-          within a reasonable time.
+          To exercise any of these rights, contact us through the contact form on this website, and
+          we will respond within a reasonable time.
         </p>
       </section>
 
@@ -142,9 +143,9 @@ export default function PrivacyPolicy() {
       <section>
         <h2>Contact</h2>
         <p>
-          For privacy-related requests, or any questions about this policy, you can reach us through
-          the contact form on our website at https://enmero.in. Privacy-specific contact email:
-          [PRIVACY CONTACT EMAIL TO BE CONFIRMED]
+          For privacy-related requests, or any questions about this policy, use the contact form
+          on our website at https://enmero.in. We will use the details you provide to identify and
+          respond to your request.
         </p>
       </section>
     </LegalPage>

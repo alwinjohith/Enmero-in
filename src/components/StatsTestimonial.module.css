@@ -481,11 +481,79 @@
   cursor: not-allowed;
 }
 
-/* Mobile: keep the chat dialog comfortably inside the media panel
-   (inserted after the base rules so it wins the cascade) */
 @media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .grid {
+    gap: 36px;
+  }
+
+  .mediaContainer {
+    height: clamp(280px, 78vw, 340px);
+    border-radius: 10px;
+    background-position: center;
+  }
+
+  .dialog {
+    width: calc(100% - 24px);
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .dialogHeader {
+    padding-bottom: 0;
+  }
+
   .chatContainer {
-    min-height: 200px;
-    max-height: 260px;
+    min-height: 150px;
+    max-height: 190px;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .chatMessage {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .msgBubble {
+    padding: 12px 14px;
+  }
+
+  .aiMsg .msgBubble {
+    min-height: 0;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .description {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  .exploreBtn {
+    margin-bottom: 28px;
+    padding: 9px 18px;
+    font-size: 13px;
+  }
+
+  .accordionHeader {
+    padding: 16px 0;
+    font-size: 14px;
+  }
+
+  .bodyOpen {
+    max-height: 280px;
+    padding-bottom: 16px;
+  }
+
+  .bodyText {
+    font-size: 13px;
+    line-height: 1.55;
   }
 }

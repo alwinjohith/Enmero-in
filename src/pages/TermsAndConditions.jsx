@@ -61,9 +61,8 @@ export default function TermsAndConditions() {
         <h2>Pricing and payments</h2>
         <p>
           Pricing information shown on this website is indicative, may be displayed for different
-          regions, and may change. Final pricing and payment terms are agreed for each engagement in
-          a proposal or agreement. Specific payment and invoicing terms:
-          [PRICING AND PAYMENT TERMS TO BE CONFIRMED]
+          regions, and may change. Final pricing, payment schedule, invoicing, and any applicable
+          taxes are confirmed for each engagement in a proposal or agreement.
         </p>
         <p>
           Refunds and cancellations are handled in line with our Refund &amp; Cancellation Policy and
@@ -88,8 +87,9 @@ export default function TermsAndConditions() {
           or branding without prior written permission.
         </p>
         <p>
-          Ownership of the work, code, and deliverables produced for a project is defined in the
-          applicable engagement agreement. [INTELLECTUAL PROPERTY ASSIGNMENT TERMS TO BE CONFIRMED]
+          Ownership and permitted use of project-specific deliverables are set out in the
+          applicable engagement agreement. The agreement also addresses Enmero's pre-existing
+          materials, tools, and know-how.
         </p>
       </section>
 
@@ -147,24 +147,27 @@ export default function TermsAndConditions() {
       <section>
         <h2>Termination</h2>
         <p>
-          We may restrict or terminate your access to this website if you breach these terms. An
-          engagement or service agreement may be suspended or terminated in line with the terms of
-          that agreement. [TERMINATION NOTICE TERMS TO BE CONFIRMED]
+          We may restrict or terminate your access to this website if you breach these terms, as
+          permitted by law. Any notice, suspension, or termination terms for a paid engagement are
+          set out in the applicable agreement.
         </p>
       </section>
 
       <section>
         <h2>Governing law and jurisdiction</h2>
         <p>
-          [GOVERNING LAW AND JURISDICTION TO BE CONFIRMED]
+          The governing law and jurisdiction for a specific engagement are confirmed in the
+          applicable proposal or agreement. Nothing in these terms limits any mandatory rights or
+          protections available to you under applicable law.
         </p>
       </section>
 
       <section>
         <h2>Contact</h2>
         <p>
-          For any questions about these terms, you can reach us through the contact form on our
-          website at https://enmero.in. Legal contact email: [LEGAL CONTACT EMAIL TO BE CONFIRMED]
+          For any questions about these terms, use the contact form on our website at
+          https://enmero.in. We will use the details you provide to identify and respond to your
+          request.
         </p>
       </section>
     </LegalPage>

@@ -206,8 +206,8 @@ export function detectMarket() {
   return match || defaultMarket;
 }
 
-// Watch Tower management offering.
-// Watch Tower is Enmero's long-term management service, offered as a
+// Watchtower management offering.
+// Watchtower is Enmero's long-term management service, offered as a
 // 15-month engagement with a simple monthly rate.
 // Published prices exist for India only at this time. Additional markets can
 // be added by setting `watchTowerManagement` on the corresponding MARKET entry.

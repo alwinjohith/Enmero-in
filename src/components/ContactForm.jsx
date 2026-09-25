@@ -8,7 +8,7 @@ const SERVICES = [
   'UI/UX Design',
   'Digital Transformation',
   'Technical Consulting & Support',
-  'Watch Tower',
+  'Watchtower',
   'Something else'
 ];
 

@@ -23,7 +23,7 @@ export default function Footer() {
               Get in touch
             </a>
             <a href="#/watch-tower" className={styles.contactLink}>
-              Watch Tower
+              Watchtower
             </a>
             <a href="mailto:contact@enmero.in" className={styles.contactLink}>
               contact@enmero.in

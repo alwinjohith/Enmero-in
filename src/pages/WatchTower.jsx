@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './WatchTower.module.css';
 import { ArrowUpRight } from 'lucide-react';
+import watchtowerLogo from '../../assets/logo/watchtower-logo.png';
 import { MARKETS, detectMarket, watchTowerPriceFor, WATCH_TOWER_MANAGEMENT } from '../data/pricing.js';
 
 const benefits = [
@@ -50,10 +51,11 @@ export default function WatchTower() {
       {/* Hero */}
       <section className={styles.hero}>
         <div className={`${styles.container} container`}>
+          <img src={watchtowerLogo} alt="Watchtower" className={styles.heroLogo} />
           <span className={styles.eyebrow}>Enmero key service</span>
-          <h1 className={styles.heroTitle}>Watch Tower</h1>
+          <h1 className={styles.heroTitle}>Watchtower</h1>
           <p className={styles.heroSubtitle}>
-            Watch Tower is one of Enmero&apos;s key services. It is a long-term management offering that keeps
+            Watchtower is one of Enmero&apos;s key services. It is a long-term management offering that keeps
             your product reliable, maintained, and moving forward after launch.
           </p>
           <div className={styles.heroCta}>
@@ -63,12 +65,12 @@ export default function WatchTower() {
         </div>
       </section>
 
-      {/* What Watch Tower does */}
+      {/* What Watchtower does */}
       <section className={styles.section}>
         <div className={`${styles.container} container`}>
-          <h2 className={styles.sectionTitle}>What Watch Tower does</h2>
+          <h2 className={styles.sectionTitle}>What Watchtower does</h2>
           <p className={styles.sectionLead}>
-            Watch Tower is Enmero&apos;s management service. After a product is built, Watch Tower keeps the
+            Watchtower is Enmero&apos;s management service. After a product is built, Watchtower keeps the
             work going with maintenance, updates, and support delivered by the same team over a defined
             engagement.
           </p>
@@ -83,7 +85,7 @@ export default function WatchTower() {
             </div>
             <div className={styles.plainItem}>
               <h3>A defined timeframe</h3>
-              <p>Watch Tower runs as a 15-month engagement with a clear monthly rate.</p>
+              <p>Watchtower runs as a 15-month engagement with a clear monthly rate.</p>
             </div>
             <div className={styles.plainItem}>
               <h3>Confirmed scope</h3>
@@ -96,7 +98,7 @@ export default function WatchTower() {
       {/* How the service works */}
       <section className={`${styles.section} ${styles.sectionAlt}`}>
         <div className={`${styles.container} container`}>
-          <h2 className={styles.sectionTitle}>How Watch Tower works</h2>
+          <h2 className={styles.sectionTitle}>How Watchtower works</h2>
           <div className={styles.steps}>
             {steps.map((s) => (
               <div key={s.step} className={styles.stepCard}>
@@ -130,10 +132,10 @@ export default function WatchTower() {
           <div className={styles.featuredCard}>
             <div className={styles.featuredText}>
               <span className={styles.featuredBadge}>Primary offering</span>
-              <h2 className={styles.featuredTitle}>Watch Tower Management</h2>
+              <h2 className={styles.featuredTitle}>Watchtower Management</h2>
               <p className={styles.featuredDuration}>{WATCH_TOWER_MANAGEMENT.durationLabel}</p>
               <p className={styles.featuredDesc}>
-                The full Watch Tower management engagement. A 15-month plan that keeps your product
+                The full Watchtower management engagement. A 15-month plan that keeps your product
                 maintained, updated, and supported by the Enmero team.
               </p>
             </div>
@@ -199,7 +201,7 @@ export default function WatchTower() {
 
           <div className={styles.managementRow}>
             <div className={styles.managementRowText}>
-              <span className={styles.managementRowLabel}>Watch Tower Management</span>
+              <span className={styles.managementRowLabel}>Watchtower Management</span>
               <span className={styles.managementRowDetail}>{WATCH_TOWER_MANAGEMENT.durationLabel}</span>
             </div>
             <div className={styles.managementRowPrice}>
@@ -224,10 +226,10 @@ export default function WatchTower() {
       {/* CTA */}
       <section className={styles.ctaSection}>
         <div className={`${styles.container} container`}>
-          <h2 className={styles.ctaTitle}>Ready to talk about Watch Tower?</h2>
+          <h2 className={styles.ctaTitle}>Ready to talk about Watchtower?</h2>
           <p className={styles.ctaDesc}>
             Tell us about your product. We will schedule a conversation to understand your needs and
-            discuss how Watch Tower can help.
+            discuss how Watchtower can help.
           </p>
           <a href="#/contact" className={styles.primaryBtn}>Get in touch</a>
         </div>

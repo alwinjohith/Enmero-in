@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './LegalPage.module.css';
 import { ArrowLeft } from 'lucide-react';
 
-export default function LegalPage({ title, lastUpdated = '[DATE TO BE CONFIRMED]', children }) {
+export default function LegalPage({ title, lastUpdated = 'September 25, 2026', children }) {
   const goHome = (e) => {
     e.preventDefault();
     window.location.hash = '';

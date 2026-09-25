@@ -15,7 +15,7 @@ export const LEGAL_PAGES = [
 ];
 
 export const STATIC_PAGES = [
-  { path: '/watch-tower', label: 'Watch Tower', Component: WatchTower },
+  { path: '/watch-tower', label: 'Watchtower', Component: WatchTower },
   { path: '/contact', label: 'Contact', Component: Contact },
   ...LEGAL_PAGES,
 ];

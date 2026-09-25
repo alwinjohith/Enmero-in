@@ -4,6 +4,14 @@
   padding: 170px 0 96px;
 }
 
+.heroLogo {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 40px;
+}
+
 .eyebrow {
   font-size: 13px;
   font-weight: 600;
@@ -106,7 +114,7 @@
   margin-bottom: 48px;
 }
 
-/* What Watch Tower does */
+/* What Watchtower does */
 .plainList {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -466,6 +474,11 @@
 @media (max-width: 768px) {
   .hero {
     padding: 140px 0 64px;
+  }
+
+  .heroLogo {
+    max-width: 220px;
+    margin-bottom: 28px;
   }
 
   .heroTitle {
