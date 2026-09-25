@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Footer.module.css';
 import logo from '../../assets/logo/enmero-logo.png';
+import { LEGAL_PAGES } from '../routes.js';
 
 const scrollToTop = (e) => {
   e.preventDefault();
@@ -18,14 +19,28 @@ export default function Footer() {
           </a>
 
           <div className={styles.contactGroup}>
-            <a href="#request-access" className={styles.contactLink}>
+            <a href="#/contact" className={styles.contactLink}>
               Get in touch
+            </a>
+            <a href="#/watch-tower" className={styles.contactLink}>
+              Watchtower
+            </a>
+            <a href="mailto:contact@enmero.in" className={styles.contactLink}>
+              contact@enmero.in
             </a>
             <a href="https://enmero.in" target="_blank" rel="noreferrer" className={styles.contactLink}>
               https://enmero.in
             </a>
           </div>
         </div>
+
+        <nav className={styles.legalNav} aria-label="Legal">
+          {LEGAL_PAGES.map((page) => (
+            <a key={page.path} href={`#${page.path}`} className={styles.legalLink}>
+              {page.label}
+            </a>
+          ))}
+        </nav>
 
         <div className={styles.bottomBar}>
           <span>© {new Date().getFullYear()} enmero. All rights reserved.</span>

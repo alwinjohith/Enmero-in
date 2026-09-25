@@ -7,15 +7,17 @@ import AgentJourney from './components/AgentJourney.jsx';
 import DashboardSetup from './components/DashboardSetup.jsx';
 import ValueProps from './components/ValueProps.jsx';
 import TestimonialsFAQ from './components/TestimonialsFAQ.jsx';
-import CTA from './components/CTA.jsx';
 import Footer from './components/Footer.jsx';
+import { getStaticPage } from './routes.js';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(window.location.hash === '#login');
+  const [staticPage, setStaticPage] = useState(() => getStaticPage(window.location.hash));
 
   useEffect(() => {
     const handleHashChange = () => {
       setIsLoggedIn(window.location.hash === '#login');
+      setStaticPage(getStaticPage(window.location.hash));
     };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
@@ -35,11 +37,28 @@ function App() {
     }
   }, [isLoggedIn]);
 
+  useEffect(() => {
+    if (staticPage) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
+    }
+    const hash = window.location.hash;
+    if (!hash || hash === '#login' || hash === '#top') return;
+    const target = document.getElementById(hash.slice(1));
+    if (target) {
+      requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [staticPage]);
+
   const handleLogout = (e) => {
     if (e) e.preventDefault();
     window.location.hash = '';
     setIsLoggedIn(false);
   };
+
+  const PageComponent = staticPage ? staticPage.Component : null;
 
   return (
     <>
@@ -47,6 +66,8 @@ function App() {
       <main style={{ height: isLoggedIn ? '100vh' : 'auto', overflow: isLoggedIn ? 'hidden' : 'visible' }}>
         {isLoggedIn ? (
           <DashboardSetup fullscreen={true} onLogout={handleLogout} />
+        ) : PageComponent ? (
+          <PageComponent />
         ) : (
           <>
             <Hero />
@@ -55,7 +76,6 @@ function App() {
             <AgentJourney />
             <ValueProps />
             <TestimonialsFAQ />
-            <CTA />
           </>
         )}
       </main>

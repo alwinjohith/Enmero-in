@@ -17,6 +17,12 @@ export default function StatsTestimonial() {
 
   useEffect(() => {
     setTypedText('');
+
+    if (!activeTab) {
+      setIsTyping(false);
+      return;
+    }
+
     setIsTyping(true);
 
     const fullText = dialogTexts[activeTab] || '';
@@ -67,6 +73,10 @@ export default function StatsTestimonial() {
 
   const activeService = services.find(s => s.id === activeTab) || services[0];
 
+  const toggleService = (id) => {
+    setActiveTab(prev => (prev === id ? null : id));
+  };
+
   return (
     <section className={styles.section} id="services">
       <div className={`${styles.container} container`}>
@@ -85,8 +95,14 @@ export default function StatsTestimonial() {
                 {/* AI typing response */}
                 <div className={`${styles.chatMessage} ${styles.aiMsg}`}>
                   <div className={styles.msgBubble}>
-                    {renderHighlightedText(typedText)}
-                    {isTyping && <span className={styles.cursor} />}
+                    {activeTab ? (
+                      <>
+                        {renderHighlightedText(typedText)}
+                        {isTyping && <span className={styles.cursor} />}
+                      </>
+                    ) : (
+                      'Select a service to learn more about how we can help.'
+                    )}
                   </div>
                 </div>
               </div>
@@ -114,13 +130,18 @@ export default function StatsTestimonial() {
                   <div key={service.id} className={styles.accordionItem}>
                     <button 
                       className={`${styles.accordionHeader} ${isActive ? styles.accordionHeaderActive : ''}`}
-                      onClick={() => setActiveTab(service.id)}
+                      onClick={() => toggleService(service.id)}
+                      aria-expanded={isActive}
+                      aria-controls={`service-answer-${service.id}`}
                     >
                       <span>{service.title}</span>
                       <ChevronDown size={16} className={`${styles.accordionChevron} ${isActive ? styles.chevronRotate : ''}`} />
                     </button>
                     
-                    <div className={`${styles.accordionBody} ${isActive ? styles.bodyOpen : ''}`}>
+                    <div
+                      id={`service-answer-${service.id}`}
+                      className={`${styles.accordionBody} ${isActive ? styles.bodyOpen : ''}`}
+                    >
                       <p className={styles.bodyText}>{service.desc}</p>
                     </div>
                   </div>

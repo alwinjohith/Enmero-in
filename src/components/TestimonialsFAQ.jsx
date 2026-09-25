@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     q: "How do I get started with enmero?",
-    a: "The best way to start is by reaching out through our contact form. We will schedule a conversation to understand your needs and discuss how we can help."
+    a: "The best way to start is by reaching out through our contact page. We will schedule a conversation to understand your needs and discuss how we can help."
   }
 ];
 

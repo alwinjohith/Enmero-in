@@ -1,0 +1,546 @@
+.hero {
+  background-color: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border);
+  padding: 170px 0 96px;
+}
+
+.heroLogo {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.heroTitle {
+  font-family: var(--font-sans);
+  font-size: 64px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin-bottom: 24px;
+}
+
+.heroSubtitle {
+  font-size: 19px;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin-bottom: 40px;
+}
+
+.heroCta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background-color: var(--color-brand-black);
+  border: 1px solid transparent;
+  border-radius: 100px;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.primaryBtn:hover {
+  background-color: rgba(13, 13, 13, 0.85);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.secondaryBtn {
+  display: inline-block;
+  padding: 14px 28px;
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 100px;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.secondaryBtn:hover {
+  border-color: var(--color-text-primary);
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.section {
+  background-color: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border);
+  padding: 96px 0;
+}
+
+.sectionAlt {
+  background-color: var(--color-bg-secondary);
+}
+
+.sectionTitle {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 20px;
+}
+
+.sectionLead {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+/* What Watchtower does */
+.plainList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 900px;
+}
+
+.plainItem h3 {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.plainItem p {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+}
+
+/* How the service works */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+}
+
+.stepCard {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-medium);
+  padding: 32px 28px;
+}
+
+.stepBadge {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  display: block;
+  margin-bottom: 20px;
+}
+
+.stepTitle {
+  font-family: var(--font-sans);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 10px;
+}
+
+.stepDesc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Key benefits */
+.benefitGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 960px;
+}
+
+.benefitCard {
+  border-top: 1px solid var(--color-border);
+  padding: 24px 0 8px;
+}
+
+.benefitTitle {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.benefitDesc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* 15-month management offering */
+.featuredCard {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  background-color: var(--color-brand-black);
+  border-radius: var(--border-radius-large);
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.featuredText {
+  padding: 48px;
+}
+
+.featuredBadge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  padding: 6px 14px;
+  margin-bottom: 24px;
+}
+
+.featuredTitle {
+  font-family: var(--font-sans);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.featuredDuration {
+  font-size: 16px;
+  font-weight: 600;
+  color: #d4ff3f;
+  margin-bottom: 16px;
+}
+
+.featuredDesc {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.featuredPrice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 48px;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.featuredPriceLabel {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.featuredPriceAmount {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.featuredPriceNote {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 20px;
+}
+
+.featuredBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background-color: #ffffff;
+  color: var(--color-text-primary);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.featuredBtn:hover {
+  background-color: #d4ff3f;
+  transform: translateY(-1px);
+}
+
+/* Pricing */
+.pricingHeaderRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.pricingRegionLabel {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.pricingSelect {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.pricingSelect:hover {
+  border-color: var(--color-text-tertiary);
+}
+
+.tiersRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 860px;
+  margin-bottom: 20px;
+}
+
+.tier {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-medium);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.tierFeatured {
+  background-color: var(--color-bg-primary);
+  border: 1.5px solid var(--color-text-primary);
+}
+
+.tierLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: 8px;
+}
+
+.tierAmount {
+  font-family: var(--font-sans);
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.tierNote {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.tierDesc {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--color-text-tertiary);
+}
+
+.managementRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 860px;
+  background-color: var(--color-brand-black);
+  border-radius: var(--border-radius-medium);
+  padding: 22px 28px;
+  color: #ffffff;
+}
+
+.managementRowText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.managementRowLabel {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.managementRowDetail {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.managementRowPrice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.managementPriceAmount {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.managementPricePending {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.managementRowNote {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pricingFootnote {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-tertiary);
+  max-width: 860px;
+  margin-top: 20px;
+}
+
+/* CTA */
+.ctaSection {
+  background-color: var(--color-bg-secondary);
+  padding: 96px 0;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+}
+
+.ctaDesc {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  max-width: 560px;
+  margin: 0 auto 36px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 140px 0 64px;
+  }
+
+  .heroLogo {
+    max-width: 220px;
+    margin-bottom: 28px;
+  }
+
+  .heroTitle {
+    font-size: 42px;
+  }
+
+  .heroSubtitle {
+    font-size: 17px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .sectionTitle {
+    font-size: 30px;
+  }
+
+  .plainList,
+  .benefitGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .featuredCard {
+    grid-template-columns: 1fr;
+  }
+
+  .featuredText,
+  .featuredPrice {
+    padding: 32px 24px;
+  }
+
+  .featuredPrice {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .featuredPriceAmount {
+    font-size: 36px;
+  }
+
+  .tiersRow {
+    grid-template-columns: 1fr;
+  }
+
+  .managementRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .managementRowPrice {
+    align-items: flex-start;
+  }
+
+  .heroCta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
