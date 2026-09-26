@@ -7,6 +7,7 @@ import WatchTower from './pages/WatchTower.jsx';
 import Services from './pages/Services.jsx';
 import ServiceDetail from './pages/ServiceDetail.jsx';
 import Contact from './pages/Contact.jsx';
+import DemoContact from './pages/DemoContact.jsx';
 import Blog from './pages/Blog.jsx';
 import BlogDetail from './pages/BlogDetail.jsx';
 import { SERVICES, servicePath } from './data/services.js';
@@ -44,6 +45,7 @@ export const STATIC_PAGES = [
   { path: '/blog', label: 'Blog', Component: Blog },
   ...BLOG_PAGES,
   { path: '/contact', label: 'Contact', Component: Contact },
+  { path: '/demo', label: 'Request a Demo', Component: DemoContact },
   ...LEGAL_PAGES,
 ];
 
