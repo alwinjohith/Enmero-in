@@ -17,10 +17,12 @@ export default function Blog() {
             Practical perspectives on technology, digital transformation,
             software, and building better digital products.
           </p>
-          <div className={styles.poweredBy}>
-            <span className={styles.poweredByText}>Powered by</span>
-            <img src={techroroLogo} alt="Techroro" className={styles.poweredByLogo} />
-          </div>
+          <p className={styles.poweredBy}>
+            Powered by{' '}
+            <a href="https://techroro.com" target="_blank" rel="noopener noreferrer" className={styles.poweredByLink}>
+              <img src={techroroLogo} alt="Techroro" className={styles.poweredByLogo} />
+            </a>
+          </p>
         </div>
       </section>
 

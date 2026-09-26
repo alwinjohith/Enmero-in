@@ -29,22 +29,20 @@
 }
 
 .poweredBy {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 32px;
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
 }
 
-.poweredByText {
-  font-size: 13px;
-  color: var(--color-text-tertiary);
+.poweredByLink {
+  display: inline-flex;
+  vertical-align: -3px;
 }
 
 .poweredByLogo {
-  height: 18px;
+  height: 16px;
   width: auto;
   object-fit: contain;
-  opacity: 0.6;
 }
 
 .section {
