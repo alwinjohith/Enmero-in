@@ -3,7 +3,7 @@ import styles from './Navbar.module.css';
 import { Menu, X } from 'lucide-react';
 import logo from '../../assets/logo/enmero-logo.png';
 
-export default function Navbar({ isLoggedIn, onLogout }) {
+export default function Navbar({ isLoggedIn, onLogout, topOffset = 0 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -41,7 +41,10 @@ export default function Navbar({ isLoggedIn, onLogout }) {
   }, []);
 
   return (
-    <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
+    <nav
+      className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}
+      style={topOffset ? { top: topOffset } : undefined}
+    >
       <div className={styles.container}>
         <div className={styles.leftSection}>
           <a

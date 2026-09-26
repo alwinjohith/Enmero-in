@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar.jsx';
+import AnnouncementBar from './components/AnnouncementBar.jsx';
 import Hero from './components/Hero.jsx';
 import TextHighlight from './components/TextHighlight.jsx';
 import StatsTestimonial from './components/StatsTestimonial.jsx';
@@ -13,6 +14,7 @@ import { getStaticPage } from './routes.js';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(window.location.hash === '#login');
   const [staticPage, setStaticPage] = useState(() => getStaticPage(window.location.hash));
+  const [announcementOffset, setAnnouncementOffset] = useState(0);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -72,10 +74,12 @@ function App() {
   };
 
   const PageComponent = staticPage ? staticPage.Component : null;
+  const showAnnouncement = !isLoggedIn && !PageComponent;
 
   return (
     <>
-      {!isLoggedIn && <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />}
+      {showAnnouncement && <AnnouncementBar onOffsetChange={setAnnouncementOffset} />}
+      {!isLoggedIn && <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} topOffset={announcementOffset} />}
       <main style={{ height: isLoggedIn ? '100vh' : 'auto', overflow: isLoggedIn ? 'hidden' : 'visible' }}>
         {isLoggedIn ? (
           <DashboardSetup fullscreen={true} onLogout={handleLogout} />

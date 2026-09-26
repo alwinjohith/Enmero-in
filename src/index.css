@@ -24,6 +24,10 @@
   --border-radius-large: 24px;
   --border-radius-medium: 12px;
   --border-radius-small: 8px;
+
+  /* Height of the homepage offer bar on desktop, where it stays pinned. On
+     mobile the bar sizes to its content and scrolls away with the page. */
+  --announcement-bar-height: 48px;
 }
 
 
