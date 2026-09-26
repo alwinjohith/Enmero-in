@@ -26,188 +26,60 @@ export const MARKETS = [
   { id: 'south-korea', name: 'South Korea', website: '₩15,000', consultancy: '₩7,500', combined: '₩22,500' },
 ];
 
-const DEFAULT_MARKET = 'usa';
+// Used when the visitor's country cannot be determined, or is not published above.
+export const FALLBACK_MARKET_ID = 'india';
 
-const TZ_TO_MARKET = {
-  'Asia/Kolkata': 'india',
-  'Asia/Dhaka': 'bangladesh',
-  'Asia/Karachi': 'pakistan',
-  'Asia/Colombo': 'sri-lanka',
-  'Asia/Kathmandu': 'nepal',
-  'Asia/Jakarta': 'indonesia',
-  'Asia/Pontianak': 'indonesia',
-  'Asia/Makassar': 'indonesia',
-  'Asia/Jayapura': 'indonesia',
-  'Asia/Ho_Chi_Minh': 'vietnam',
-  'Asia/Manila': 'philippines',
-  'Asia/Kuala_Lumpur': 'malaysia',
-  'Asia/Kuching': 'malaysia',
-  'Asia/Bangkok': 'thailand',
-  'Asia/Dubai': 'uae',
-  'Asia/Riyadh': 'saudi-arabia',
-  'Asia/Singapore': 'singapore',
-  'Africa/Johannesburg': 'south-africa',
-  'America/Mexico_City': 'mexico',
-  'America/Monterrey': 'mexico',
-  'America/Tijuana': 'mexico',
-  'America/Hermosillo': 'mexico',
-  'America/Mazatlan': 'mexico',
-  'America/Cancun': 'mexico',
-  'America/Sao_Paulo': 'brazil',
-  'America/Manaus': 'brazil',
-  'America/Cuiaba': 'brazil',
-  'America/Belem': 'brazil',
-  'America/Fortaleza': 'brazil',
-  'America/Recife': 'brazil',
-  'America/Bahia': 'brazil',
-  'Europe/London': 'uk',
-  'Australia/Sydney': 'australia',
-  'Australia/Melbourne': 'australia',
-  'Australia/Brisbane': 'australia',
-  'Australia/Perth': 'australia',
-  'Australia/Adelaide': 'australia',
-  'Australia/Darwin': 'australia',
-  'Australia/Hobart': 'australia',
-  'Australia/Broken_Hill': 'australia',
-  'Pacific/Auckland': 'new-zealand',
-  'Pacific/Chatham': 'new-zealand',
-  'Europe/Zurich': 'switzerland',
-  'Asia/Tokyo': 'japan',
-  'Asia/Seoul': 'south-korea',
-};
+export const fallbackMarket = MARKETS.find((m) => m.id === FALLBACK_MARKET_ID);
 
-const CANADA_TZ = [
-  'America/Toronto',
-  'America/Vancouver',
-  'America/Winnipeg',
-  'America/Edmonton',
-  'America/Halifax',
-  'America/St_Johns',
-  'America/Regina',
-  'America/Whitehorse',
-  'America/Yellowknife',
-  'America/Iqaluit',
-];
-
-const USA_TZ = [
-  'America/New_York',
-  'America/Chicago',
-  'America/Denver',
-  'America/Los_Angeles',
-  'America/Phoenix',
-  'America/Anchorage',
-  'America/Juneau',
-  'America/Indiana/Indianapolis',
-  'America/Detroit',
-  'America/Boise',
-  'Pacific/Honolulu',
-];
-
-// Any other America/* european-absent zones default to Eurozone.
-const EUROZONE_TZ = [
-  'Europe/Paris',
-  'Europe/Berlin',
-  'Europe/Madrid',
-  'Europe/Rome',
-  'Europe/Vienna',
-  'Europe/Brussels',
-  'Europe/Amsterdam',
-  'Europe/Warsaw',
-  'Europe/Prague',
-  'Europe/Lisbon',
-  'Europe/Athens',
-  'Europe/Helsinki',
-  'Europe/Copenhagen',
-  'Europe/Stockholm',
-  'Europe/Dublin',
-  'Europe/Luxembourg',
-  'Europe/Malta',
-  'Europe/Bratislava',
-  'Europe/Ljubljana',
-  'Europe/Zagreb',
-  'Europe/Bucharest',
-  'Europe/Sofia',
-];
-
-const LANG_TO_MARKET = {
-  IN: 'india',
+// ISO 3166-1 alpha-2 codes for countries that have their own published rates.
+const COUNTRY_TO_MARKET = {
   BD: 'bangladesh',
-  PK: 'pakistan',
-  LK: 'sri-lanka',
-  NP: 'nepal',
+  AU: 'australia',
+  BR: 'brazil',
+  CA: 'canada',
+  CH: 'switzerland',
   ID: 'indonesia',
-  VN: 'vietnam',
-  PH: 'philippines',
+  IN: 'india',
+  JP: 'japan',
+  KR: 'south-korea',
+  LK: 'sri-lanka',
   MY: 'malaysia',
-  TH: 'thailand',
-  AE: 'uae',
+  MX: 'mexico',
+  NP: 'nepal',
+  NZ: 'new-zealand',
+  PH: 'philippines',
+  PK: 'pakistan',
   SA: 'saudi-arabia',
   SG: 'singapore',
   ZA: 'south-africa',
-  MX: 'mexico',
-  BR: 'brazil',
+  TH: 'thailand',
+  AE: 'uae',
   US: 'usa',
-  CA: 'canada',
   GB: 'uk',
-  AU: 'australia',
-  NZ: 'new-zealand',
-  CH: 'switzerland',
-  JP: 'japan',
-  KR: 'south-korea',
+  VN: 'vietnam',
 };
 
-// Eurozone languages map to the eurozone market.
-const EUROZONE_LANGS = [
-  'FR', 'DE', 'ES', 'IT', 'NL', 'BE', 'AT', 'FI', 'PT', 'IE',
-  'GR', 'EE', 'LT', 'LV', 'SK', 'SI', 'HR', 'LU', 'CY', 'MT',
+// Countries that publish prices in euro. Kept to euro-area members so visitors
+// are never shown euro rates for a currency they cannot pay in.
+const EURO_AREA_COUNTRIES = [
+  'AT', 'BE', 'CY', 'DE', 'EE', 'ES', 'FI', 'FR', 'GR', 'HR',
+  'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL', 'PT', 'SI', 'SK',
 ];
 
-const tzToMarket = (tz) => {
-  if (!tz) return null;
-  if (TZ_TO_MARKET[tz]) return TZ_TO_MARKET[tz];
-  if (CANADA_TZ.includes(tz)) return 'canada';
-  if (USA_TZ.includes(tz)) return 'usa';
-  if (EUROZONE_TZ.includes(tz)) return 'eurozone';
-  if (tz.startsWith('America/')) return 'usa';
-  if (tz.startsWith('Europe/')) return 'eurozone';
+export function marketForCountry(countryCode) {
+  if (typeof countryCode !== 'string' || countryCode.length !== 2) return null;
+  const code = countryCode.toUpperCase();
+  if (COUNTRY_TO_MARKET[code]) return COUNTRY_TO_MARKET[code];
+  if (EURO_AREA_COUNTRIES.includes(code)) return 'eurozone';
   return null;
-};
+}
 
-const languageToMarket = (langs) => {
-  if (!Array.isArray(langs)) return null;
-  for (const lang of langs) {
-    if (!lang) continue;
-    const region = lang.split('-')[1] || lang.split('_')[1];
-    if (!region) continue;
-    const upper = region.toUpperCase();
-    if (LANG_TO_MARKET[upper]) return LANG_TO_MARKET[upper];
-    if (EUROZONE_LANGS.includes(upper)) return 'eurozone';
-  }
-  return null;
-};
-
-export const defaultMarket = MARKETS.find((m) => m.id === DEFAULT_MARKET);
-
-export function detectMarket() {
-  let marketId = null;
-
-  try {
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    marketId = tzToMarket(tz);
-  } catch (_e) {
-    marketId = null;
-  }
-
-  if (!marketId) {
-    marketId = languageToMarket(navigator.languages || [navigator.language]);
-  }
-
-  const match = MARKETS.find((m) => m.id === marketId);
-  return match || defaultMarket;
+export function marketById(id) {
+  return MARKETS.find((m) => m.id === id) || fallbackMarket;
 }
 
 export const WATCH_TOWER_MANAGEMENT = {
-  durationLabel: '15 months of management',
+  durationLabel: '15 Months of Management',
   billingNote: 'Billed per month across a 15-month engagement',
 };
 

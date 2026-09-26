@@ -42,9 +42,8 @@ export default function TextHighlight() {
     };
   }, []);
 
-  const text = "We build software and digital products that are designed well and built to last.";
-  const words = text.split(" ");
-  const highlightStartIndex = 7; // Index where "designed well and built to last" begins
+  const headlineLead = 'Pioneers of';
+  const headlineHighlight = 'Engineering As a Service';
 
   return (
     <section ref={sectionRef} className={styles.section}>
@@ -75,13 +74,13 @@ export default function TextHighlight() {
       <div className={`${styles.popupWrapper} ${hasPoppedUp ? styles.poppedUp : ''}`}>
         <div className={styles.container}>
           <h2 className={styles.heading}>
-            We work with teams that care about{' '}
+            {headlineLead}{' '}
             <span className={`${styles.highlight} ${scrollProgress > 0.55 ? styles.active : ''}`}>
               <span 
                 className={styles.highlightBg} 
                 style={{ width: `${scrollProgress * 100}%` }}
               />
-              building things properly.
+              {headlineHighlight}
             </span>
           </h2>
           

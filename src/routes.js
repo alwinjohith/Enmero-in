@@ -4,7 +4,10 @@ import RefundCancellation from './pages/RefundCancellation.jsx';
 import CookiePolicy from './pages/CookiePolicy.jsx';
 import Disclaimer from './pages/Disclaimer.jsx';
 import WatchTower from './pages/WatchTower.jsx';
+import Services from './pages/Services.jsx';
+import ServiceDetail from './pages/ServiceDetail.jsx';
 import Contact from './pages/Contact.jsx';
+import { SERVICES, servicePath } from './data/services.js';
 
 export const LEGAL_PAGES = [
   { path: '/privacy-policy', label: 'Privacy Policy', Component: PrivacyPolicy, legal: true },
@@ -14,14 +17,29 @@ export const LEGAL_PAGES = [
   { path: '/disclaimer', label: 'Disclaimer', Component: Disclaimer, legal: true },
 ];
 
+// One route per service. The path comes from the service list so a service can
+// never appear in the navigation without a page behind it.
+export const SERVICE_PAGES = SERVICES.map((service) => ({
+  path: servicePath(service.id),
+  label: service.name,
+  Component: ServiceDetail,
+  serviceId: service.id
+}));
+
 export const STATIC_PAGES = [
   { path: '/watch-tower', label: 'Watchtower', Component: WatchTower },
+  { path: '/services', label: 'Services', Component: Services },
+  ...SERVICE_PAGES,
   { path: '/contact', label: 'Contact', Component: Contact },
   ...LEGAL_PAGES,
 ];
 
 export function getStaticPage(hash) {
   if (typeof hash !== 'string' || !hash.startsWith('#/')) return null;
-  const path = hash.slice(1);
-  return STATIC_PAGES.find((page) => page.path === path) || null;
+
+  const [path, query] = hash.slice(1).split('?');
+  const page = STATIC_PAGES.find((candidate) => candidate.path === path);
+  if (!page) return null;
+
+  return { ...page, params: new URLSearchParams(query || '') };
 }

@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './Contact.module.css';
 import ContactForm from '../components/ContactForm.jsx';
-import { ArrowUpRight } from 'lucide-react';
 
-export default function Contact() {
+export default function Contact({ params }) {
   return (
     <div>
       <section className={styles.hero}>
@@ -22,7 +21,7 @@ export default function Contact() {
           <div className={styles.grid}>
             <div className={styles.formColumn}>
               <h2 className={styles.formHeading}>Start a conversation</h2>
-              <ContactForm />
+              <ContactForm params={params} />
             </div>
 
             <aside className={styles.infoColumn}>
@@ -35,10 +34,9 @@ export default function Contact() {
               </div>
 
               <div className={styles.infoCard}>
-                <h3 className={styles.infoTitle}>Online</h3>
-                <a href="https://enmero.in" target="_blank" rel="noreferrer" className={styles.infoLink}>
-                  https://enmero.in
-                  <ArrowUpRight size={14} />
+                <h3 className={styles.infoTitle}>Email</h3>
+                <a href="mailto:contact@enmero.in" className={styles.infoLink}>
+                  contact@enmero.in
                 </a>
               </div>
             </aside>

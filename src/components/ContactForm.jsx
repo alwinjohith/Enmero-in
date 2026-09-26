@@ -1,25 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './ContactForm.module.css';
 import { supabase } from '../supabaseClient';
+import { SERVICE_OPTIONS, findServiceById } from '../data/services.js';
 
-const SERVICES = [
-  'Software & Web Development',
-  'App Development',
-  'UI/UX Design',
-  'Digital Transformation',
-  'Technical Consulting & Support',
-  'Watchtower',
-  'Something else'
-];
-
-const BUDGET_RANGES = [
-  'Not sure yet',
-  'Under $5,000',
-  '$5,000 to $25,000',
-  '$25,000 to $100,000',
-  'Over $100,000',
-  'Prefer not to say'
-];
+const SERVICES = [...SERVICE_OPTIONS, 'Something else'];
 
 const CONTACT_METHODS = ['Email', 'Phone', 'No preference'];
 
@@ -85,16 +69,27 @@ const initialValues = {
   website: '',
   service: '',
   project: '',
-  budget: '',
   contactMethod: '',
   details: ''
 };
 
-export default function ContactForm() {
-  const [values, setValues] = useState(initialValues);
+export default function ContactForm({ params }) {
+  const requestedService = params?.get('service') || '';
+  const [values, setValues] = useState(() => ({
+    ...initialValues,
+    service: findServiceById(requestedService)?.name || ''
+  }));
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  // Arriving from a service link on the services page fills the service field.
+  // It never overwrites a choice the visitor has already made.
+  useEffect(() => {
+    const name = findServiceById(requestedService)?.name;
+    if (!name) return;
+    setValues((prev) => (prev.service ? prev : { ...prev, service: name }));
+  }, [requestedService]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -330,42 +325,22 @@ export default function ContactForm() {
         )}
       </div>
 
-      <div className={styles.fieldGrid}>
-        <div className={styles.fieldGroup}>
-          <label htmlFor="budget" className={styles.label}>
-            Budget Range <span className={styles.optionalTag}>optional</span>
-          </label>
-          <select
-            id="budget"
-            name="budget"
-            value={values.budget}
-            onChange={handleChange}
-            className={`${styles.select} ${values.budget ? '' : styles.selectPlaceholder}`}
-          >
-            <option value="" disabled>Select a range</option>
-            {BUDGET_RANGES.map((b) => (
-              <option key={b} value={b}>{b}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className={styles.fieldGroup}>
-          <label htmlFor="contactMethod" className={styles.label}>
-            Preferred Contact Method <span className={styles.optionalTag}>optional</span>
-          </label>
-          <select
-            id="contactMethod"
-            name="contactMethod"
-            value={values.contactMethod}
-            onChange={handleChange}
-            className={`${styles.select} ${values.contactMethod ? '' : styles.selectPlaceholder}`}
-          >
-            <option value="" disabled>Select a method</option>
-            {CONTACT_METHODS.map((m) => (
-              <option key={m} value={m}>{m}</option>
-            ))}
-          </select>
-        </div>
+      <div className={styles.fieldGroup}>
+        <label htmlFor="contactMethod" className={styles.label}>
+          Preferred Contact Method <span className={styles.optionalTag}>optional</span>
+        </label>
+        <select
+          id="contactMethod"
+          name="contactMethod"
+          value={values.contactMethod}
+          onChange={handleChange}
+          className={`${styles.select} ${values.contactMethod ? '' : styles.selectPlaceholder}`}
+        >
+          <option value="" disabled>Select a method</option>
+          {CONTACT_METHODS.map((m) => (
+            <option key={m} value={m}>{m}</option>
+          ))}
+        </select>
       </div>
 
       <div className={styles.fieldGroup}>

@@ -2,22 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import styles from './Hero.module.css';
 import { ArrowUp, CornerDownLeft, Sparkles, X } from 'lucide-react';
 import videoBg from '../../assets/herosection.mp4';
+import { SERVICES } from '../data/services.js';
 
-// Service highlights
-const logItems = [
-  { title: "Custom software", desc: "Purpose-built applications designed around your business requirements" },
-  { title: "Web development", desc: "Responsive, performant web applications built with modern frameworks" },
-  { title: "App development", desc: "Mobile and cross-platform applications for iOS and Android" },
-  { title: "UI/UX design", desc: "Interface design focused on clarity, usability, and visual quality" },
-  { title: "Digital transformation", desc: "Automation, cloud migration, and workflow optimization" },
-  { title: "Software testing", desc: "Quality assurance and testing to ensure reliable releases" },
-  { title: "Cloud infrastructure", desc: "Server setup, deployment, and infrastructure management" },
-  { title: "Product development", desc: "End-to-end product builds from concept to launch" },
-  { title: "Technical consulting", desc: "Strategic technology guidance for business decisions" },
-  { title: "Startup support", desc: "Technology partnership for early-stage companies" },
-  { title: "System architecture", desc: "Scalable, maintainable technical architecture design" },
-  { title: "Ongoing maintenance", desc: "Long-term support, updates, and performance optimization" }
-];
+// Service highlights, kept in step with the canonical service list.
+const logItems = SERVICES.map((service) => ({
+  title: service.name,
+  desc: service.headline
+}));
 
 export default function Hero() {
   const [inputValue, setInputValue] = useState('');
@@ -43,7 +34,7 @@ export default function Hero() {
       
       const lower = userMessage.toLowerCase();
       if (lower.includes('service') || lower.includes('offer') || lower.includes('do')) {
-        reply = "We offer custom software development, web and app development, UI/UX design, digital transformation consulting, and ongoing technical support.";
+        reply = "We offer custom software development, web development including UI/UX design, app development, software testing and quality assurance, cloud infrastructure, product development, system architecture, startup support, ongoing maintenance, and Watchtower long-term management. The full list is on our services page.";
       } else if (lower.includes('work') || lower.includes('process') || lower.includes('project')) {
         reply = "We start by understanding your requirements, then design and build the solution iteratively. You work directly with our team throughout the project.";
       } else if (lower.includes('contact') || lower.includes('start') || lower.includes('price') || lower.includes('cost')) {
@@ -61,7 +52,7 @@ export default function Hero() {
     }
   }, [messages, isTyping]);
 
-  // Render all 12 cards — duplicated for seamless infinite loop
+  // Cards are duplicated for a seamless infinite loop
   const renderCards = () => (
     <>
       {logItems.map((log, i) => (

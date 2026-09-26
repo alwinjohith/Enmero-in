@@ -3,8 +3,12 @@ import styles from './Footer.module.css';
 import logo from '../../assets/logo/enmero-logo.png';
 import { LEGAL_PAGES } from '../routes.js';
 
-const scrollToTop = (e) => {
+const goHome = (e) => {
   e.preventDefault();
+  if (window.location.hash.startsWith('#/')) {
+    window.location.hash = '';
+    return;
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
@@ -14,24 +18,35 @@ export default function Footer() {
       <div className={`${styles.container} container`}>
 
         <div className={styles.footerInner}>
-          <a href="#top" onClick={scrollToTop} className={styles.brandLink} aria-label="Enmero homepage">
+          <a href="#top" onClick={goHome} className={styles.brandLink} aria-label="Enmero homepage">
             <img src={logo} alt="Enmero" className={styles.footerLogo} />
           </a>
 
-          <div className={styles.contactGroup}>
-            <a href="#/contact" className={styles.contactLink}>
-              Get in touch
-            </a>
-            <a href="#/watch-tower" className={styles.contactLink}>
-              Watchtower
-            </a>
-            <a href="mailto:contact@enmero.in" className={styles.contactLink}>
-              contact@enmero.in
-            </a>
-            <a href="https://enmero.in" target="_blank" rel="noreferrer" className={styles.contactLink}>
-              https://enmero.in
-            </a>
-          </div>
+          <nav className={styles.linkGroups} aria-label="Site">
+            <div className={styles.linkGroup}>
+              <span className={styles.groupTitle}>Services</span>
+              <a href="#/services" className={styles.footerLink}>
+                All services
+              </a>
+            </div>
+
+            <div className={styles.linkGroup}>
+              <span className={styles.groupTitle}>Products</span>
+              <a href="#/watch-tower" className={styles.footerLink}>
+                Watchtower
+              </a>
+            </div>
+
+            <div className={styles.linkGroup}>
+              <span className={styles.groupTitle}>Contact</span>
+              <a href="#/contact" className={styles.footerLink}>
+                Get in touch
+              </a>
+              <a href="mailto:contact@enmero.in" className={styles.footerLink}>
+                contact@enmero.in
+              </a>
+            </div>
+          </nav>
         </div>
 
         <nav className={styles.legalNav} aria-label="Legal">

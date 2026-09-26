@@ -275,6 +275,13 @@
   line-height: 1.1;
 }
 
+.featuredPricePending {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
 .featuredPriceNote {
   font-size: 13.5px;
   color: rgba(255, 255, 255, 0.65);
@@ -300,38 +307,6 @@
 }
 
 /* Pricing */
-.pricingHeaderRow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.pricingRegionLabel {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-text-tertiary);
-}
-
-.pricingSelect {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  background-color: var(--color-bg-primary);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 8px 12px;
-  cursor: pointer;
-  transition: var(--transition-smooth);
-}
-
-.pricingSelect:hover {
-  border-color: var(--color-text-tertiary);
-}
-
 .tiersRow {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -477,8 +452,8 @@
   }
 
   .heroLogo {
-    max-width: 220px;
-    margin-bottom: 28px;
+    max-width: 160px;
+    margin-bottom: 24px;
   }
 
   .heroTitle {
@@ -525,6 +500,10 @@
     font-size: 36px;
   }
 
+  .featuredPricePending {
+    font-size: 24px;
+  }
+
   .tiersRow {
     grid-template-columns: 1fr;
   }
@@ -542,5 +521,19 @@
   .heroCta {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .ctaTitle {
+    font-size: 30px;
+  }
+
+  .ctaDesc {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .heroLogo {
+    max-width: 136px;
   }
 }
