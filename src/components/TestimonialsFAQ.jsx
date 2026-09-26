@@ -12,7 +12,7 @@ const testimonials = [
   {
     quote: "The team at enmero cares about the details. Our project was handled professionally from start to finish, and the final result was better than we initially envisioned.",
     author: "Client",
-    title: "Digital Transformation Project",
+    title: "Process Modernization Project",
     avatarColor: "#fef3c7"
   },
   {
@@ -26,7 +26,7 @@ const testimonials = [
 const faqs = [
   {
     q: "What services does enmero offer?",
-    a: "We offer custom software development, web and app development, UI/UX design, digital transformation consulting, and ongoing technical support. Every project is tailored to your specific needs."
+    a: "We offer custom software development, web development including UI/UX design, app development, software testing and quality assurance, cloud infrastructure, product development, system architecture, startup support, and ongoing maintenance and optimisation. Every engagement is tailored to your specific needs. The full list is on our services page."
   },
   {
     q: "How does enmero approach a new project?",

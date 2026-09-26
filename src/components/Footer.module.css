@@ -31,19 +31,34 @@
   transition: var(--transition-smooth);
 }
 
-.contactGroup {
+.linkGroups {
   display: flex;
-  align-items: center;
-  gap: 28px;
+  align-items: flex-start;
+  gap: 56px;
 }
 
-.contactLink {
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.groupTitle {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: 2px;
+}
+
+.footerLink {
   font-size: 14px;
   color: var(--color-text-secondary);
   transition: var(--transition-smooth);
 }
 
-.contactLink:hover {
+.footerLink:hover {
   color: var(--color-text-primary);
 }
 
@@ -83,10 +98,12 @@
     align-items: flex-start;
     gap: 24px;
   }
-  .contactGroup {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+  .footerLogo {
+    height: 24px;
+  }
+  .linkGroups {
+    flex-wrap: wrap;
+    gap: 24px 44px;
   }
   .bottomBar {
     margin-top: 24px;

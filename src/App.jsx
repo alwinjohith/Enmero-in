@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar.jsx';
 import Hero from './components/Hero.jsx';
 import TextHighlight from './components/TextHighlight.jsx';
@@ -37,11 +37,24 @@ function App() {
     }
   }, [isLoggedIn]);
 
+  const pagePath = staticPage ? staticPage.path : null;
+  const previousPagePath = useRef(pagePath);
+
   useEffect(() => {
-    if (staticPage) {
+    const wasOnPage = previousPagePath.current;
+    previousPagePath.current = pagePath;
+
+    if (pagePath) {
       window.scrollTo({ top: 0, behavior: 'instant' });
       return;
     }
+
+    // Returning home from another page always lands at the top.
+    if (wasOnPage) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
+    }
+
     const hash = window.location.hash;
     if (!hash || hash === '#login' || hash === '#top') return;
     const target = document.getElementById(hash.slice(1));
@@ -50,7 +63,7 @@ function App() {
     } else {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
-  }, [staticPage]);
+  }, [pagePath]);
 
   const handleLogout = (e) => {
     if (e) e.preventDefault();
@@ -67,7 +80,7 @@ function App() {
         {isLoggedIn ? (
           <DashboardSetup fullscreen={true} onLogout={handleLogout} />
         ) : PageComponent ? (
-          <PageComponent />
+          <PageComponent params={staticPage.params} serviceId={staticPage.serviceId} />
         ) : (
           <>
             <Hero />
@@ -85,4 +98,3 @@ function App() {
 }
 
 export default App;
-

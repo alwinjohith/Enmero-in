@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './WatchTower.module.css';
 import { ArrowUpRight } from 'lucide-react';
 import watchtowerLogo from '../../assets/logo/watchtower-logo.png';
-import { MARKETS, detectMarket, watchTowerPriceFor, WATCH_TOWER_MANAGEMENT } from '../data/pricing.js';
+import { watchTowerPriceFor, WATCH_TOWER_MANAGEMENT } from '../data/pricing.js';
+import useRegionPricing from '../hooks/useRegionPricing.js';
 
 const benefits = [
   {
@@ -19,7 +20,7 @@ const benefits = [
   },
   {
     title: 'Built to last',
-    desc: 'Ongoing maintenance, updates, and performance optimization keep the product dependable over time.'
+    desc: 'Ongoing maintenance, updates, and performance optimisation keep the product dependable over time.'
   }
 ];
 
@@ -42,8 +43,7 @@ const steps = [
 ];
 
 export default function WatchTower() {
-  const [selectedMarketId, setSelectedMarketId] = useState(null);
-  const market = MARKETS.find((m) => m.id === (selectedMarketId || detectMarket().id)) || detectMarket();
+  const { market } = useRegionPricing();
   const managementPrice = watchTowerPriceFor(market.id);
 
   return (
@@ -77,7 +77,7 @@ export default function WatchTower() {
           <div className={styles.plainList}>
             <div className={styles.plainItem}>
               <h3>Maintenance and updates</h3>
-              <p>Long-term support, updates, and performance optimization keep the product dependable.</p>
+              <p>Long-term support, updates, and performance optimisation keep the product dependable.</p>
             </div>
             <div className={styles.plainItem}>
               <h3>Continuity after launch</h3>
@@ -140,8 +140,12 @@ export default function WatchTower() {
               </p>
             </div>
             <div className={styles.featuredPrice}>
-              <span className={styles.featuredPriceLabel}>India</span>
-              <span className={styles.featuredPriceAmount}>₹399/month</span>
+              <span className={styles.featuredPriceLabel}>{market.name}</span>
+              {managementPrice ? (
+                <span className={styles.featuredPriceAmount}>{managementPrice}/month</span>
+              ) : (
+                <span className={styles.featuredPricePending}>To be confirmed</span>
+              )}
               <span className={styles.featuredPriceNote}>{WATCH_TOWER_MANAGEMENT.billingNote}</span>
               <a href="#/contact" className={styles.featuredBtn}>
                 Start a conversation
@@ -157,26 +161,8 @@ export default function WatchTower() {
         <div className={`${styles.container} container`}>
           <h2 className={styles.sectionTitle}>Pricing</h2>
           <p className={styles.sectionLead}>
-            Pricing is country-specific and shown for your region.
+            Pricing is country-specific. These are the published rates for {market.name}.
           </p>
-
-          <div className={styles.pricingHeaderRow}>
-            <label htmlFor="watchTowerMarketSelect" className={styles.pricingRegionLabel}>
-              Pricing for
-            </label>
-            <select
-              id="watchTowerMarketSelect"
-              className={styles.pricingSelect}
-              value={market.id}
-              onChange={(e) => setSelectedMarketId(e.target.value)}
-            >
-              {MARKETS.map((m) => (
-                <option key={m.id} value={m.id}>
-                  {m.name}
-                </option>
-              ))}
-            </select>
-          </div>
 
           <div className={styles.tiersRow}>
             <div className={styles.tier}>
@@ -186,16 +172,16 @@ export default function WatchTower() {
               <span className={styles.tierDesc}>Website service</span>
             </div>
             <div className={styles.tier}>
-              <span className={styles.tierLabel}>Consultancy</span>
+              <span className={styles.tierLabel}>Consultancy Add-on</span>
               <div className={styles.tierAmount}>{market.consultancy}</div>
               <span className={styles.tierNote}>per month</span>
-              <span className={styles.tierDesc}>Consultancy add-on</span>
+              <span className={styles.tierDesc}>Consultancy only</span>
             </div>
             <div className={`${styles.tier} ${styles.tierFeatured}`}>
-              <span className={styles.tierLabel}>Combined</span>
+              <span className={styles.tierLabel}>Website + Consultancy</span>
               <div className={styles.tierAmount}>{market.combined}</div>
               <span className={styles.tierNote}>per month</span>
-              <span className={styles.tierDesc}>Website and consultancy</span>
+              <span className={styles.tierDesc}>Website and consultancy together</span>
             </div>
           </div>
 

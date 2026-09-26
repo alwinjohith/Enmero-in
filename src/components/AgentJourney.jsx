@@ -1,14 +1,11 @@
 import React, { useRef, useState } from 'react';
 import styles from './AgentJourney.module.css';
 import { Sparkles, Loader, Send, ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
-import { MARKETS, detectMarket } from '../data/pricing.js';
 
-const totalSlides = 4;
+const totalSlides = 3;
 
 export default function AgentJourney() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [selectedMarketId, setSelectedMarketId] = useState(null);
-  const market = MARKETS.find((m) => m.id === (selectedMarketId || detectMarket().id)) || detectMarket();
 
   const handlePrev = () => {
     setCurrentSlide((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
@@ -198,77 +195,6 @@ export default function AgentJourney() {
                       <span className={styles.onboardPlaceholder}>Ready to launch</span>
                       <div className={styles.onboardSendBtn}>
                         <Send size={10} fill="currentColor" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Stage 4: Simple Pricing */}
-            <div className={styles.slide}>
-              <div className={`${styles.journeyRow} ${styles.reverseRow}`}>
-                <div className={styles.textSide}>
-                  <span className={styles.agentTag}>Pricing</span>
-                  <h3 className={styles.agentTitle}>Simple pricing</h3>
-                  <ul className={styles.points}>
-                    <li>
-                      <strong>Website</strong>
-                      <span>A monthly website service that covers your site, updates, hosting, and maintenance.</span>
-                    </li>
-                    <li>
-                      <strong>Consultancy</strong>
-                      <span>An optional monthly add-on for technical guidance, audits, and architectural advice.</span>
-                    </li>
-                    <li>
-                      <strong>Combined</strong>
-                      <span>Website service and consultancy in one plan, with a single predictable monthly rate.</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className={styles.cardSide}>
-                  <div className={`${styles.card} ${styles.pricingCard} grainy`}>
-                    <div className={styles.pricingHeader}>
-                      <label htmlFor="marketSelect" className={styles.pricingRegionLabel}>
-                        Pricing for
-                      </label>
-                      <select
-                        id="marketSelect"
-                        className={styles.pricingSelect}
-                        value={market.id}
-                        onChange={(e) => setSelectedMarketId(e.target.value)}
-                      >
-                        {MARKETS.map((m) => (
-                          <option key={m.id} value={m.id}>
-                            {m.name}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div className={styles.pricingRow}>
-                      <div className={styles.priceTier}>
-                        <span className={styles.priceTierLabel}>Website</span>
-                        <div className={styles.priceAmount}>
-                          {market.website}
-                        </div>
-                        <span className={styles.priceTierNote}>per month</span>
-                        <span className={styles.priceTierDesc}>Website service</span>
-                      </div>
-                      <div className={styles.priceTier}>
-                        <span className={styles.priceTierLabel}>Consultancy</span>
-                        <div className={styles.priceAmount}>
-                          {market.consultancy}
-                        </div>
-                        <span className={styles.priceTierNote}>per month</span>
-                        <span className={styles.priceTierDesc}>Consultancy add-on</span>
-                      </div>
-                      <div className={`${styles.priceTier} ${styles.priceTierFeatured}`}>
-                        <span className={styles.priceTierLabel}>Combined</span>
-                        <div className={styles.priceAmount}>
-                          {market.combined}
-                        </div>
-                        <span className={styles.priceTierNote}>per month</span>
-                        <span className={styles.priceTierDesc}>Website and consultancy</span>
                       </div>
                     </div>
                   </div>
