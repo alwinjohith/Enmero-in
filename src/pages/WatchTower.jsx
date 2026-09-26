@@ -2,103 +2,123 @@ import React from 'react';
 import styles from './WatchTower.module.css';
 import { ArrowUpRight } from 'lucide-react';
 import watchtowerLogo from '../../assets/logo/watchtower-logo.png';
-import { watchTowerPriceFor, WATCH_TOWER_MANAGEMENT } from '../data/pricing.js';
-import useRegionPricing from '../hooks/useRegionPricing.js';
 
-const benefits = [
+const capabilities = [
   {
-    title: 'Predictable monthly pricing',
-    desc: 'A fixed monthly rate for the management engagement, so costs stay clear and simple.'
+    title: 'Traffic Protection',
+    desc: 'Incoming traffic is inspected before reaching your website. Suspicious or unwanted requests can be identified and filtered, so only legitimate visitors reach your server.'
   },
   {
-    title: 'Country-specific pricing',
-    desc: 'Pricing is shown for your region using Enmero\u2019s published regional rates.'
+    title: 'DDoS Protection',
+    desc: 'Protection against traffic floods designed to overwhelm your website. The system helps absorb and filter excessive traffic so your site stays available for real visitors.'
   },
   {
-    title: 'A direct team',
-    desc: 'You work directly with the people maintaining your product. No account managers or intermediaries.'
+    title: 'Bot Protection',
+    desc: 'The system distinguishes normal visitors from automated or suspicious traffic. This helps reduce unwanted bot activity on your website without blocking legitimate users.'
   },
   {
-    title: 'Built to last',
-    desc: 'Ongoing maintenance, updates, and performance optimisation keep the product dependable over time.'
+    title: 'Web Application Firewall',
+    desc: 'Requests are checked against security rules before being passed to your website. This adds a layer of filtering that helps block common attack patterns and malicious input.'
+  },
+  {
+    title: 'Rate Limiting',
+    desc: 'Excessive requests from a single source can be limited to prevent abuse and unnecessary load on your server. This helps keep your website stable during traffic spikes.'
+  },
+  {
+    title: 'HTTPS / Secure Traffic',
+    desc: 'The protection layer sits in front of your website while maintaining secure HTTPS traffic. Your visitors see the same secure connection they expect.'
   }
 ];
 
 const steps = [
   {
-    step: 'Step 1',
-    title: 'Onboarding',
-    desc: 'We review your product and agree what will be managed, so the engagement starts with a clear baseline.'
+    step: '01',
+    title: 'Visitor',
+    desc: 'Someone visits your website by entering your URL or clicking a link.'
   },
   {
-    step: 'Step 2',
-    title: 'Managed month to month',
-    desc: 'Across the 15 months, the Enmero team handles the agreed maintenance, updates, and support.'
+    step: '02',
+    title: 'Enmero Protection Layer',
+    desc: 'Traffic reaches the Enmero protection layer first. Every request is inspected and evaluated before reaching your server.'
   },
   {
-    step: 'Step 3',
-    title: 'Long-term continuity',
-    desc: 'The engagement is structured as a 15-month plan, giving your product a dependable partner after launch.'
+    step: '03',
+    title: 'Filter',
+    desc: 'Suspicious, abusive, or unwanted traffic is blocked or limited. Clean traffic is passed through without delay.'
+  },
+  {
+    step: '04',
+    title: 'Your Website',
+    desc: 'Legitimate traffic arrives at your website. Your visitors experience the same site, but with an added layer of protection behind the scenes.'
+  }
+];
+
+const benefits = [
+  {
+    title: 'Sits in front of your website',
+    desc: 'The protection layer acts as a barrier between your visitors and your server, filtering traffic before it reaches your infrastructure.'
+  },
+  {
+    title: 'Does not affect normal visitors',
+    desc: 'Legitimate traffic passes through without interruption. Your visitors will not notice any difference in how your website loads or behaves.'
+  },
+  {
+    title: 'Reduces attack surface',
+    desc: 'By filtering unwanted traffic early, your website receives fewer malicious requests, reducing the load on your server and applications.'
   }
 ];
 
 export default function WatchTower() {
-  const { market } = useRegionPricing();
-  const managementPrice = watchTowerPriceFor(market.id);
-
   return (
     <div>
       {/* Hero */}
       <section className={styles.hero}>
         <div className={`${styles.container} container`}>
-          <img src={watchtowerLogo} alt="Watchtower" className={styles.heroLogo} />
-          <span className={styles.eyebrow}>Enmero key service</span>
-          <h1 className={styles.heroTitle}>Watchtower</h1>
+          <img src={watchtowerLogo} alt="Enmero Protection Layer" className={styles.heroLogo} />
+          <span className={styles.eyebrow}>Enmero product</span>
+          <h1 className={styles.heroTitle}>Website Protection Layer</h1>
           <p className={styles.heroSubtitle}>
-            Watchtower is one of Enmero&apos;s key services. It is a long-term management offering that keeps
-            your product reliable, maintained, and moving forward after launch.
+            A protection layer that sits between your website visitors and your server.
+            Traffic is inspected and filtered before it reaches your website, helping
+            keep your site available and your infrastructure clean.
           </p>
           <div className={styles.heroCta}>
-            <a href="#watch-tower-pricing" className={styles.primaryBtn}>See pricing</a>
-            <a href="#/contact" className={styles.secondaryBtn}>Talk to us</a>
+            <a href="#/demo" className={styles.primaryBtn}>
+              Request a Demo
+              <ArrowUpRight size={14} />
+            </a>
+            <a href="#protection-how-it-works" className={styles.secondaryBtn}>See how it works</a>
           </div>
         </div>
       </section>
 
-      {/* What Watchtower does */}
+      {/* What it protects against */}
       <section className={styles.section}>
         <div className={`${styles.container} container`}>
-          <h2 className={styles.sectionTitle}>What Watchtower does</h2>
+          <h2 className={styles.sectionTitle}>What it protects against</h2>
           <p className={styles.sectionLead}>
-            Watchtower is Enmero&apos;s management service. After a product is built, Watchtower keeps the
-            work going with maintenance, updates, and support delivered by the same team over a defined
-            engagement.
+            The protection layer helps your website handle a range of unwanted traffic.
+            Here are the main capabilities.
           </p>
-          <div className={styles.plainList}>
-            <div className={styles.plainItem}>
-              <h3>Maintenance and updates</h3>
-              <p>Long-term support, updates, and performance optimisation keep the product dependable.</p>
-            </div>
-            <div className={styles.plainItem}>
-              <h3>Continuity after launch</h3>
-              <p>The team that built your product stays involved, so nothing gets lost in the handoff.</p>
-            </div>
-            <div className={styles.plainItem}>
-              <h3>A defined timeframe</h3>
-              <p>Watchtower runs as a 15-month engagement with a clear monthly rate.</p>
-            </div>
-            <div className={styles.plainItem}>
-              <h3>Confirmed scope</h3>
-              <p>What is included for your specific product is agreed during onboarding.</p>
-            </div>
+          <div className={styles.capabilityGrid}>
+            {capabilities.map((cap) => (
+              <div key={cap.title} className={styles.capabilityCard}>
+                <h3 className={styles.capabilityTitle}>{cap.title}</h3>
+                <p className={styles.capabilityDesc}>{cap.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* How the service works */}
-      <section className={`${styles.section} ${styles.sectionAlt}`}>
+      {/* How it works */}
+      <section className={`${styles.section} ${styles.sectionAlt}`} id="protection-how-it-works">
         <div className={`${styles.container} container`}>
-          <h2 className={styles.sectionTitle}>How Watchtower works</h2>
+          <h2 className={styles.sectionTitle}>How it works</h2>
+          <p className={styles.sectionLead}>
+            The protection layer sits in front of your existing website. Here is what happens
+            when someone visits your site.
+          </p>
           <div className={styles.steps}>
             {steps.map((s) => (
               <div key={s.step} className={styles.stepCard}>
@@ -111,10 +131,10 @@ export default function WatchTower() {
         </div>
       </section>
 
-      {/* Key benefits */}
+      {/* Why use it */}
       <section className={styles.section}>
         <div className={`${styles.container} container`}>
-          <h2 className={styles.sectionTitle}>Key benefits</h2>
+          <h2 className={styles.sectionTitle}>Why use it</h2>
           <div className={styles.benefitGrid}>
             {benefits.map((b) => (
               <div key={b.title} className={styles.benefitCard}>
@@ -126,98 +146,17 @@ export default function WatchTower() {
         </div>
       </section>
 
-      {/* 15-month management offering */}
-      <section className={`${styles.section} ${styles.sectionAlt}`}>
-        <div className={`${styles.container} container`}>
-          <div className={styles.featuredCard}>
-            <div className={styles.featuredText}>
-              <span className={styles.featuredBadge}>Primary offering</span>
-              <h2 className={styles.featuredTitle}>Watchtower Management</h2>
-              <p className={styles.featuredDuration}>{WATCH_TOWER_MANAGEMENT.durationLabel}</p>
-              <p className={styles.featuredDesc}>
-                The full Watchtower management engagement. A 15-month plan that keeps your product
-                maintained, updated, and supported by the Enmero team.
-              </p>
-            </div>
-            <div className={styles.featuredPrice}>
-              <span className={styles.featuredPriceLabel}>{market.name}</span>
-              {managementPrice ? (
-                <span className={styles.featuredPriceAmount}>{managementPrice}/month</span>
-              ) : (
-                <span className={styles.featuredPricePending}>To be confirmed</span>
-              )}
-              <span className={styles.featuredPriceNote}>{WATCH_TOWER_MANAGEMENT.billingNote}</span>
-              <a href="#/contact" className={styles.featuredBtn}>
-                Start a conversation
-                <ArrowUpRight size={14} />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className={styles.section} id="watch-tower-pricing">
-        <div className={`${styles.container} container`}>
-          <h2 className={styles.sectionTitle}>Pricing</h2>
-          <p className={styles.sectionLead}>
-            Pricing is country-specific. These are the published rates for {market.name}.
-          </p>
-
-          <div className={styles.tiersRow}>
-            <div className={styles.tier}>
-              <span className={styles.tierLabel}>Website</span>
-              <div className={styles.tierAmount}>{market.website}</div>
-              <span className={styles.tierNote}>per month</span>
-              <span className={styles.tierDesc}>Website service</span>
-            </div>
-            <div className={styles.tier}>
-              <span className={styles.tierLabel}>Consultancy Add-on</span>
-              <div className={styles.tierAmount}>{market.consultancy}</div>
-              <span className={styles.tierNote}>per month</span>
-              <span className={styles.tierDesc}>Consultancy only</span>
-            </div>
-            <div className={`${styles.tier} ${styles.tierFeatured}`}>
-              <span className={styles.tierLabel}>Website + Consultancy</span>
-              <div className={styles.tierAmount}>{market.combined}</div>
-              <span className={styles.tierNote}>per month</span>
-              <span className={styles.tierDesc}>Website and consultancy together</span>
-            </div>
-          </div>
-
-          <div className={styles.managementRow}>
-            <div className={styles.managementRowText}>
-              <span className={styles.managementRowLabel}>Watchtower Management</span>
-              <span className={styles.managementRowDetail}>{WATCH_TOWER_MANAGEMENT.durationLabel}</span>
-            </div>
-            <div className={styles.managementRowPrice}>
-              {managementPrice ? (
-                <span className={styles.managementPriceAmount}>{managementPrice}/month</span>
-              ) : (
-                <span className={styles.managementPricePending}>To be confirmed</span>
-              )}
-              {!managementPrice && (
-                <span className={styles.managementRowNote}>Not currently published for this region</span>
-              )}
-            </div>
-          </div>
-
-          <p className={styles.pricingFootnote}>
-            Pricing shown is indicative, may differ by region, and may change. Final pricing is agreed for
-            each engagement.
-          </p>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className={styles.ctaSection}>
         <div className={`${styles.container} container`}>
-          <h2 className={styles.ctaTitle}>Ready to talk about Watchtower?</h2>
+          <h2 className={styles.ctaTitle}>See it in action</h2>
           <p className={styles.ctaDesc}>
-            Tell us about your product. We will schedule a conversation to understand your needs and
-            discuss how Watchtower can help.
+            Request a demo and we will show you how the protection layer works with your website.
           </p>
-          <a href="#/contact" className={styles.primaryBtn}>Get in touch</a>
+          <a href="#/demo" className={styles.primaryBtn}>
+            Get a Demo
+            <ArrowUpRight size={14} />
+          </a>
         </div>
       </section>
     </div>
