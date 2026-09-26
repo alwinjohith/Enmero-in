@@ -1,14 +1,13 @@
 import React from 'react';
 import styles from './ServiceDetail.module.css';
 import { ArrowUpRight, ArrowLeft } from 'lucide-react';
-import { SERVICES, servicePath } from '../data/services.js';
+import { SERVICES } from '../data/services.js';
+import ServiceOffer from '../components/ServiceOffer.jsx';
 
 export default function ServiceDetail({ serviceId }) {
   const service = SERVICES.find((item) => item.id === serviceId);
 
   if (!service) return null;
-
-  const otherServices = SERVICES.filter((item) => item.id !== service.id);
 
   return (
     <div>
@@ -18,7 +17,6 @@ export default function ServiceDetail({ serviceId }) {
             <ArrowLeft size={14} aria-hidden="true" />
             All services
           </a>
-          <span className={styles.eyebrow}>Services</span>
           <h1 className={styles.heroTitle}>{service.name}</h1>
           <p className={styles.heroHeadline}>{service.headline}</p>
           <p className={styles.heroSubtitle}>{service.summary}</p>
@@ -57,21 +55,7 @@ export default function ServiceDetail({ serviceId }) {
         </div>
       </section>
 
-      <section className={styles.section}>
-        <div className={`${styles.container} container`}>
-          <h2 className={styles.sectionTitle}>Other services</h2>
-          <ul className={styles.otherList}>
-            {otherServices.map((item) => (
-              <li key={item.id} className={styles.otherItem}>
-                <a href={`#${servicePath(item.id)}`} className={styles.otherLink}>
-                  <span className={styles.otherName}>{item.name}</span>
-                  <span className={styles.otherHeadline}>{item.headline}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <ServiceOffer serviceId={service.id} />
 
       <section className={styles.ctaSection}>
         <div className={`${styles.container} container`}>
