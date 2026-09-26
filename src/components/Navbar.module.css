@@ -34,7 +34,7 @@
 }
 
 .logoImage {
-  height: 28px;
+  height: 20px;
   width: auto;
   object-fit: contain;
 }
@@ -75,12 +75,6 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
-
-
-.navItemContainer {
-  position: relative;
-}
-
 .navLink {
   font-family: var(--font-sans);
   font-size: 15px;
@@ -98,67 +92,6 @@
   color: var(--color-text-primary);
   opacity: 0.8;
 }
-
-.chevron {
-  transition: transform 0.2s ease;
-}
-
-.navItemContainer:hover .chevron,
-.navItemContainer:focus-within .chevron,
-.navItemContainer[data-open='true'] .chevron {
-  transform: rotate(180deg);
-}
-
-.rotate {
-  transform: rotate(180deg);
-}
-
-.dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: var(--border-radius-small);
-  padding: 8px 0;
-  min-width: 160px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  display: none;
-  flex-direction: column;
-  z-index: 110;
-}
-
-.navItemContainer:hover .dropdown,
-.navItemContainer:focus-within .dropdown,
-.navItemContainer[data-open='true'] .dropdown {
-  display: flex;
-}
-
-.dropdownLink {
-  display: block;
-  padding: 8px 16px;
-  font-size: 14px;
-  line-height: 1.4;
-  color: #111111;
-  transition: var(--transition-smooth);
-  text-align: left;
-}
-
-.dropdownLink:hover {
-  background-color: rgba(0, 0, 0, 0.04);
-  color: #000000;
-}
-
-/* Services list is long, so cap its height and allow it to scroll */
-.dropdownWide {
-  min-width: 268px;
-  max-height: min(60vh, 420px);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-}
-
 
 /* Scrolled Navbar Theme Transitions */
 .navbar.scrolled {
@@ -193,8 +126,6 @@
 .navbar.scrolled .menuToggle {
   color: var(--color-text-primary);
 }
-
-
 
 .menuToggle {
   display: none;
@@ -251,41 +182,5 @@
     align-items: center;
     gap: 4px;
     text-align: left;
-  }
-
-  .mobileParentButton {
-    justify-content: space-between;
-  }
-
-  .mobileParentButton .chevron {
-    flex-shrink: 0;
-  }
-
-  .mobileChevronOpen {
-    transform: rotate(180deg);
-  }
-
-  .mobileSubMenu {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin: 0 0 0 4px;
-    padding: 2px 0 2px 16px;
-    border-left: 1px solid var(--color-border);
-    font-size: 14px;
-    color: var(--color-text-secondary);
-  }
-
-  .mobileSubMenu .mobileLink {
-    font-weight: 400;
-    font-size: 15px;
-    color: var(--color-text-secondary);
-    line-height: 1.4;
-    padding: 8px 0;
-  }
-
-  .mobileSubMenu .mobileOverviewLink {
-    font-weight: 600;
-    color: var(--color-text-primary);
   }
 }

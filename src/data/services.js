@@ -1,247 +1,156 @@
-// The canonical service list. Every service here has its own page under
-// /services. UI/UX design is part of Web Development rather than a separate
-// service, so it is not listed separately here or in the navigation.
+// The canonical service list. Enmero offers four core services.
+// Each service has its own detail page under /services.
 export const SERVICES = [
   {
     id: 'web-development',
     name: 'Web Development',
-    headline: 'Web applications, from single pages to platforms',
+    headline: 'Websites and web applications built around your business',
     summary:
-      'Responsive, performant web applications built with modern frameworks. From single-page applications to complex platforms. UI/UX design is part of this service, so design and engineering stay with the same team.',
+      'Enmero builds and improves web presence for businesses. From marketing sites to complex web platforms, we handle design, development, and deployment as a single team.',
     includes: [
       {
-        title: 'UI/UX design',
-        desc: 'Interface and experience design handled as part of the build. Layouts and interaction flows are agreed with you before development begins.'
+        title: 'Business and corporate websites',
+        desc: 'Professional websites that represent your business clearly and work reliably across devices.'
       },
       {
-        title: 'Front-end development',
-        desc: 'Responsive interfaces built with modern frameworks, designed to stay fast and usable across devices.'
+        title: 'Web applications',
+        desc: 'Custom web platforms built around specific business requirements, from internal tools to customer-facing products.'
       },
       {
-        title: 'Back-end development',
-        desc: 'Application logic, data handling, and integrations, written to be read and maintained later.'
+        title: 'Landing pages',
+        desc: 'Focused pages designed for campaigns, product launches, or lead generation.'
       },
       {
-        title: 'Deployment and handoff',
-        desc: 'Deployment and documentation are handled as part of the engagement, not left to you.'
+        title: 'Frontend and backend',
+        desc: 'Interface development, server-side logic, databases, and API integrations handled by the same team.'
+      },
+      {
+        title: 'Redesigns and improvements',
+        desc: 'Existing websites updated for better performance, usability, or visual quality without starting from scratch.'
+      },
+      {
+        title: 'Maintenance and support',
+        desc: 'Ongoing updates, bug fixes, and performance improvements after launch.'
       }
     ],
     details: [
-      'Clean code, performance, and maintainability are the priorities throughout the build.',
-      'Development happens in focused sprints, with progress you can review and feedback you can give.',
-      'Deployment and handoff are handled as part of the engagement, not left to you.'
+      'Design and development stay together, so there is no handoff between separate teams.',
+      'Every project starts with understanding your business goals before writing code.',
+      'Deployment, documentation, and handoff are handled as part of the engagement.'
+    ]
+  },
+  {
+    id: 'digital-transformation',
+    name: 'Digital Transformation',
+    headline: 'Modernize how your business operates using technology',
+    summary:
+      'Enmero helps businesses move from manual or disconnected processes to integrated digital systems. The goal is to make your operations more efficient, consistent, and scalable.',
+    includes: [
+      {
+        title: 'Digitizing manual processes',
+        desc: 'Paper-based or spreadsheet-heavy workflows replaced with digital systems your team can actually use.'
+      },
+      {
+        title: 'Business workflow improvements',
+        desc: 'Existing processes analyzed and redesigned to remove bottlenecks and reduce manual effort.'
+      },
+      {
+        title: 'Internal tools',
+        desc: 'Custom dashboards, admin panels, and operational tools built around how your team actually works.'
+      },
+      {
+        title: 'Automation',
+        desc: 'Repetitive tasks automated so your team spends less time on manual work and more time on what matters.'
+      },
+      {
+        title: 'Tool integration',
+        desc: 'Disconnected systems connected so data flows between them without manual copying or exporting.'
+      },
+      {
+        title: 'Customer-facing digital experiences',
+        desc: 'Portals, self-service tools, and digital touchpoints that improve how customers interact with your business.'
+      }
+    ],
+    details: [
+      'We start by understanding your current workflows before recommending changes.',
+      'Solutions are practical and adopted by real teams, not just technically impressive.',
+      'Implementation happens incrementally so your business keeps running during the transition.'
+    ]
+  },
+  {
+    id: 'technology-consulting',
+    name: 'Technology Consulting',
+    headline: 'Better technology decisions for your business',
+    summary:
+      'Enmero helps businesses figure out what to build, how to build it, and which technologies to use. Whether you have a clear idea or just a problem to solve, we provide the technical guidance to move forward confidently.',
+    includes: [
+      {
+        title: 'Technology strategy',
+        desc: 'High-level guidance on what technology investments make sense for your business goals and constraints.'
+      },
+      {
+        title: 'Technical planning',
+        desc: 'Detailed planning before development begins, including architecture, timelines, and milestones.'
+      },
+      {
+        title: 'Architecture guidance',
+        desc: 'Technical structure decisions made with long-term maintainability and scalability in mind.'
+      },
+      {
+        title: 'Feasibility assessment',
+        desc: 'Honest evaluation of whether an idea is technically viable and worth pursuing given your constraints.'
+      },
+      {
+        title: 'Technical audits',
+        desc: 'Review of existing systems to identify issues, risks, and opportunities for improvement.'
+      },
+      {
+        title: 'Ongoing advisory',
+        desc: 'Continued technical guidance as your product or business evolves.'
+      }
+    ],
+    details: [
+      'We give honest recommendations, even when the answer is not what you expected.',
+      'Advice is grounded in practical experience, not theoretical best practices.',
+      'Consulting engagements are scoped clearly, with deliverables and timelines agreed upfront.'
     ]
   },
   {
     id: 'app-development',
     name: 'App Development',
-    headline: 'iOS and Android, native or cross-platform',
+    headline: 'Mobile applications built for your business',
     summary:
-      'Mobile and cross-platform applications for iOS and Android. Whether you need a native app or a cross-platform solution, we build products that work reliably across devices.',
+      'Enmero builds mobile applications for iOS and Android. Whether you need a customer-facing app or an internal business tool, we handle design, development, and launch as a single team.',
     includes: [
       {
-        title: 'Native and cross-platform',
-        desc: 'The approach is chosen around what the product actually needs, not around a default stack.'
+        title: 'Mobile applications',
+        desc: 'Native or cross-platform apps chosen based on what your product actually needs.'
       },
       {
-        title: 'Verified at every stage',
-        desc: 'Quality is verified throughout the build, so issues are caught and resolved early.'
+        title: 'Business apps',
+        desc: 'Internal tools and operational apps that help your team work more efficiently on mobile.'
       },
       {
-        title: 'Documentation',
-        desc: 'Documentation is provided so your team can work with and maintain the app after launch.'
+        title: 'Customer-facing apps',
+        desc: 'Apps your customers use to interact with your business, from booking to support to purchasing.'
+      },
+      {
+        title: 'MVP development',
+        desc: 'Minimum viable products built quickly to test ideas with real users before investing further.'
+      },
+      {
+        title: 'Backend and API integration',
+        desc: 'Server-side logic, databases, and third-party integrations that power the app.'
+      },
+      {
+        title: 'App improvements and maintenance',
+        desc: 'Updates, bug fixes, and performance improvements after launch.'
       }
     ],
     details: [
-      'The approach is chosen around what the product actually needs, not around a default stack.',
-      'Quality is verified at every stage, so issues are caught and resolved early.',
+      'The platform and approach are chosen around your requirements, not around a default stack.',
+      'Quality is verified throughout the build, so issues are caught and resolved early.',
       'Documentation is provided so your team can work with and maintain the app after launch.'
-    ]
-  },
-  {
-    id: 'software-testing',
-    name: 'Software Testing & Quality Assurance',
-    headline: 'Reliable releases, verified throughout',
-    summary:
-      'Quality assurance and testing to ensure reliable releases. Verification happens continuously rather than only at the end.',
-    includes: [
-      {
-        title: 'Test planning',
-        desc: 'Test scope is agreed against the requirements, so testing covers what the product actually needs to do.'
-      },
-      {
-        title: 'Verification throughout the build',
-        desc: 'Quality is checked at every stage of the build, not just before launch.'
-      },
-      {
-        title: 'Issue reporting',
-        desc: 'Issues are found and documented early, while they are still cheap to fix.'
-      },
-      {
-        title: 'Release readiness',
-        desc: 'Release readiness is confirmed before anything reaches your users.'
-      }
-    ],
-    details: [
-      'Quality is checked at every stage of the build, not just before launch.',
-      'Issues are found and resolved early, while they are still cheap to fix.',
-      'Release readiness is confirmed before anything reaches your users.'
-    ]
-  },
-  {
-    id: 'cloud-infrastructure',
-    name: 'Cloud Infrastructure',
-    headline: 'Setup, deployment, and management',
-    summary:
-      'Server setup, deployment, and infrastructure management. We put the infrastructure in place and keep it maintainable as your product grows.',
-    includes: [
-      {
-        title: 'Setup',
-        desc: 'Server setup and configuration are handled by the team building the product.'
-      },
-      {
-        title: 'Deployment',
-        desc: 'Deployment is planned, so launches are predictable rather than improvised.'
-      },
-      {
-        title: 'Management',
-        desc: 'Infrastructure is managed and kept maintainable as your product grows.'
-      }
-    ],
-    details: [
-      'Server setup, deployment, and configuration are handled by the team building the product.',
-      'Infrastructure is designed to stay scalable and maintainable over time.',
-      'Deployment is planned, so launches are predictable rather than improvised.'
-    ]
-  },
-  {
-    id: 'product-development',
-    name: 'Product Development',
-    headline: 'Concept to launch',
-    summary:
-      'End-to-end product builds from concept to launch. We design, build, and test iteratively, keeping you involved throughout the process.',
-    includes: [
-      {
-        title: 'Concept and planning',
-        desc: 'The technical approach, timeline, and milestones are agreed before design or code begins.'
-      },
-      {
-        title: 'Design and build',
-        desc: 'The product is designed, built, and tested iteratively, with your feedback throughout.'
-      },
-      {
-        title: 'Launch and handoff',
-        desc: 'Launch, documentation, and handoff are covered as part of the engagement.'
-      }
-    ],
-    details: [
-      'The technical approach, timeline, and milestones are agreed before design or code begins.',
-      'You see progress regularly and can provide feedback throughout the build.',
-      'Launch, documentation, and handoff are covered as part of the engagement.'
-    ]
-  },
-  {
-    id: 'system-architecture',
-    name: 'System Architecture',
-    headline: 'Scalable and maintainable by design',
-    summary:
-      'Scalable, maintainable technical architecture design. The structure is decided before code is written, not patched together afterwards.',
-    includes: [
-      {
-        title: 'Architecture planning',
-        desc: 'Architecture is planned with the technical approach, timeline, and milestones, up front.'
-      },
-      {
-        title: 'Technology decisions',
-        desc: 'Decisions are made around your constraints, not around a preferred technology.'
-      },
-      {
-        title: 'A maintainable structure',
-        desc: 'The goal is code that another developer can read, maintain, and extend.'
-      }
-    ],
-    details: [
-      'Architecture is planned with the technical approach, timeline, and milestones, up front.',
-      'The goal is code that another developer can read, maintain, and extend.',
-      'Decisions are made around your constraints, not around a preferred technology.'
-    ]
-  },
-  {
-    id: 'startup-support',
-    name: 'Startup Support',
-    headline: 'A technology partnership for early-stage teams',
-    summary:
-      'A technology partnership for early-stage companies. We work as an extension of your team while the product and the company are still taking shape.',
-    includes: [
-      {
-        title: 'Direct access to the team',
-        desc: 'You work directly with the people building your product. No account managers in between.'
-      },
-      {
-        title: 'Clarity before work starts',
-        desc: 'Scope, success criteria, and constraints are clarified with you before work starts.'
-      },
-      {
-        title: 'Design and engineering together',
-        desc: 'Engineering and design sit in the same team, so there is less to coordinate.'
-      }
-    ],
-    details: [
-      'You work directly with the people building your product. No account managers in between.',
-      'Scope, success criteria, and constraints are clarified with you before work starts.',
-      'Engineering and design sit in the same team, so there is less to coordinate.'
-    ]
-  },
-  {
-    id: 'maintenance',
-    name: 'Ongoing Maintenance & Optimisation',
-    headline: 'Long-term support after launch',
-    summary:
-      'Long-term support, updates, and performance optimisation. The team that built your product stays involved, so nothing gets lost in the handoff.',
-    includes: [
-      {
-        title: 'Maintenance and updates',
-        desc: 'Ongoing updates and maintenance keep the product dependable after launch.'
-      },
-      {
-        title: 'Performance optimisation',
-        desc: 'Performance work keeps the product fast as usage grows.'
-      },
-      {
-        title: 'Support',
-        desc: 'The team that built your product stays involved, so context is not lost.'
-      }
-    ],
-    details: [
-      'Maintenance, updates, and optimisation keep the product dependable after launch.',
-      'The team that built your product stays involved, so context is not lost.',
-      'For products that need ongoing ownership, Watchtower is our long-term management service.'
-    ]
-  },
-  {
-    id: 'custom-software-development',
-    name: 'Custom Software Development',
-    headline: 'Purpose-built for your requirements',
-    summary:
-      'Purpose-built applications designed around your business requirements. We start by understanding your business and the problem you are trying to solve.',
-    includes: [
-      {
-        title: 'Requirements first',
-        desc: 'Requirements, scope, and constraints are understood before anything is built.'
-      },
-      {
-        title: 'Written scope',
-        desc: 'Every engagement has a written scope, with deliverables, timelines, and fees agreed.'
-      },
-      {
-        title: 'Maintainable code',
-        desc: 'Clean, maintainable code is the standard, not an upgrade applied later.'
-      }
-    ],
-    details: [
-      'Requirements, scope, and constraints are understood before anything is built.',
-      'Every engagement has a written scope, with deliverables, timelines, and fees agreed.',
-      'Clean, maintainable code is the standard, not an upgrade applied later.'
     ]
   }
 ];

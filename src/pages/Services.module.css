@@ -202,6 +202,95 @@
   background-color: rgba(0, 0, 0, 0.04);
 }
 
+/* Introductory Offer */
+.offerSection {
+  background-color: var(--color-bg-primary);
+}
+
+.offerContent {
+  max-width: 640px;
+}
+
+.offerEyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.offerTitle {
+  font-family: var(--font-sans);
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 16px;
+}
+
+.offerDesc {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  max-width: 540px;
+  margin-bottom: 40px;
+}
+
+.offerDetails {
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  margin-bottom: 40px;
+  padding: 32px;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.offerPriceBlock {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.offerPrice {
+  font-family: var(--font-sans);
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+.offerPeriod {
+  font-size: 17px;
+  color: var(--color-text-secondary);
+}
+
+.offerMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.offerDuration {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.offerNote {
+  font-size: 14px;
+  color: var(--color-text-tertiary);
+}
+
+.offerCta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 /* Closing CTA */
 .ctaEyebrow {
   font-size: 13px;
@@ -313,6 +402,29 @@
   .ctaActions > a {
     justify-content: center;
   }
+
+  .offerTitle {
+    font-size: 30px;
+  }
+
+  .offerDetails {
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .offerPrice {
+    font-size: 40px;
+  }
+
+  .offerCta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .offerCta > a {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 380px) {
@@ -332,5 +444,9 @@
   .secondaryBtn {
     width: 100%;
     justify-content: center;
+  }
+
+  .offerPrice {
+    font-size: 34px;
   }
 }

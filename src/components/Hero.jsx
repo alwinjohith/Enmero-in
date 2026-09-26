@@ -34,7 +34,7 @@ export default function Hero() {
       
       const lower = userMessage.toLowerCase();
       if (lower.includes('service') || lower.includes('offer') || lower.includes('do')) {
-        reply = "We offer custom software development, web development including UI/UX design, app development, software testing and quality assurance, cloud infrastructure, product development, system architecture, startup support, ongoing maintenance, and Watchtower long-term management. The full list is on our services page.";
+        reply = "We offer web development, digital transformation, technology consulting, and app development. The full list is on our services page.";
       } else if (lower.includes('work') || lower.includes('process') || lower.includes('project')) {
         reply = "We start by understanding your requirements, then design and build the solution iteratively. You work directly with our team throughout the project.";
       } else if (lower.includes('contact') || lower.includes('start') || lower.includes('price') || lower.includes('cost')) {

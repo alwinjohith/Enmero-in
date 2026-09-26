@@ -7,7 +7,10 @@ import WatchTower from './pages/WatchTower.jsx';
 import Services from './pages/Services.jsx';
 import ServiceDetail from './pages/ServiceDetail.jsx';
 import Contact from './pages/Contact.jsx';
+import Blog from './pages/Blog.jsx';
+import BlogDetail from './pages/BlogDetail.jsx';
 import { SERVICES, servicePath } from './data/services.js';
+import { BLOG_ARTICLES, articlePath } from './data/blog.js';
 
 export const LEGAL_PAGES = [
   { path: '/privacy-policy', label: 'Privacy Policy', Component: PrivacyPolicy, legal: true },
@@ -26,10 +29,20 @@ export const SERVICE_PAGES = SERVICES.map((service) => ({
   serviceId: service.id
 }));
 
+// One route per blog article.
+export const BLOG_PAGES = BLOG_ARTICLES.map((article) => ({
+  path: articlePath(article.id),
+  label: article.title,
+  Component: BlogDetail,
+  articleId: article.id
+}));
+
 export const STATIC_PAGES = [
   { path: '/watch-tower', label: 'Watchtower', Component: WatchTower },
   { path: '/services', label: 'Services', Component: Services },
   ...SERVICE_PAGES,
+  { path: '/blog', label: 'Blog', Component: Blog },
+  ...BLOG_PAGES,
   { path: '/contact', label: 'Contact', Component: Contact },
   ...LEGAL_PAGES,
 ];

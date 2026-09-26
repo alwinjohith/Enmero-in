@@ -42,21 +42,20 @@ export default function TextHighlight() {
     };
   }, []);
 
-  const headlineLead = 'Pioneers of';
-  const headlineHighlight = 'Engineering As a Service';
-
   return (
     <section ref={sectionRef} className={styles.section}>
+      <div className={styles.textureOverlay} />
+
       {/* Background Calm Waves and Floating Logo Boat */}
       <div className={styles.waveContainer}>
         {/* Wave 1 (Back Layer) */}
         <svg className={`${styles.wave} ${styles.wave1}`} viewBox="0 0 2880 200" preserveAspectRatio="none">
-          <path d="M0,90 C360,120 720,60 1080,90 C1440,120 1800,70 2160,90 C2520,110 2880,70 3240,90 L3240,200 L0,200 Z" fill="rgba(59, 130, 246, 0.04)"></path>
+          <path d="M0,90 C360,120 720,60 1080,90 C1440,120 1800,70 2160,90 C2520,110 2880,70 3240,90 L3240,200 L0,200 Z" fill="rgba(90, 90, 88, 0.04)"></path>
         </svg>
 
         {/* Wave 2 (Middle Layer) */}
         <svg className={`${styles.wave} ${styles.wave2}`} viewBox="0 0 2880 200" preserveAspectRatio="none">
-          <path d="M0,110 C300,80 600,130 900,105 C1200,80 1500,130 1800,105 C2100,80 2400,130 2700,105 C3000,80 3300,130 3600,105 L3600,200 L0,200 Z" fill="rgba(59, 130, 246, 0.08)"></path>
+          <path d="M0,110 C300,80 600,130 900,105 C1200,80 1500,130 1800,105 C2100,80 2400,130 2700,105 C3000,80 3300,130 3600,105 L3600,200 L0,200 Z" fill="rgba(90, 90, 88, 0.07)"></path>
         </svg>
 
         {/* Floating Logo Boat (Automatic Right-to-Left Slide & Loop) */}
@@ -67,26 +66,29 @@ export default function TextHighlight() {
 
         {/* Wave 3 (Front Layer) */}
         <svg className={`${styles.wave} ${styles.wave3}`} viewBox="0 0 2880 200" preserveAspectRatio="none">
-          <path d="M0,130 C400,110 800,150 1200,125 C1600,100 2000,150 2400,125 C2800,100 3200,150 3600,125 L3600,200 L0,200 Z" fill="rgba(59, 130, 246, 0.12)"></path>
+          <path d="M0,130 C400,110 800,150 1200,125 C1600,100 2000,150 2400,125 C2800,100 3200,150 3600,125 L3600,200 L0,200 Z" fill="rgba(90, 90, 88, 0.10)"></path>
         </svg>
       </div>
 
       <div className={`${styles.popupWrapper} ${hasPoppedUp ? styles.poppedUp : ''}`}>
         <div className={styles.container}>
+          <span className={styles.eyebrow}>About enmero</span>
+
           <h2 className={styles.heading}>
-            {headlineLead}{' '}
+            <span className={styles.headlineLead}>Pioneers of</span>{' '}
             <span className={`${styles.highlight} ${scrollProgress > 0.55 ? styles.active : ''}`}>
               <span 
                 className={styles.highlightBg} 
                 style={{ width: `${scrollProgress * 100}%` }}
               />
-              {headlineHighlight}
+              Engineering-as-a-Service
             </span>
           </h2>
-          
+
           <p className={styles.description}>
-            Enmero combines engineering skill with design sensibility. Every project gets the attention it deserves, from first conversation to final delivery.
-          </p>        </div>
+            Enmero is a technology consultancy that helps businesses solve problems and build digital products. We combine engineering discipline with design sensibility to deliver work we stand behind.
+          </p>
+        </div>
       </div>
     </section>
   );

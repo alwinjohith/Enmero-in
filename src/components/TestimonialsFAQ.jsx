@@ -26,7 +26,7 @@ const testimonials = [
 const faqs = [
   {
     q: "What services does enmero offer?",
-    a: "We offer custom software development, web development including UI/UX design, app development, software testing and quality assurance, cloud infrastructure, product development, system architecture, startup support, and ongoing maintenance and optimisation. Every engagement is tailored to your specific needs. The full list is on our services page."
+    a: "We offer web development, digital transformation, technology consulting, and app development. Every engagement is tailored to your specific needs. The full list is on our services page."
   },
   {
     q: "How does enmero approach a new project?",
