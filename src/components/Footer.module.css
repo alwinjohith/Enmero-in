@@ -10,37 +10,13 @@
   padding: 0 40px;
 }
 
-.footerTop {
-  display: flex;
-  justify-content: space-between;
-  gap: 48px;
-  padding-bottom: 56px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.brandLink {
-  line-height: 0;
-  flex-shrink: 0;
-}
-
-.brandLink:hover .footerLogo {
-  opacity: 0.8;
-}
-
-.footerLogo {
-  height: 22px;
-  width: auto;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  transition: var(--transition-smooth);
-}
-
+/* Navigation sits alone across the top, so the groups get the full measure. */
 .linkGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 48px;
-  flex: 1;
-  max-width: 800px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .linkGroup {
@@ -67,30 +43,90 @@
   color: #ffffff;
 }
 
-.footerBottom {
-  padding: 28px 0;
+/* Identity on the left, coordinates held to the far right on the same row. */
+.identityRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 40px 0 56px;
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.brandLink {
+  line-height: 0;
+  align-self: flex-start;
+}
+
+.brandLink:hover .footerLogo {
+  opacity: 0.8;
+}
+
+.footerLogo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: var(--transition-smooth);
+}
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Reads as location metadata rather than a call to action. */
+.coordinates {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  /* Held below the navigation links in the hierarchy by size, tracking, and
+     tabular figures rather than by dimming, so the text stays legible. This
+     alpha is the lightest that still clears WCAG AA on the brand background. */
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* A quieter band so the legal links sit apart without leaving the footer. */
+.legalBand {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.legalInner {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .legalNav {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 24px;
-  margin-bottom: 20px;
 }
 
 .legalLink {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.5);
   transition: color 0.2s ease;
 }
 
 .legalLink:hover {
   color: #ffffff;
-}
-
-.copyright {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.35);
 }
 
 @media (max-width: 900px) {
@@ -109,15 +145,25 @@
     padding: 0 24px;
   }
 
-  .footerTop {
-    flex-direction: column;
-    gap: 40px;
-  }
-
   .linkGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 36px 24px;
-    max-width: 100%;
+  }
+
+  .identityRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 32px 0 40px;
+  }
+
+  .coordinates {
+    align-items: flex-start;
+  }
+
+  .legalInner {
+    padding-top: 13px;
+    padding-bottom: 13px;
   }
 }
 
