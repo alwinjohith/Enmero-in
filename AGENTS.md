@@ -267,29 +267,63 @@ When uncertain whether a rewrite changes meaning, preserve the original wording.
 
 The website uses:
 
-* Next.js
-* TypeScript
-* React
-* Tailwind CSS
+* React 18
+* Vite 5
+* JavaScript and JSX
+* CSS Modules
 
-Prefer modern Next.js conventions and the App Router unless the existing project has a documented reason not to.
+This is a client-rendered single page application. It is not Next.js. There is no server rendering, no `app/` directory, no `next.config`, no `middleware.ts`, and no Server Components.
 
-Use Server Components by default.
+Do not migrate the project to Next.js or to any other framework.
 
-Use Client Components only when client-side behavior is actually required.
+## Actual project structure
 
-Examples:
+```text
+api/                 Vercel serverless functions
+assets/              images, video, logos
+public/              files served at the site root
+src/
+  components/        reusable UI, one CSS Module per component
+  data/              static content and pricing tables
+  hooks/             reusable React hooks
+  pages/             one component per route
+  App.jsx            root component, owns routing state
+  main.jsx           React entry point
+  index.css          global styles and design tokens only
+  routes.js          route table and route matching
+index.html           document shell, meta tags, font loading
+vite.config.js       Vite configuration
+```
 
-Client Components are appropriate for:
+## Routing
 
-* Interactive menus
-* Stateful UI
-* Browser APIs
-* Client-side animation systems
-* Interactive forms
-* Components that genuinely require React state
+There is no routing library. Routing is a hand-rolled hash router:
 
-Do not add `"use client"` everywhere.
+* `src/routes.js` exports the route table and `getStaticPage(hash)`.
+* `src/App.jsx` reads `window.location.hash` into state and listens for `hashchange`.
+* Links are plain anchors such as `href="#/contact"`.
+* Query strings use `#/blog/post?slug=...` and arrive as `URLSearchParams`.
+
+To add a page, add it to the route table. Do not install a router library for this.
+
+## Serverless functions
+
+`api/` holds Vercel serverless functions using the Node request and response signature. This is the only server-side code in the project.
+
+Note that the `api/` directory does not exist during `vite dev`, so any function must degrade gracefully when its endpoint returns 404.
+
+## Styling
+
+Styling uses CSS Modules, not Tailwind and not a CSS-in-JS library.
+
+* One `Component.module.css` next to each component.
+* Class names are accessed through the imported `styles` object.
+* `src/index.css` holds global tokens, resets, and the shared `.container` class.
+* Do not add global class names for component-specific styling.
+
+## Adding components
+
+Place a component in `src/components/` and a matching page in `src/pages/`. There is no `src/app/` directory and no route segment convention.
 
 ---
 
@@ -301,9 +335,9 @@ Before adding an npm package, ask:
 
 1. Do we actually need this functionality?
 2. Can the existing stack accomplish it cleanly?
-3. Can a small amount of native TypeScript or CSS solve it?
+3. Can a small amount of native JavaScript or CSS solve it?
 4. Does the package provide enough value to justify adding a dependency?
-5. Is the package maintained and appropriate for a production Next.js application?
+5. Is the package maintained and appropriate for a production React application?
 
 Do not add a package simply because it makes a small task easier.
 
@@ -384,8 +418,8 @@ Use the web to:
 * Find official brand assets
 * Read current package documentation
 * Verify API usage
-* Check current Next.js conventions
-* Check current Tailwind conventions
+* Check current Vite conventions
+* Check current React conventions
 * Verify technology information
 * Inspect design references
 * Confirm information about third-party technologies
@@ -484,13 +518,13 @@ Do not over-abstract.
 Bad:
 
 ```text
-Hero.tsx
-HeroWrapper.tsx
-HeroContainer.tsx
-HeroContent.tsx
-HeroTitle.tsx
-HeroDescription.tsx
-HeroButton.tsx
+Hero.jsx
+HeroWrapper.jsx
+HeroContainer.jsx
+HeroContent.jsx
+HeroTitle.jsx
+HeroDescription.jsx
+HeroButton.jsx
 ```
 
 when those components have no meaningful reuse or independent behavior.
@@ -517,9 +551,9 @@ Avoid creating components solely to make a directory look organized.
 
 ---
 
-# 15. Tailwind CSS
+# 15. CSS Modules
 
-Use Tailwind for the primary styling system.
+Use CSS Modules for component styling. Tailwind is not part of this project.
 
 Keep the design system consistent through:
 
@@ -532,11 +566,13 @@ Keep the design system consistent through:
 * Breakpoints
 * Motion conventions
 
+Put the reusable values in `src/index.css` as custom properties and consume them with `var(--token)`. Do not repeat raw hex values or spacing steps across modules.
+
 Avoid arbitrary one-off values when an existing design token can be used.
 
-Do not turn every element into a long unreadable Tailwind class list.
+Do not turn every element into a long unreadable class list.
 
-If a repeated style genuinely deserves abstraction, create an appropriate component or CSS utility.
+If a repeated style genuinely deserves abstraction, create a component or a shared class rather than a utility framework.
 
 ---
 
@@ -675,10 +711,9 @@ Avoid unnecessary performance costs.
 
 Prefer:
 
-* Next.js image optimization
+* Vite's asset hashing and build-time minification
 * Appropriate image sizes
-* Lazy loading where appropriate
-* Server Components where appropriate
+* `loading="lazy"` on below-the-fold images
 * Minimal JavaScript
 * Minimal dependencies
 * Efficient animations
@@ -689,13 +724,15 @@ Do not load huge images when smaller assets are sufficient.
 
 Do not add heavy visual effects without considering their performance impact.
 
+The only server-side code is the Vercel functions in `api/`. There is no server rendering, so there is no server component equivalent to prefer over client components.
+
 ---
 
 # 22. SEO
 
 Maintain proper SEO fundamentals.
 
-Use Next.js metadata appropriately.
+Because there is no server rendering, metadata lives in `index.html` for the site shell and is updated per page at runtime. Update `document.title` and the description meta tag from the page component when a route needs its own metadata.
 
 Important pages should have:
 
@@ -746,7 +783,7 @@ Look for:
 * Unexpected scrollbars
 * Mobile layout failures
 
-Do not declare a major visual task complete solely because TypeScript compiles.
+Do not declare a major visual task complete solely because the build succeeds.
 
 ---
 
@@ -759,20 +796,14 @@ Use judgment.
 For meaningful code changes, use appropriate checks such as:
 
 ```bash
-npm run lint
-```
-
-```bash
-npx tsc --noEmit
-```
-
-```bash
 npm run build
 ```
 
 Run the checks that are relevant to the change.
 
-For significant changes, the final implementation should compile successfully and should not introduce obvious lint, TypeScript, or build errors.
+For significant changes, the final implementation should build successfully and should not introduce obvious build errors.
+
+There is no ESLint configuration and no TypeScript in this project, so `npm run lint` and `npx tsc --noEmit` are not available. Do not recommend them.
 
 If a check fails because of an existing unrelated problem, identify it clearly rather than pretending the project is clean.
 
